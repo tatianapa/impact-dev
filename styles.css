@@ -21,6 +21,10 @@ body {
     font-size: 16px;
     font-family: 'Rubik', sans-serif;
 }
+a{
+    color: var(--text);
+    text-decoration: none;
+}
 
 .container {
     max-width: 1400px;
@@ -136,23 +140,46 @@ li {
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .prev {
     border: 1px solid var(--prime1);
     background-color: var(--white);
     color: var(--prime1);
-    font-family: Rubik;
-    font-size: 16px;
-    font-weight: 700;
-
 }
+
 .next {
     border: 1px solid var(--prime1);
     background-color: var(--prime1);
     color: var(--white);
-    font-family: Rubik;
-    font-size: 16px;
-    font-weight: 700;
+}
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url('assets/calendar.svg') no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
+
+input[type="radio"] {
+    color: var(--prime1);
+}
+
+.form-check-input:checked {
+    background-color: var(--prime1);
+    border-color: var(--prime1);
+}
+
+.form-label {
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 500;
+}
+.form-check{
+    margin-top: 0.5rem !important;
 }
