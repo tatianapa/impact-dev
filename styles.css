@@ -103,9 +103,17 @@ li {
 }
 
 .form-main-header {
-    color: var(--text);
+    color: var(--prime2);
     font-family: 'Rubik';
     font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.form-secondary-header{
+    color: var(--prime2);
+    font-family: 'Rubik';
+    font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
