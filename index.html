@@ -283,7 +283,6 @@
                         <form class="row g-3">
                             <div class="row">
                                 <div class="col-md-6 mt-4">
-<<<<<<< HEAD
                                     <label for="birthdate" class="form-label">מה תאריך הלידה שלך?
                                         <span class="wizard-caption">
                                             גיל פחות מ-18
@@ -294,17 +293,6 @@
                                     <div class="invalid-feedback">
                                         נא להזין תאריך לידה
                                     </div>
-=======
-                                <label for="birthdate" class="form-label">מה תאריך הלידה שלך?
-                                    <span class="wizard-caption">
-                                        גיל פחות מ-18
-                                    </span>
-                                </label>
-                                    <input type="date" id="birthdate" class="form-control" placeholder="תאריך לידה" aria-label="תאריך לידה" aria-describedby="basic-addon1" min="2020/10/20">
-                                <div class="invalid-feedback">
-                                    נא להזין תאריך לידה
-                                  </div>
->>>>>>> ea12a387bec12d3da7afab622170806121d48c48
                                 </div>
                                 <div class="col-md-6"></div>
                             </div>
@@ -571,17 +559,56 @@
                             <div class="row">
                                 <div class="col-md-6 mt-4">
                                     <input type="text" class="form-control" id="firstName" placeholder="שם פרטי">
+                                    <div class="invalid-feedback">
+                                        נא להזין את שמך הפרטי
+                                    </div>
                                 </div>
                                 <div class="col-md-6 mt-4">
                                     <input type="text" class="form-control" id="firstName" placeholder="שם משפחה">
+                                    <div class="invalid-feedback">
+                                        נא להזין את שם המשפחה
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mt-4">
-
+                                    <input type="text" class="form-control" id="firstName" placeholder="מספר תעודת זהות">
+                                    <div class="invalid-feedback">
+                                    נא להזין את מספר תעודת הזהות
+                                    </div>
                                 </div>
                                 <div class="col-md-6 mt-4">
-
+                                    <input type="text" class="form-control" id="firstName" placeholder="טלפון">
+                                    <div class="invalid-feedback">
+                                        נא להזין את מספר הטלפון
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 mt-4">
+                                    <div class="gender-container d-flex flex-row">
+                                    <input type="radio"  value="male" name="gender" id="male">
+                                    <label for="male" class="btn male" id="btn-male" for="btn-check-outlined">
+                                        <img src="assets/man 1.svg">
+                                    </label><br>
+                                    <input type="radio"  value="female"  name="gender" id="female">
+                                    <label for="female" class="btn female" id="btn-female" for="btn-check-outlined">
+                                        <img src="assets/woman 1.svg">
+                                    </label><br>
+                                   
+                                    <div class="invalid-feedback">
+                                    נא לבחור ערך
+                                    </div>
+                                    <!-- <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+<label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>
+                                </div> -->
+                                </div>
+                                </div>
+                                <div class="col-md-9 mt-4">
+                                    <input type="email" class="form-control" id="firstName" placeholder="כתובת דואר אלקטרוני">
+                                    <div class="invalid-feedback">
+                                      נא להזין כתובת דואר אלקטרוני
+                                    </div>
                                 </div>
                             </div>
                         </form>

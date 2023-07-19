@@ -191,3 +191,24 @@ input[type="radio"] {
 .form-check{
     margin-top: 0.5rem !important;
 }
+.btn.male{
+    border: 1px solid #79747E;
+    border-radius: 0px 100px 100px 0px;
+}
+.btn.female{
+    border: 1px solid #79747E;
+    border-radius: 100px 0 0 100px;
+}
+.btn.female:focus, .btn.female:focus-within, .btn.female:focus-visible, .btn.female:hover, .btn.female:active, .btn.female:checked{
+    background-color: var(--prime1);
+}
+.btn.male:focus, .btn.male:focus-within, .btn.male:focus-visible, .btn.male:hover, .btn.male:active, .btn.male:checked{
+    background-color: var(--prime1);
+}
+.gender-container input{
+    display: none;
+}
+.gender-container input:checked + label{
+    background-color: var(--prime1);
+    color: var(--white);
+}
