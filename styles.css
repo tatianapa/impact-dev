@@ -7,8 +7,16 @@
     --text-light: #4B4B4B;
     --text: #22262A;
     --btn-inactive: #DBD6D6;
+    font-size: 16px;
 }
-
+@media (max-width: 768px){
+    :root{
+        font-size: 14px;
+    }
+    .container{
+        padding: 0px;
+    }
+}
 
 /* @media (min-width: 1200px)
 {
@@ -18,7 +26,7 @@
 } */
 body {
     color: var(--text);
-    font-size: 16px;
+
     font-family: 'Rubik', sans-serif;
 }
 a{
@@ -103,9 +111,17 @@ li {
 }
 
 .form-main-header {
-    color: var(--text);
+    color: var(--prime2);
     font-family: 'Rubik';
-    font-size: 32px;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.form-secondary-header{
+    color: var(--prime2);
+    font-family: 'Rubik';
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -113,10 +129,10 @@ li {
 
 .stage-1-2-tooltip {
     display: inline-flex;
-    padding: 16px;
+    padding: 1rem;
     justify-content: center;
     align-items: flex-start;
-    gap: 16px;
+    gap: 1rem;
     color: var(--white);
     background-color: var(--prime2);
     font-size: 12px;
@@ -134,13 +150,13 @@ li {
 .prev,
 .next {
     display: flex;
-    width: 144px;
-    padding: 12px 35px;
+    width: 9rem;
+    padding: 0.5rem 2rem;
     justify-content: center;
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
 }
 
@@ -161,8 +177,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 1;
     display: block;
     background: url('assets/calendar.svg') no-repeat;
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     border-width: thin;
 }
 
@@ -177,9 +193,30 @@ input[type="radio"] {
 
 .form-label {
     color: var(--text);
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
 }
 .form-check{
     margin-top: 0.5rem !important;
+}
+.btn.male{
+    border: 1px solid #79747E;
+    border-radius: 0px 100px 100px 0px;
+}
+.btn.female{
+    border: 1px solid #79747E;
+    border-radius: 100px 0 0 100px;
+}
+.btn.female:focus, .btn.female:focus-within, .btn.female:focus-visible, .btn.female:hover, .btn.female:active, .btn.female:checked{
+    background-color: var(--prime1);
+}
+.btn.male:focus, .btn.male:focus-within, .btn.male:focus-visible, .btn.male:hover, .btn.male:active, .btn.male:checked{
+    background-color: var(--prime1);
+}
+.gender-container input{
+    display: none;
+}
+.gender-container input:checked + label{
+    background-color: var(--prime1);
+    color: var(--white);
 }
