@@ -454,7 +454,7 @@
                                 </div>
                             </div>
                     </div>
-                    <div class="stage-3">
+                    <div class="stage-3 visually-hidden">
 
                         <!-- Stage 1-1: Start -->
                         <h1 class="form-main-header">
@@ -669,17 +669,107 @@
                         </form>
 
                     </div>
-                    <div class="stage 4  visually-hidden">
+                    <div class="stage 5">
                         <h1 class="form-main-header">
-                            תכנון ההשקעה - פרטים נוספים
+                            רגולציה - שאלות
                         </h1>
                         <form class="row g-3">
                             <div class="row">
-                                <div class="col-md-6 mt-4">
-
+                                <div class="col-md-5 mt-4">
+                                    <label class="form-label">
+                                        האם אתה תושב ואזרח מדינת ישראל?
+                                    </label>
+                                    <div class="citizen-container d-flex flex-row">
+                                        <input type="radio" value="il-yes" name="il-citizen" id="il-yes">
+                                        <label for="il-yes" class="btn btn-yes-no me-3">
+                                            כן
+                                        </label><br>
+                                        <input type="radio" value="il-no" name="il-citizen" id="il-no">
+                                        <label for="il-no" class="btn btn-yes-no">
+                                            לא
+                                        </label><br>
+                                        <div class="invalid-feedback">
+                                            נא לבחור ערך
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-
+                                <div class="col-md-7 mt-4">
+                                    <label class="form-label">
+                                        אני U.S Person כלומר אני אזרח או תושב ארצות הברית
+                                    </label>
+                                    <div class="citizen-container d-flex flex-row">
+                                        <input type="radio" value="us-yes" name="us-citizen" id="us-yes">
+                                        <label for="us-yes" class="btn btn-yes-no me-3">
+                                            כן
+                                        </label><br>
+                                        <input type="radio" value="us-no" name="us-citizen" id="us-no">
+                                        <label for="us-no" class="btn btn-yes-no">
+                                            לא
+                                        </label><br>
+                                        <div class="invalid-feedback">
+                                            נא לבחור ערך
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mt-4">
+                                        <label for="employment-type" class="form-label">מהו עיסוקך?</label>
+                                        <select id="employment-type" class="form-select">
+                                            <option>עצמאי</option>
+                                            <option>שכיר</option>
+                                            <option>סטודנט\גמלאי</option>
+                                            <option>אחר</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            נא לבחור סכום להשקעה
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mt-4">
+                                    <label class="form-label">
+                                        סמן רק אם אתה אחד מהבאים
+                                    </label>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="ex1">
+                                        <label class="form-check-label" for="ex1">
+                                            מחזיק היום או כיהנת בעבר בתפקיד ציבורי בכיר זר
+                                        </label>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="ex2">
+                                        <label class="form-check-label" for="ex2">
+                                            קרוב משפחה של בעל תפקיד ציבורי בכיר זר
+                                        </label>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="ex3">
+                                        <label class="form-check-label" for="ex3">
+                                            בעל שליטה בתאגיד בו קיים בעל שליטה נוסף שהינו בעל תפקיד ציבורי זר
+                                        </label>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="ex4">
+                                        <label class="form-check-label" for="ex4">
+                                            מחזיק היום או כיהנת בעבר בתפקיד ציבורי בכיר בישראל
+                                        </label>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="ex5">
+                                        <label class="form-check-label" for="ex5">
+                                            קרוב משפחה של בעל תפקיד ציבורי בכיר ישראלי
+                                        </label>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="ex6">
+                                        <label class="form-check-label" for="ex6">
+                                            בעל שליטה בתאגיד בו קיים בעל שליטה נוסף שהינו בעל תפקיד ציבורי בכיר ישראלי
+                                        </label>
+                                      </div>
+                                    </div>
+                                </div>
+                           
                         </form>
                     </div>
 
