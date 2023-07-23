@@ -127,7 +127,7 @@ li {
     line-height: normal;
 }
 
-.stage-1-2-tooltip {
+.inner_stage-1-2-tooltip {
     display: inline-flex;
     padding: 1rem;
     justify-content: center;

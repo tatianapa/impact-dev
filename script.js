@@ -10,13 +10,42 @@ $(document).ready(function () {
     }
   }
 
+  curOpen = $(".me-2")[0];
+  curStage = $("div[class^='stage-']")[0];
+  selectedStage = "0";
+  console.log(curStage);
+
   $(".prev").click(function () {
-    alert("prev");
+    if (curOpen != null) {
+      curOpen = $(curOpen).prev();
+      $(curOpen).click();
+    }
   });
 
   $(".next").click(function () {
-    alert("next");
+    if (curOpen != null) {
+      curOpen = $(curOpen).next();
+      $(curOpen).click();
+    }
   });
+  $(".me-2").on("click", function () {
+    if (!$(this).hasClass("active")) {
+      curOpen = null;
+      $(".me-2").removeClass("active");
+      $(".me-2").addClass("inactive");
+      $(this).addClass("active");
+      $(this).removeClass("inactive");
+      selectedStage = $(this).text();
+      curOpen = { ...$(this) };
+
+      if ($(".stage-" + selectedStage).hasClass("visually-hidden")) {
+        $("div[class^='stage-']").addClass("visually-hidden");
+        $(".stage-" + selectedStage).removeClass("visually-hidden");
+        curStage = { ...$(".stage-" + selectedStage) };
+      }
+    }
+  });
+
   // todo:check : https://mdbootstrap.com/docs/standard/components/stepper/
   $(function () {
     let validator = $("#form-1").jbvalidator({
