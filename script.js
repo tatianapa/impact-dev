@@ -12,12 +12,22 @@ $(document).ready(function () {
 
   curOpen = $(".me-2")[0];
   curStage = $("div[class^='stage-']")[0];
-  selectedStage = '0';
+  selectedStage = "0";
   console.log(curStage);
+
   $(".prev").click(function () {
-    alert("prev");
+    if (curOpen != null) {
+      curOpen = $(curOpen).prev();
+      $(curOpen).click();
+    }
   });
 
+  $(".next").click(function () {
+    if (curOpen != null) {
+      curOpen = $(curOpen).next();
+      $(curOpen).click();
+    }
+  });
   $(".me-2").on("click", function () {
     if (!$(this).hasClass("active")) {
       curOpen = null;
@@ -26,11 +36,13 @@ $(document).ready(function () {
       $(this).addClass("active");
       $(this).removeClass("inactive");
       selectedStage = $(this).text();
-    }
-    if ($(".stage-"+selectedStage).hasClass("visually-hidden")) {
-      curOpen = null;
-      $("div[class^='stage-']").addClass("visually-hidden");
-      $(".stage-"+selectedStage).removeClass("visually-hidden");
+      curOpen = { ...$(this) };
+
+      if ($(".stage-" + selectedStage).hasClass("visually-hidden")) {
+        $("div[class^='stage-']").addClass("visually-hidden");
+        $(".stage-" + selectedStage).removeClass("visually-hidden");
+        curStage = { ...$(".stage-" + selectedStage) };
+      }
     }
   });
 
