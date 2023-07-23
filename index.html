@@ -527,8 +527,8 @@
                 </div>
               </form>
             </div>
-            <div class="stage 4 visually-hidden">
-              <h1 class="form-main-header">תכנון ההשקעה - פרטים נוספים</h1>
+            <div class="stage-4 visually-hidden">
+              <h1 class="form-main-header">פרטים אישיים</h1>
               <form class="row g-3">
                 <div class="row">
                   <div class="col-md-6 mt-4">
@@ -708,14 +708,292 @@
                 </div>
               </form>
             </div>
-            <div class="stage 5 visually-hidden">
-              <h1 class="form-main-header">תכנון ההשקעה - פרטים נוספים</h1>
+            <div class="stage-5 visually-hidden">
+              <h1 class="form-main-header"> רגולציה - שאלות</h1>
               <form class="row g-3">
                 <div class="row">
-                  <div class="col-md-6 mt-4"></div>
+                  <div class="col-md-5 mt-4">
+                    <label class="form-label">
+                        האם אתה תושב ואזרח מדינת ישראל?
+                    </label>
+                    <div class="citizen-container d-flex flex-row">
+                        <input type="radio" value="il-yes" name="il-citizen" id="il-yes">
+                        <label for="il-yes" class="btn btn-yes-no me-3">
+                            כן
+                        </label><br>
+                        <input type="radio" value="il-no" name="il-citizen" id="il-no">
+                        <label for="il-no" class="btn btn-yes-no">
+                            לא
+                        </label><br>
+                        <div class="invalid-feedback">
+                            נא לבחור ערך
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 mt-4">
+                    <label class="form-label">
+                        אני U.S Person כלומר אני אזרח או תושב ארצות הברית
+                    </label>
+                    <div class="citizen-container d-flex flex-row">
+                        <input type="radio" value="us-yes" name="us-citizen" id="us-yes">
+                        <label for="us-yes" class="btn btn-yes-no me-3">
+                            כן
+                        </label><br>
+                        <input type="radio" value="us-no" name="us-citizen" id="us-no">
+                        <label for="us-no" class="btn btn-yes-no">
+                            לא
+                        </label><br>
+                        <div class="invalid-feedback">
+                            נא לבחור ערך
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-4">
+                        <label for="employment-type" class="form-label">מהו עיסוקך?</label>
+                        <select id="employment-type" class="form-select">
+                            <option>עצמאי</option>
+                            <option>שכיר</option>
+                            <option>סטודנט\גמלאי</option>
+                            <option>אחר</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            נא לבחור סכום להשקעה
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-4">
+                    <label class="form-label">
+                        סמן רק אם אתה אחד מהבאים
+                    </label>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="ex1">
+                        <label class="form-check-label" for="ex1">
+                            מחזיק היום או כיהנת בעבר בתפקיד ציבורי בכיר זר
+                        </label>
+                        </div>
+                        <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="ex2">
+                        <label class="form-check-label" for="ex2">
+                            קרוב משפחה של בעל תפקיד ציבורי בכיר זר
+                        </label>
+                        </div>
+                        <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="ex3">
+                        <label class="form-check-label" for="ex3">
+                            בעל שליטה בתאגיד בו קיים בעל שליטה נוסף שהינו בעל תפקיד ציבורי זר
+                        </label>
+                        </div>
+                        <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="ex4">
+                        <label class="form-check-label" for="ex4">
+                            מחזיק היום או כיהנת בעבר בתפקיד ציבורי בכיר בישראל
+                        </label>
+                        </div>
+                        <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="ex5">
+                        <label class="form-check-label" for="ex5">
+                            קרוב משפחה של בעל תפקיד ציבורי בכיר ישראלי
+                        </label>
+                        </div>
+                        <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="ex6">
+                        <label class="form-check-label" for="ex6">
+                            בעל שליטה בתאגיד בו קיים בעל שליטה נוסף שהינו בעל תפקיד ציבורי בכיר ישראלי
+                        </label>
+                      </div>
                 </div>
               </form>
             </div>
+          </div>
+            <div class="stage-6 visually-hidden">
+              <h1 class="form-main-header"> פרטים נוספים</h1>
+              <form class="row g-3">
+                <div class="row">
+                  <div class="col-12 mt-4">
+                    <label for="money-origin" class="form-label">מה מקור הכסף שיופקד בחשבון?</label>
+                        <select id="money-origin" class="form-select">
+                            <option>כספים שהצטברו לאורך השנים בחשבון בנק שבבעלותי</option>
+                            <option>משכורת</option>
+                            <option>מכירת נדל"ן/ ני"ע/ פדיון חסכונות/ פדיון קופות גמל/ קרן השתלמות</option>
+                            <option>מלגה/ מתנה/ פיצויים/ תביעה/ ירושה</option>
+                            <option>קצבה/ פנסיה / כספי ביטוח לאומי</option>
+                            <option>פדיון עסקי/ ייצוא/ נכסים מניבים</option>
+                            <option>מטבעות וירטואלים</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            נא לבחור את מקור הכסף
+                        </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-12 mt-4">
+                  <label for="bank" class="form-label">באיזה בנק ינוהלו כספי ההשקעה שלך?</label>
+                  <select id="bank" class="form-select">
+                      <option>בנק לאומי</option>
+                      <option>בנק הפועלים</option>
+                      <option>בנק מזרחי טפחות</option>
+                      <option>בנק דיסקונט</option>
+                      <option>הבנק הבינלאומי</option>
+                      <option>בנק איגוד</option>
+                      <option>בנק אוצר החייל</option>
+                      <option>בנק יהב</option>
+                      <option>בנק ירושלים</option>
+                      <option>בנק מרכנתיל דיסקונט</option>
+                      <option>בנק מסד</option>
+                      <option>יובנק</option>
+                  </select>
+                  <div class="invalid-feedback">
+                      נא לבחור בנק
+                  </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-4">
+                      <label for="private-money-percent" class="form-label">
+                        <a href="" class="me-1">
+                          <img src="assets/info 1.svg" />
+                        </a>
+                        אם כן, איזה סכום צפוי להיות מופקד תחילה?
+                      </label>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          0-50,000
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault2"
+                          checked
+                        />
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          50,000-300,000
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          300,000-600,000
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault2"
+                          checked
+                        />
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          600,000 ומעלה
+                        </label>
+                    </div>
+                    </div>
+                    <div class="col-md-6 mt-4">
+                      <label for="private-money-percent" class="form-label">
+                        <a href="" class="me-1">
+                          <img src="assets/info 1.svg" />
+                        </a>
+                        האם יש צפי להפקדת כסף נוסף במהלך התקופה?
+                      </label>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          לא בשלב זה
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault2"
+                          checked
+                        />
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          כן, אך לא ידועה התדירות
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          כן, מספר פעמים בשנה
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault2"
+                          checked
+                        />
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          כן, אחת לשנה או יותר
+                        </label>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 mt-4">
+                 <div class="file-header">
+                  <div class="file-header-h1">
+                    טעינת קבצים לצורך אימות - אופציונאלי
+                  </div>
+                  <div class="wizard-caption">
+                    הקבצים צריכים להיות מאחד מהסוגים הבאים: jpg, pdf, png, jpeg. המשקל המקסימלי של כל קובץ להעלאה הוא 3MB
+                  </div>
+                 </div>
+                 
+                </div>
+                <div class="row">
+                  <div class="col-md-12 mt-3">
+                      
+                      <label for="id-file" class="form-label btn-file-upload">
+                        <img src="assets/up-arrow (1) 1.svg">
+                        טעינת ת.ז.</label>
+                      <input class="form-control file-btn" type="file" id="id-file">
+                 
+                  </div>
+                  <div class="col-md-12 mt-3">
+                    <label for="card-file" class="form-label btn-file-upload">
+                      <img src="assets/id-card (1) 1.svg">
+                      טעינת דרכון/ר.נהיגה/תעודת עולה</label>
+                      <input class="form-control file-btn" type="file" id="card-file">
+                  </div>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+           
+            
             <div class="btn-container mt-5 d-flex justify-content-between">
               <button class="prev">
                 <img src="assets/backward.svg" />
