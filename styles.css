@@ -148,7 +148,8 @@ li {
 }
 
 .prev,
-.next {
+.next,
+.submit {
     display: flex;
     width: 9rem;
     padding: 0.5rem 2rem;
@@ -167,6 +168,12 @@ li {
 }
 
 .next {
+    border: 1px solid var(--prime1);
+    background-color: var(--prime1);
+    color: var(--white);
+}
+
+.submit {
     border: 1px solid var(--prime1);
     background-color: var(--prime1);
     color: var(--white);
