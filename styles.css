@@ -226,7 +226,7 @@ input[type="radio"] {
     display: none;
 }
 .gender-container input:checked + label{
-    background-color: var;
+    background-color: var(--prime1);
     color: var(--white);
 }
 .btn.btn-yes-no{
@@ -283,3 +283,68 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 }
+.input-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+.input-radio2 input {
+    display: none;
+}
+.input-wrapper input {
+    width: 100%;
+    border: 1px solid #cacaca;
+    padding: 15px 20px;
+    border-radius: 5px;
+    transition: color 0.3s ease, border 0.3s ease;
+}
+.input-radio2 label {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    padding-right: 35px;
+    font-size: 17px;
+}
+.tooltip-impact {
+    position: relative;
+    display: inline-block;
+  }
+  .tooltip-impact .tooltiptext {
+    visibility: hidden;
+    width: 400px;
+    top: -5px;
+    right: 105%;
+    display: inline-flex;
+    padding: 1rem;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    color: var(--white);
+    background-color: var(--prime2);
+    font-size: 12px;
+    font-weight: 300;
+
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 100000000;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip-impact:hover .tooltiptext {
+    visibility: visible;
+  }
+  .fnt-b{
+    font-weight: bold;
+    display: inline;
+  }
+
+
+
+  input.empty-input::before {
+    width: 100%;
+       content: attr(placeholder);
+       -webkit-appearance: none;
+       font-family: 'Rubik';
+       font-size: 16px;
+       direction:rtl;
+   }
