@@ -82,9 +82,45 @@ $(document).ready(function () {
           }
         });
       });
+      
     }
     
     // Call the function to enable the behavior
     toggleSecondList();
+    function showRegulationMessage() {
+      const checkboxes = document.querySelectorAll('.reg-check');
+      const messageDiv = document.querySelector('.contact-us-regulation');
+    
+      // Loop through all checkboxes to check if any is checked
+      let anyCheckboxChecked = false;
+      for (const checkbox of checkboxes) {
+        if (checkbox.checked) {
+          anyCheckboxChecked = true;
+          break;
+        }
+      }
+    
+      // Set the "CheckboxListRegulation" flag to false
+
+      //DANIEL - if the flag below is set to false, the form validation is finished, you can send the details
+
+      window.CheckboxListRegulation = false;
+    
+      // Show or hide the message div based on whether any checkbox is checked
+      if (anyCheckboxChecked) {
+        messageDiv.style.display = 'block';
+      } else {
+        messageDiv.style.display = 'none';
+      }
+    }
+    
+    // Call the function initially when the page loads
+    showRegulationMessage();
+    
+    // Attach event listeners to checkboxes to trigger the function on change
+    const checkboxes = document.querySelectorAll('.reg-check');
+    for (const checkbox of checkboxes) {
+      checkbox.addEventListener('change', showRegulationMessage);
+    }
   });
 });
