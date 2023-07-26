@@ -69,5 +69,22 @@ $(document).ready(function () {
 
     validator.checkAll();
     validator.reload();
+    function toggleSecondList() {
+      const firstListOptions = document.querySelectorAll('input[name="additional-deposits"]');
+      const secondListContainer = document.getElementById('expected-amount-container');
+    
+      firstListOptions.forEach(option => {
+        option.addEventListener('change', () => {
+          if (option.value === '1') {
+            secondListContainer.style.display = 'none';
+          } else {
+            secondListContainer.style.display = 'block';
+          }
+        });
+      });
+    }
+    
+    // Call the function to enable the behavior
+    toggleSecondList();
   });
 });

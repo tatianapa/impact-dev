@@ -710,8 +710,8 @@ $(document).ready(function(){
 		File Inputs Handler
 	***************************************************************/
 
-		$("input[name='stage3-files-id'], input[name='stage3-files-another'], input[name='stage3-partner-files-id'], input[name='stage3-partner-files-another'] ").change(function(){
-			if ( $(this).attr("name") == "stage3-files-id" ) {
+		$("input[name='files-id'], input[name='files-another'], input[name='partner-files-id'], input[name='partner-files-another'] ").change(function(){
+			if ( $(this).attr("name") == "files-id" ) {
 				var divclass = ".input-files-id";
 			} else {
 				var divclass = ".input-files-another";
@@ -724,9 +724,9 @@ $(document).ready(function(){
 				// check type
 				var filetype = $(this)[0].files[0].type;
 				if ( filetype != "image/png" && filetype != "image/jpeg" && filetype != "image/jpg" && filetype != "application/pdf" ) {
-					alert("׳¡׳•׳’ ׳”׳§׳•׳‘׳¥ ׳׳™׳ ׳• ׳׳׳•׳©׳¨");
+					alert("סוג הקובץ אינו מאושר");
 					$(".stage3-files-wrapper").addClass("error");
-					$(".stage3-files-wrapper .error").text("׳¡׳•׳’ ׳”׳§׳•׳‘׳¥ ׳׳™׳ ׳• ׳׳׳•׳©׳¨");
+					$(".stage3-files-wrapper .error").text("סוג הקובץ אינו מאושר");
 					$(divclass).fadeOut();
 					$(this)[0].value = "";
 				} else {
@@ -734,7 +734,7 @@ $(document).ready(function(){
 					var filesize = $(this)[0].files[0].size;
 					if ( filesize > (1024*1024*3) ) {
 						$(".stage3-files-wrapper").addClass("error");
-						$(".stage3-files-wrapper .error").text("׳׳©׳§׳ ׳”׳§׳•׳‘׳¥ ׳¢׳•׳׳” ׳¢׳ 3MB");
+						$(".stage3-files-wrapper .error").text("המשקל המקסימלי של כל קובץ להעלאה הוא 3MB");
 						$(divclass).fadeOut();
 						$(this)[0].value = "";
 					} else {

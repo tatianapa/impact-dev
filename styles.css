@@ -1,21 +1,21 @@
 :root {
-    --content-bg: #F8F8F8;
-    --white: #ffffff;
-    --prime1: #00B634;
-    --prime2: #1F4151;
-    --prime3: #008DD0;
-    --text-light: #4B4B4B;
-    --text: #22262A;
-    --btn-inactive: #DBD6D6;
-    font-size: 16px;
+  --content-bg: #f8f8f8;
+  --white: #ffffff;
+  --prime1: #00b634;
+  --prime2: #1f4151;
+  --prime3: #008dd0;
+  --text-light: #4b4b4b;
+  --text: #22262a;
+  --btn-inactive: #dbd6d6;
+  font-size: 16px;
 }
-@media (max-width: 768px){
-    :root{
-        font-size: 14px;
-    }
-    .container{
-        padding: 0px;
-    }
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+  .container {
+    padding: 0px;
+  }
 }
 
 /* @media (min-width: 1200px)
@@ -25,326 +25,334 @@
 }
 } */
 body {
-    color: var(--text);
+  color: var(--text);
 
-    font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
-a{
-    color: var(--text);
-    text-decoration: none;
+a {
+  color: var(--text);
+  text-decoration: none;
 }
 
 .container {
-    max-width: 1400px;
+  max-width: 1400px;
 }
 
 .form-tabs {
-    padding: 3rem;
+  padding: 3rem;
 }
 
 .form-content {
-    height: 100%;
-    padding: 3rem;
-    background-color: var(--content-bg);
+  height: 100%;
+  padding: 3rem;
+  background-color: var(--content-bg);
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 .wizard-btn.active {
-    border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    padding: 8px;
-    background-color: var(--prime1);
-    color: var(--white);
-    font-size: 24px;
-    border-radius: 50%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  background-color: var(--prime1);
+  color: var(--white);
+  font-size: 24px;
+  border-radius: 50%;
 }
 
 .wizard-btn.inactive {
-    border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    padding: 8px;
-    background-color: var(--btn-inactive);
-    color: var(--text-light);
-    font-size: 24px;
-    border-radius: 50%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  background-color: var(--btn-inactive);
+  color: var(--text-light);
+  font-size: 24px;
+  border-radius: 50%;
 }
 
 .wizard-title {
-    color: var(--text);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: var(--text);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .wizard-title.wizard-title-active {
-    color: var(--text);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: var(--text);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .wizard-caption {
-    color: var(--text);
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
+  color: var(--text);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
 }
 
 .line {
-    padding: 8px 25px;
+  padding: 8px 25px;
 }
 
 .form-main-header {
-    color: var(--prime2);
-    font-family: 'Rubik';
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: var(--prime2);
+  font-family: "Rubik";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
-.form-secondary-header{
-    color: var(--prime2);
-    font-family: 'Rubik';
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+.form-secondary-header {
+  color: var(--prime2);
+  font-family: "Rubik";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .inner_stage-1-2-tooltip {
-    display: inline-flex;
-    padding: 1rem;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1rem;
-    color: var(--white);
-    background-color: var(--prime2);
-    font-size: 12px;
-    font-weight: 300;
+  display: inline-flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  color: var(--white);
+  background-color: var(--prime2);
+  font-size: 12px;
+  font-weight: 300;
 }
 
 .mt-4 {
-    margin-top: 2rem !important;
+  margin-top: 2rem !important;
 }
 
 .mt-5 {
-    margin-top: 3rem !important;
+  margin-top: 3rem !important;
 }
 
 .prev,
 .next,
 .submit {
-    display: flex;
-    width: 9rem;
-    padding: 0.5rem 2rem;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-    font-size: 1rem;
-    font-weight: 700;
+  display: flex;
+  width: 9rem;
+  padding: 0.5rem 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .prev {
-    border: 1px solid var(--prime1);
-    background-color: var(--white);
-    color: var(--prime1);
+  border: 1px solid var(--prime1);
+  background-color: var(--white);
+  color: var(--prime1);
 }
 
 .next {
-    border: 1px solid var(--prime1);
-    background-color: var(--prime1);
-    color: var(--white);
+  border: 1px solid var(--prime1);
+  background-color: var(--prime1);
+  color: var(--white);
 }
 
 .submit {
-    border: 1px solid var(--prime1);
-    background-color: var(--prime1);
-    color: var(--white);
+  border: 1px solid var(--prime1);
+  background-color: var(--prime1);
+  color: var(--white);
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-    color: rgba(0, 0, 0, 0);
-    opacity: 1;
-    display: block;
-    background: url('assets/calendar.svg') no-repeat;
-    width: 1.25rem;
-    height: 1.25rem;
-    border-width: thin;
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: block;
+  background: url("assets/calendar.svg") no-repeat;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-width: thin;
 }
 
 input[type="radio"] {
-    color: var(--prime1);
+  color: var(--prime1);
 }
-.form-check-input[type=checkbox]{
-    border-radius: 0%;
+.form-check-input[type="checkbox"] {
+  border-radius: 0%;
 }
 .form-check-input:checked {
-    background-color: var(--prime1);
-    border-color: var(--prime1);
+  background-color: var(--prime1);
+  border-color: var(--prime1);
 }
 
 .form-label {
-    color: var(--text);
-    font-size: 1rem;
-    font-weight: 500;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
 }
-.form-check{
-    margin-top: 0.5rem !important;
+.form-check {
+  margin-top: 0.5rem !important;
 }
-.btn.male{
-    border: 1px solid #79747E;
-    border-radius: 0px 100px 100px 0px;
+.btn.male {
+  border: 1px solid #79747e;
+  border-radius: 0px 100px 100px 0px;
 }
-.btn.female{
-    border: 1px solid #79747E;
-    border-radius: 100px 0 0 100px;
+.btn.female {
+  border: 1px solid #79747e;
+  border-radius: 100px 0 0 100px;
 }
-.btn.female:focus, .btn.female:focus-within, .btn.female:focus-visible, .btn.female:hover, .btn.female:active, .btn.female:checked{
-    background-color: var(--prime1);
+.btn.female:focus,
+.btn.female:focus-within,
+.btn.female:focus-visible,
+.btn.female:hover,
+.btn.female:active,
+.btn.female:checked {
+  background-color: var(--prime1);
 }
-.btn.male:focus, .btn.male:focus-within, .btn.male:focus-visible, .btn.male:hover, .btn.male:active, .btn.male:checked{
-    background-color: var(--prime1);
+.btn.male:focus,
+.btn.male:focus-within,
+.btn.male:focus-visible,
+.btn.male:hover,
+.btn.male:active,
+.btn.male:checked {
+  background-color: var(--prime1);
 }
-.gender-container input{
-    display: none;
+.gender-container input {
+  display: none;
 }
-.gender-container input:checked + label{
-    background-color: var(--prime1);
-    color: var(--white);
+.gender-container input:checked + label {
+  background-color: var(--prime1);
+  color: var(--white);
 }
-.btn.btn-yes-no{
-display: flex;
-width: 64px;
-padding: 0.5rem 1.25rem;
-justify-content: center;
-align-items: center;
-gap: 8px;
-border: 1px solid var(--prime3);
-background: var(--white);
-color: var(--prime3);
-font-family: 'Rubik';
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-border-radius: 0%;
+.btn.btn-yes-no {
+  display: flex;
+  width: 64px;
+  padding: 0.5rem 1.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--prime3);
+  background: var(--white);
+  color: var(--prime3);
+  font-family: "Rubik";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border-radius: 0%;
 }
 
-.citizen-container input{
-    display: none;
+.citizen-container input {
+  display: none;
 }
 
-.citizen-container input:checked + label{
-    background-color: var(--prime3);
-    color: var(--white);
+.citizen-container input:checked + label {
+  background-color: var(--prime3);
+  color: var(--white);
 }
-.file-header-h1{
-    color: var(--text);
-text-align: right;
-font-family: 'Rubik';
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+.file-header-h1 {
+  color: var(--text);
+  text-align: right;
+  font-family: "Rubik";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
-.file-btn{
-    display: none;
+.file-btn {
+  display: none;
 }
-.form-label.btn-file-upload{
-    cursor: pointer;
-    display: flex;
-width: 400px;
-padding: 12px 35px;
-justify-content: center;
-align-items: center;
-gap: 8px;
-background-color: var(--prime2);
-color: var(--white);
-font-family: 'Rubik';
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+.form-label.btn-file-upload {
+  cursor: pointer;
+  display: flex;
+  width: 400px;
+  padding: 12px 35px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--prime2);
+  color: var(--white);
+  font-family: "Rubik";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 .input-wrapper {
-    position: relative;
-    margin-bottom: 10px;
+  position: relative;
+  margin-bottom: 10px;
 }
 .input-radio2 input {
-    display: none;
+  display: none;
 }
 .input-wrapper input {
-    width: 100%;
-    border: 1px solid #cacaca;
-    padding: 15px 20px;
-    border-radius: 5px;
-    transition: color 0.3s ease, border 0.3s ease;
+  width: 100%;
+  border: 1px solid #cacaca;
+  padding: 15px 20px;
+  border-radius: 5px;
+  transition: color 0.3s ease, border 0.3s ease;
 }
 .input-radio2 label {
-    display: block;
-    cursor: pointer;
-    position: relative;
-    padding-right: 35px;
-    font-size: 17px;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  padding-right: 35px;
+  font-size: 17px;
 }
 .tooltip-impact {
-    position: relative;
-    display: inline-block;
-  }
-  .tooltip-impact .tooltiptext {
-    visibility: hidden;
-    width: 400px;
-    top: -5px;
-    right: 105%;
-    display: inline-flex;
-    padding: 1rem;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1rem;
-    color: var(--white);
-    background-color: var(--prime2);
-    font-size: 12px;
-    font-weight: 300;
+  position: relative;
+  display: inline-block;
+}
+.tooltip-impact .tooltiptext {
+  visibility: hidden;
+  width: 400px;
+  top: -5px;
+  right: 105%;
+  display: inline-flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  color: var(--white);
+  background-color: var(--prime2);
+  font-size: 12px;
+  font-weight: 300;
 
-   
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 100000000;
-  }
-  
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .tooltip-impact:hover .tooltiptext {
-    visibility: visible;
-  }
-  .fnt-b{
-    font-weight: bold;
-    display: inline;
-  }
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 100000000;
+}
 
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip-impact:hover .tooltiptext {
+  visibility: visible;
+}
+.fnt-b {
+  font-weight: bold;
+  display: inline;
+}
 
-
-  input.empty-input::before {
-    width: 100%;
-       content: attr(placeholder);
-       -webkit-appearance: none;
-       font-family: 'Rubik';
-       font-size: 16px;
-       direction:rtl;
-   }
+input.empty-input::before {
+  width: 100%;
+  content: attr(placeholder);
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: "Rubik";
+  font-size: 16px;
+  direction: rtl;
+}
