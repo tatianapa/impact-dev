@@ -69,6 +69,9 @@ $(document).ready(function () {
 
     validator.checkAll();
     validator.reload();
+
+
+    //DANIEL ----- my functions below
     function toggleSecondList() {
       const firstListOptions = document.querySelectorAll('input[name="additional-deposits"]');
       const secondListContainer = document.getElementById('expected-amount-container');
