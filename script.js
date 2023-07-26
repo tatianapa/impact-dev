@@ -172,5 +172,31 @@ $(document).ready(function () {
   
     // Add event listener to the input element to trigger validation on input change
     document.querySelector('input[name="stage1-percentage"]').addEventListener('input', validatePercentInput);
+
+   //DANIEL Under 18 check stage-2
+    function checkAge() {
+      const birthdateInput = document.getElementById("birthdate");
+      const invalidFeedback = document.querySelector(".invalid-feedback-under18");
+      
+      // if (!birthdateInput.value) {
+      //   invalidFeedback.style.display = "block";
+      //   return;
+      // }
+  
+      const birthdate = new Date(birthdateInput.value);
+      const today = new Date();
+      const ageInMilliseconds = today - birthdate;
+      const ageInYears = ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000);
+  
+      if (ageInYears < 18) {
+        invalidFeedback.style.display = "block";
+      } else {
+        invalidFeedback.style.display = "none";
+      }
+    }
+  
+    // Attach the function to the input field's change event
+    const birthdateInput = document.getElementById("birthdate");
+    birthdateInput.addEventListener("change", checkAge);
   });
 });
