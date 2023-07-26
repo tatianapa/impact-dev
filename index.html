@@ -995,87 +995,74 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6 mt-4">
-                    <label for="private-money-percent" class="form-label">
+
+                    <label for="additional-deposits" class="form-label">
                       <!-- <a href="" class="me-1">
-                          <img src="assets/info 1.svg" />
-                        </a> -->
+                            <img src="assets/info 1.svg" />
+                          </a> -->
+                      האם יש צפי להפקדת כסף נוסף במהלך התקופה?
+                    </label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="additional-deposits"  value="1" id="additionalDepositOption1" />
+                      <label class="form-check-label" for="additionalDepositOption1">
+                        לא בשלב זה
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="additional-deposits"  value="2" id="additionalDepositOption2"/>
+                      <label class="form-check-label" for="additionalDepositOption2">
+                        כן, אך לא ידועה התדירות
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="additional-deposits" value="3" id="additionalDepositOption3" />
+                      <label class="form-check-label" for="additionalDepositOption3">
+                        כן, מספר פעמים בשנה
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="additional-deposits" value="4" id="additionalDepositOption4"/>
+                      <label class="form-check-label" for="additionalDepositOption4">
+                        כן, אחת לשנה או יותר
+                      </label>
+
+
+
+
+
+                   
+                    </div>
+                  </div>
+                  <div class="col-md-6 mt-4"  id="expected-amount-container" style="display: none;">
+                    <label or="expected-amount"  class="form-label">
+                      <!-- <a href="" class="me-1">
+                            <img src="assets/info 1.svg" />
+                          </a> -->
                       אם כן, איזה סכום צפוי להיות מופקד תחילה?
                     </label>
                     <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <input class="form-check-input" type="radio" name="expected-amount" value="1" id="expectedAmountOption1" />
+                      <label class="form-check-label" for="expectedAmountOption1">
                         0-50,000
                       </label>
                     </div>
                     <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        50,000-300,000
-                      </label>
-                    </div>
-                    <div class="col-md-6 mt-4">
-                      <label for="private-money-percent" class="form-label">
-                        <!-- <a href="" class="me-1">
-                          <img src="assets/info 1.svg" />
-                        </a> -->
-                        האם יש צפי להפקדת כסף נוסף במהלך התקופה?
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="expected-amount"
-                        value="2"
-                        id="expectedAmountOption2"
-                        checked
-                      />
-                      <label
-                        class="form-check-label"
-                        for="expectedAmountOption2"
-                      >
+                      <input class="form-check-input" type="radio" name="expected-amount" value="2" id="expectedAmountOption2"
+                        checked />
+                      <label class="form-check-label" for="expectedAmountOption2">
                         50,000-300,000
                       </label>
                     </div>
                     <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="expected-amount"
-                        value="3"
-                        id="expectedAmountOption3"
-                      />
-                      <label
-                        class="form-check-label"
-                        for="expectedAmountOption3"
-                      >
+                      <input class="form-check-input" type="radio" name="expected-amount" value="3" id="expectedAmountOption3" />
+                      <label class="form-check-label" for="expectedAmountOption3">
                         300,000-600,000
                       </label>
                     </div>
                     <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="expected-amount"
-                        value="4"
-                        id="expectedAmountOption4"
-                        checked
-                      />
-                      <label
-                        class="form-check-label"
-                        for="expectedAmountOption4"
-                      >
+                      <input class="form-check-input" type="radio" name="expected-amount" value="4" id="expectedAmountOption4"
+                        checked />
+                      <label class="form-check-label" for="expectedAmountOption4">
                         600,000 ומעלה
                       </label>
                     </div>
@@ -1390,26 +1377,123 @@
               </div>
               <div class="stage-8 visually-hidden">
                 <h1 class="form-main-header">אישורים</h1>
-                <div class="row">
-                  <div class="col-md-5 mt-4">
-                    <label class="form-label mt-2">
-                      אישור הסכם ניהול התיקים
-                    </label>
-                  </div>
-                  <div class="col-md-7 mt-4">
-                    <div class="mb-3 form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="manage-1"
-                      />
-                      <label class="form-check-label" for="manage-1">
-                        אני מאשר/ת את הסכם ניהול התיקים
+                <form class="row g-3">
+                  <div class="row">
+                    <div class="col-md-5 mt-4">
+                      <label class="form-label mt-2">
+                        אישור הסכם ניהול התיקים
                       </label>
                     </div>
+                    <div class="col-md-7 mt-4">
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="manage-1" />
+                        <label class="form-check-label" for="manage-1">
+                          אני מאשר/ת את הסכם ניהול התיקים
+                        </label>
+                      </div>
+                    </div>
+  
                   </div>
-                </div>
-              </div>
+                  <div class="row">
+                    <div class="col-md-5 mt-4">
+                      <label class="form-label mt-2">
+                        אישור נספח גילוי נאות
+                      </label>
+                    </div>
+                    <div class="col-md-7 mt-4">
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="manage-1" />
+                        <label class="form-check-label" for="manage-1">
+                          אני מאשר/ת את נספח גילוי נאות
+                        </label>
+                      </div>
+                    </div>
+  
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5 mt-4">
+                      <label class="form-label mt-2">
+                        אישור נספח הצהרת נהנים
+                      </label>
+                    </div>
+                    <div class="col-md-7 mt-4">
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="manage-1" />
+                        <label class="form-check-label" for="manage-1">
+                          אני פועל/ת בעבור עצמי בלבד. אישור על סעיף זה כמוהו
+                          כחתימת מקור על הצהרת הנהנים המצורפת
+                        </label>
+                      </div>
+                    </div>
+  
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5 mt-4">
+                      <label class="form-label mt-2">
+                        אישור נספח פעולות באמצעי
+                        תקשורת
+                      </label>
+                    </div>
+                    <div class="col-md-7 mt-4">
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="manage-1" />
+                        <label class="form-check-label" for="manage-1">
+                          אני פועל/ת בעבור עצמי בלבד. אישור על סעיף זה כמוהו
+                          כחתימת מקור על הצהרת הנהנים המצורפת
+                        </label>
+                      </div>
+                    </div>
+  
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5 mt-4">
+                      <label class="form-label mt-2">
+                        אישור נספח דמי ניהול
+                      </label>
+                    </div>
+                    <div class="col-md-7 mt-4">
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="manage-1" />
+                        <label class="form-check-label" for="manage-1">
+                          אני מאשר/ת את נספח דמי ניהול
+                        </label>
+                      </div>
+                    </div>
+  
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5 mt-4">
+                      <label class="form-label mt-2">
+                        אישור נספח מדיניות ההשקעה
+                      </label>
+                    </div>
+                    <div class="col-md-7 mt-4">
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="manage-1" />
+                        <label class="form-check-label" for="manage-1">
+                          אני מאשר/ת את נספח מדיניות ההשקעה
+                        </label>
+                      </div>
+                    </div>
+  
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5 mt-4">
+                      <label class="form-label mt-2">
+                        אישור פעילות מתוכננת
+                      </label>
+                    </div>
+                    <div class="col-md-7 mt-4">
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="manage-1" />
+                        <label class="form-check-label" for="manage-1">
+                          אני מאשר/ת כי הפעילות המתוכננת בחשבון היא
+                          הפקדה ו/או משיכת כספים לצורך השקעה בלבד
+                        </label>
+                      </div>
+                    </div>
+  
+                  </div>
               <div class="btn-container mt-5 d-flex justify-content-between">
                 <button type="button" class="prev">
                   <img src="assets/backward.svg" />חזרה
