@@ -1,849 +1,722 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
-      integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N"
-      crossorigin="anonymous"
-    />
 
-    <title>impact form</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emretulek/jbvalidator@1.0.9/dist/jbvalidator.min.js"></script>
-    <script src="script.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous" />
 
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="form-tabs">
-            <ul>
-              <li class="past d-flex flex-row align-items-center">
-                <div class="wizard-digit">
-                  <button class="wizard-btn me-2 active">1</button>
+  <title>impact form</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emretulek/jbvalidator@1.0.9/dist/jbvalidator.min.js"></script>
+  
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-tabs">
+          <ul>
+            <li class="past d-flex flex-row align-items-center">
+              <div class="wizard-digit">
+                <button class="wizard-btn me-2 active">1</button>
+              </div>
+              <div class="wizard-title-container d-flex flex-column">
+                <div class="wizard-title wizard-title-active">
+                  תכנון ההשקעה
                 </div>
-                <div class="wizard-title-container d-flex flex-column">
-                  <div class="wizard-title wizard-title-active">
-                    תכנון ההשקעה
-                  </div>
-                  <div class="wizard-caption mt-1">כמות הכסף</div>
-                </div>
-              </li>
-              <li class="line">
-                <img src="assets/Line 1.svg" />
-              </li>
-              <li class="past d-flex flex-row">
-                <div class="wizard-digit">
-                  <button class="wizard-btn me-2 inactive">2</button>
-                </div>
-                <div class="wizard-title-container d-flex flex-column">
-                  <div class="wizard-title">תכנון ההשקעה</div>
-                  <div class="wizard-caption mt-1">פרטים נוספים</div>
-                </div>
-              </li>
-              <li class="line">
-                <img src="assets/Line 1.svg" />
-              </li>
-              <li class="past d-flex flex-row">
-                <div class="wizard-digit">
-                  <button class="wizard-btn me-2 inactive">3</button>
-                </div>
-                <div class="wizard-title-container d-flex flex-column">
-                  <div class="wizard-title">תכנון ההשקעה</div>
-                  <div class="wizard-caption mt-1">תוצאות</div>
-                </div>
-              </li>
-              <li class="line">
-                <img src="assets/Line 1.svg" />
-              </li>
-              <li class="past d-flex flex-row">
-                <div class="wizard-digit">
-                  <button class="wizard-btn me-2 inactive">4</button>
-                </div>
-                <div class="wizard-title-container d-flex flex-column">
-                  <div class="wizard-title">פרטים אישיים</div>
-                  <!-- <div class="wizard-caption mt-1">
+                <div class="wizard-caption mt-1">כמות הכסף</div>
+              </div>
+            </li>
+            <li class="line">
+              <img src="assets/Line 1.svg" />
+            </li>
+            <li class="past d-flex flex-row">
+              <div class="wizard-digit">
+                <button class="wizard-btn me-2 inactive">2</button>
+              </div>
+              <div class="wizard-title-container d-flex flex-column">
+                <div class="wizard-title">תכנון ההשקעה</div>
+                <div class="wizard-caption mt-1">פרטים נוספים</div>
+              </div>
+            </li>
+            <li class="line">
+              <img src="assets/Line 1.svg" />
+            </li>
+            <li class="past d-flex flex-row">
+              <div class="wizard-digit">
+                <button class="wizard-btn me-2 inactive">3</button>
+              </div>
+              <div class="wizard-title-container d-flex flex-column">
+                <div class="wizard-title">תכנון ההשקעה</div>
+                <div class="wizard-caption mt-1">תוצאות</div>
+              </div>
+            </li>
+            <li class="line">
+              <img src="assets/Line 1.svg" />
+            </li>
+            <li class="past d-flex flex-row">
+              <div class="wizard-digit">
+                <button class="wizard-btn me-2 inactive">4</button>
+              </div>
+              <div class="wizard-title-container d-flex flex-column">
+                <div class="wizard-title">פרטים אישיים</div>
+                <!-- <div class="wizard-caption mt-1">
                                         תוצאות
                                     </div> -->
-                </div>
-              </li>
-              <li class="line">
-                <img src="assets/Line 1.svg" />
-              </li>
-              <li class="past d-flex flex-row">
-                <div class="wizard-digit">
-                  <button class="wizard-btn me-2 inactive">5</button>
-                </div>
-                <div class="wizard-title-container d-flex flex-column">
-                  <div class="wizard-title">רגולציה</div>
-                  <div class="wizard-caption mt-1">שאלות</div>
-                </div>
-              </li>
-              <li class="line">
-                <img src="assets/Line 1.svg" />
-              </li>
-              <li class="past d-flex flex-row">
-                <div class="wizard-digit">
-                  <button class="wizard-btn me-2 inactive">6</button>
-                </div>
-                <div class="wizard-title-container d-flex flex-column">
-                  <div class="wizard-title">רגולציה</div>
-                  <div class="wizard-caption mt-1">פרטים נוספים</div>
+              </div>
+            </li>
+            <li class="line">
+              <img src="assets/Line 1.svg" />
+            </li>
+            <li class="past d-flex flex-row">
+              <div class="wizard-digit">
+                <button class="wizard-btn me-2 inactive">5</button>
+              </div>
+              <div class="wizard-title-container d-flex flex-column">
+                <div class="wizard-title">רגולציה</div>
+                <div class="wizard-caption mt-1">שאלות</div>
+              </div>
+            </li>
+            <li class="line">
+              <img src="assets/Line 1.svg" />
+            </li>
+            <li class="past d-flex flex-row">
+              <div class="wizard-digit">
+                <button class="wizard-btn me-2 inactive">6</button>
+              </div>
+              <div class="wizard-title-container d-flex flex-column">
+                <div class="wizard-title">רגולציה</div>
+                <div class="wizard-caption mt-1">פרטים נוספים</div>
 
-                  <!-- <div class="wizard-caption mt-1">
+                <!-- <div class="wizard-caption mt-1">
                                                 תוצאות
                                             </div> -->
-                </div>
-              </li>
-              <li class="line">
-                <img src="assets/Line 1.svg" />
-              </li>
-              <li class="past d-flex flex-row">
-                <div class="wizard-digit">
-                  <button class="wizard-btn me-2 inactive">7</button>
-                </div>
-                <div class="wizard-title-container d-flex flex-column">
-                  <div class="wizard-title">שותפים</div>
-                  <!-- <div class="wizard-caption mt-1">
+              </div>
+            </li>
+            <li class="line">
+              <img src="assets/Line 1.svg" />
+            </li>
+            <li class="past d-flex flex-row">
+              <div class="wizard-digit">
+                <button class="wizard-btn me-2 inactive">7</button>
+              </div>
+              <div class="wizard-title-container d-flex flex-column">
+                <div class="wizard-title">שותפים</div>
+                <!-- <div class="wizard-caption mt-1">
                                                     תוצאות
                                                 </div> -->
-                </div>
-              </li>
-              <li class="line">
-                <img src="assets/Line 1.svg" />
-              </li>
-              <li class="past d-flex flex-row">
-                <div class="wizard-digit">
-                  <button class="wizard-btn me-2 inactive">8</button>
-                </div>
-                <div class="wizard-title-container d-flex flex-column">
-                  <div class="wizard-title">אישורים</div>
-                  <!-- <div class="wizard-caption mt-1">
+              </div>
+            </li>
+            <li class="line">
+              <img src="assets/Line 1.svg" />
+            </li>
+            <li class="past d-flex flex-row">
+              <div class="wizard-digit">
+                <button class="wizard-btn me-2 inactive">8</button>
+              </div>
+              <div class="wizard-title-container d-flex flex-column">
+                <div class="wizard-title">אישורים</div>
+                <!-- <div class="wizard-caption mt-1">
                                                         תוצאות
                                                     </div> -->
-                </div>
-              </li>
-            </ul>
-          </div>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div class="col-md-7">
-          <form class="row g-3" id="myForm" action="#" method="POST">
-            <div class="form-content">
-              <div class="stage-1">
-                <!-- Stage 1-1: Start -->
-                <h1 class="form-main-header">תכנון ההשקעה - כמות הכסף</h1>
-                <div class="col-md-6 mt-4 g-3">
-                  <label for="moneyAmount" class="form-label"
-                    >כמה כסף תרצה / תרצי להשקיע?</label
-                  >
-                  <select id="moneyAmount" class="form-select">
-                    <option selected>50-100 אלף</option>
-                    <option>100-250 אלף</option>
-                    <option selected>250-500 אלף</option>
-                    <option>500 ואילך</option>
+      </div>
+      <div class="col-md-7">
+        <form class="row g-3" id="myForm" action="#" method="POST">
+          <div class="form-content">
+            <div class="stage-1">
+              <!-- Stage 1-1: Start -->
+              <h1 class="form-main-header">תכנון ההשקעה - כמות הכסף</h1>
+              <div class="col-md-6 mt-4 g-3">
+                <label for="moneyAmount" class="form-label">כמה כסף תרצה / תרצי להשקיע?</label>
+                <select id="moneyAmount" class="form-select">
+                  <option selected>50-100 אלף</option>
+                  <option>100-250 אלף</option>
+                  <option selected>250-500 אלף</option>
+                  <option>500 ואילך</option>
+                </select>
+                <div class="invalid-feedback">נא לבחור סכום להשקעה</div>
+              </div>
+
+              <div class="col-md-9 mt-4">
+                <div class="inner_stage-1-1-row input-wrapper">
+                  <div>
+                    סכום זה מהווה %
+                    <input type="number" name="stage1-percentage" min="0" max="100" class="form-control"
+                      aria-label="אחוז מסך הנזילים" />
+                    מסך הנכסים הנזילים שלי
+
+                    <div class="invalid-feedback">נא לבחור אחוז</div>
+                    <div class="invalid-feedback invalid-percent">נא להזין אחוז בטווח 1 עד 100</div>
+                    <div class="inner_stage-1-2-tooltip mt-2">
+                      <div class="inner_stage-1-2-tooltip-icon">
+                        <img src="assets/information 1.svg" />
+                      </div>
+                      <div class="inner_stage-1-2-tooltip-box">
+                        למה הכוונה בנכסים נזילים? הנכסים הנזילים שלך כוללים
+                        מזומן, פיקדונות בבנקים, השקעות, ניירות ערך, נכסים
+                        פיננסיים וכדומה. הכוונה לנכסים שתוכל למשוך ולממש בזמן
+                        קצר יחסית ולכן הם אינם כוללים למשל נדל"ן שברשותך
+                        ופנסיה.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="stage-2 visually-hidden">
+              <!-- Stage 1-1: Start -->
+              <h1 class="form-main-header">תכנון ההשקעה - פרטים נוספים</h1>
+              <div class="row g-3">
+                <div class="col-md-6 mt-4">
+                  <label for="birthdate" class="form-label">מה תאריך הלידה שלך?
+                    
+                  </label>
+                  <input type="date" id="birthdate" class="form-control" placeholder="תאריך לידה"
+                    aria-label="תאריך לידה" aria-describedby="basic-addon1" />
+                  <div class="invalid-feedback">נא להזין תאריך לידה</div>
+                  <div class="invalid-feedback invalid-feedback-under18">גיל פחות מ-18</div>
+                </div>
+                <div class="col-md-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mt-4">
+                  <label for="private-money-percent" class="form-label">
+                    <a href="" class="me-1 tooltip-impact">
+                      <img src="assets/info 1.svg" />
+                      <span class="tooltiptext">
+                        <div class="row">
+                          <div class="col-12">
+                            <span class="fnt-b"> למה הכוונה בנכסים נזילים?</span>
+                          </div>
+                          <div class="col-12">
+                            הנכסים
+                            הנזילים שלך כוללים מזומן, פיקדונות בבנקים, השקעות,
+                            ניירות ערך, נכסים פיננסיים וכדומה. הכוונה לנכסים
+                            שתוכל למשוך ולממש בזמן קצר יחסית ולכן הם אינם
+                            כוללים למשל נדל"ן שברשותך ופנסיה.
+                          </div>
+                          <div class="col-12">
+                            <span class="fnt-b"> למה אנחנו שואלים?</span>
+                          </div>
+                          <div class="col-12">
+                            חשוב שתשמור לך נכסים נזילים להתנהלות השוטפת
+                            למקרה שהדברים ישתבשו... ככל שהחלק שאתה משקיע מתוך
+                            כל הנכסים הנזילים שלך גבוה יותר כך רמת הסיכון
+                            שתוכל לקחת נמוכה יותר ולהיפך, ככל שהחלק הזה קטן יותר
+                            כך רמת הסיכון שתוכל לקחת בהשקעה גבוהה יותר. אל דאגה!
+                            תוכל להגדיל או להקטין את סכום ההשקעה בכל שלב שתרצה.
+                          </div>
+                        </div>
+                      </span>
+
+                    </a>
+                    ההשקעה שלי כאן מהווה
+                  </label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      את רוב הוני הנזיל
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                      checked />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      כ- 50% מההון הנזיל שלי
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      כ- 25% מההון הנזיל שלי
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                      checked />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      פחות מ- 10% מההון הנזיל שלי
+                    </label>
+                  </div>
+                  <div class="invalid-feedback">נא לבחור תשובה</div>
+                </div>
+                <div class="col-md-6 mt-4">
+                  <label for="money-period" class="form-label">
+                    <a href="" class="me-1 tooltip-impact">
+                      <img src="assets/info 1.svg" />
+                      <span class="tooltiptext">
+                        <div class="row">
+                          <div class="col-12">
+                            <span class="fnt-b"> למה חשוב לציין זמן השקעה?</span>
+                          </div>
+                          <div class="col-12">
+                            אנחנו משתמשים במידע על זמן ההשקעה הצפוי
+                            שלך כלומר, הזמן שבו להערכתך
+                            לא תצטרך להשתמש בכסף וברמת
+                            הסיכון שלך על מנת להתאים לך את
+                            ההשקעה הטובה ביותר עבורך.
+                            ככלל, ככל שתקופת ההשקעה ארוכה יותר, כך
+                            רמת הסיכון ופוטנציאל הרווח גבוהים יותר.
+                            במידה ואתה מתכוון להשתמש בכסף בטווח
+                            הקצר, רמת הסיכון שאתה צריך לקחת היא
+                            נמוכה ולהיפך, אם תקופת ההשקעה שלך
+                            ארוכה, תוכל לקחת סיכון גבוה יותר
+                            ולספוג הפסדים בטווח קצר לטובת
+                            תגמול גדול יותר בהמשך הדרך.
+                          </div>
+                          <div class="col-12">
+                            <span class="fnt-b">
+                              איך אדע לכמה שנים אני
+                              מתכוון להשקיע?
+                            </span>
+                          </div>
+                          <div class="col-12">
+                            תקופת ההשקעה שלך קשורה
+                            למטרה שלשמה אתה משקיע, לחלק מהמטרות יש
+                            מסגרת זמן ידועה מראש למשל כמו קניית בית או
+                            תשלום ללימודים. אם אתה משקיע שלא עבור
+                            מטרה ספציפית ייתכן ואין לך זמן ידוע מראש.
+                            גם במקרה הזה יעזור לך לחשוב
+                            מתי תצטרך את הכסף במונחים רחבים יותר
+                            לדוגמה: האם תצטרך אותו בעוד 10,5 או
+                            20 שנה? ככל שתהיה יותר מדויק בנוגע
+                            לתקופת ההשקעה כך תוכל לקבל מסלול
+                            השקעה שיתאים לך ולהגדיל את סיכוייך
+                            להשיג את היעדים שלך. זכור! יש לך
+                            גישה לכסף בכל שלב בו תרצה אותו.
+                          </div>
+                        </div>
+                      </span>
+                    </a>
+                    לא אזדקק לכסף
+                  </label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      בשנה הקרובה
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                      checked />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      בשלוש השנים הקרובות
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      לא בעתיד הנראה לעין
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                      checked />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      זה כנראה לפנסיה
+                    </label>
+                  </div>
+                  <div class="invalid-feedback">נא לבחור תשובה</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 mt-4">
+                  <label for="money-period" class="form-label">
+                    <a href="" class="me-1">
+                      <img src="assets/info 1.svg" />
+                    </a>
+                    מה אעשה אם תיק ההשקעות שלי יאבד מערכו כ- 30% בחודש
+                  </label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      בשנה הקרובה
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                      checked />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      בשלוש השנים הקרובות
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      לא בעתיד הנראה לעין
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                      checked />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      זה כנראה לפנסיה
+                    </label>
+                  </div>
+                  <div class="invalid-feedback">נא לבחור תשובה</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 mt-4">
+                  <label for="money-period" class="form-label">
+                    <a href="" class="me-1">
+                      <img src="assets/info 1.svg" />
+                    </a>
+                    אם ברשותי תיק השקעות של 100 אלפי ₪, המפולת בשווקים הביאה
+                    את התיק בתוך שבוע ל- 60 אלפי ₪ כיצד אגיב?
+                  </label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      ארגיש כאב רב ואחשוש להשקעותי
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                      checked />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      ארגיש כאב ואשקול את צעדיי בשוק ההון
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      אשאר אדיש מכיוון שהשקעותיי הינן לטווח ארוך
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                      checked />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      מכה קלה בכנף ממשיכים קדימה בכל הכח
+                    </label>
+                  </div>
+                  <div class="invalid-feedback">נא לבחור תשובה</div>
+                </div>
+              </div>
+            </div>
+            <div class="stage-3 visually-hidden">
+              <!-- Stage 1-1: Start -->
+              <h1 class="form-main-header">תוצאות</h1>
+              <div class="row g-3">
+                <div class="col-md-6 mt-4">
+                  <div class="form-secondary-header">
+                    רמת סיכון נמוכה -תיק ללא מניות
+                  </div>
+                  <div class="mt-2">
+                    מדיניות זו מתאימה ללקוח שאינו אוהב סיכון המעוניין בהשקעה
+                    סולידית ובדרגת סיכון נמוכה מאד. מעדיף לקחת סיכונים נמוכים
+                    ככל האפשר ובכלל זה יכולת ספיגת הפסדים נמוכה בתיק ההשקעות,
+                    גם בטווח ההשקעה הקצר.
+                  </div>
+                </div>
+                <div class="col-md-6 mt-4">
+                  <img src="assets/low-risk.png" class="img-fluid" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mt-4">
+                  <div class="form-secondary-header">
+                    תיק ברמת סיכון נמוכה- בינונית עם חשיפה של עד- 25% מניות
+                  </div>
+                  <div class="mt-2">
+                    ממדיניות זו מתאימה לקוח המעוניין בהשקעה שיש בה סיכון מסוים
+                    (עד כ- 25% חשיפה למניות). שואף להשיג תשואה עודפת על ההשקעה
+                    לאורך זמן. מוכן לספוג הפסדים בטווח הקצר על מנת לזכות
+                    בתשואה גבוהה בטווח הארוך. התיק יתאפיין בתנודתיות גבוהה
+                    בימים בהם השוק נע כלפי מעלה או כלפי מטה בתנודות חריגות.
+                    התשואה הצפויה של התיק ובהתאם, ההפסד הצפוי, יהיו בהתאם
+                    לתנודתיות השוק, וייתכן אף גבוה מכך.
+                  </div>
+                </div>
+                <div class="col-md-6 mt-4">
+                  <img src="assets/low-middle-risk.png" class="img-fluid" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mt-4">
+                  <div class="form-secondary-header">
+                    תיק השקעות ברמת סיכון בינונית-גבוהה עם חשיפה של עד 50%
+                    למניות
+                  </div>
+                  <div class="mt-2">
+                    מדיניות השקעות זו מתאימה ללקוח המעוניין בהשקעה שיש בה
+                    סיכון גבוה ומעל הממוצע. שואף להשיג תשואה עודפת על ההשקעה
+                    לאורך זמן. מוכן לספוג הפסדים בטווח הקצר על מנת לזכות
+                    בתשואה גבוהה בטווח הארוך. התיק יתאפיין בתנודתיות גבוהה
+                    בימים בהם השוק נע כלפי מעלה או כלפי מטה בתנודות חריגות.
+                    התשואה הצפויה של התיק ובהתאם, ההפסד הצפוי, יהיו בהתאם
+                    לתנודתיות השוק, וייתכן אף גבוה מכך.
+                  </div>
+                </div>
+                <div class="col-md-6 mt-4">
+                  <img src="assets/middle-high-risk.png" class="img-fluid" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mt-4">
+                  <div class="form-secondary-header">
+                    תיק השקעות ברמת סיכון גבוהה עם חשיפה מלאה למניות (עד 100%)
+                  </div>
+                  <div class="mt-2">
+                    מדיניות זו מתאימה ללקוח שאוהב סיכון וברמה גבוהה. שואף
+                    להשיג תשואה גבוהה על ההשקעה לאורך זמן. כלומר, מוכן לספוג
+                    הפסדים משמעותיים בטווח הקצר, אף במחיר הפסד משמעותי של הכסף
+                    שהשקיע בתיק ההשקעות (הקרן), על מנת לזכות בתשואה גבוהה מאוד
+                    בטווח הארוך. התיק יתאפיין בתנודתיות גבוהה מאוד בימים בהם
+                    השוק נע כלפי מעלה או כלפי מטה בתנודות בינוניות. התשואה
+                    הצפויה של התיק, ובהתאם, ההפסד הצפוי, יהיו בהתאם לתנודתיות
+                    השוק וככל הנראה אף למעלה מכך. הנכסים בהם התיק יושקע יהיו
+                    נזילים, אך ייתכנו מצבים בהם יהיו קשיים לממש את חלקם
+                    בנקודות זמן מסוימות.
+                  </div>
+                </div>
+                <div class="col-md-6 mt-4">
+                  <img src="assets/high.png" class="img-fluid" />
+                </div>
+              </div>
+            </div>
+            <div class="stage-4 visually-hidden">
+              <h1 class="form-main-header">פרטים אישיים</h1>
+              <div class="row g-3">
+                <div class="col-md-6 mt-4">
+                  <input type="text" class="form-control" id="firstName" placeholder="שם פרטי" />
+                  <div class="invalid-feedback">נא להזין את שמך הפרטי</div>
+                </div>
+                <div class="col-md-6 mt-4">
+                  <input type="text" class="form-control" id="firstName" placeholder="שם משפחה" />
+                  <div class="invalid-feedback">נא להזין את שם המשפחה</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mt-4">
+                  <input type="text" class="form-control" id="firstName" placeholder="מספר תעודת זהות" />
+                  <div class="invalid-feedback">
+                    נא להזין את מספר תעודת הזהות
+                  </div>
+                </div>
+                <div class="col-md-6 mt-4">
+                  <input type="text" class="form-control" id="firstName" placeholder="טלפון" />
+                  <div class="invalid-feedback">נא להזין את מספר הטלפון</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 mt-4">
+                  <div class="gender-container d-flex flex-row">
+                    <input type="radio" value="male" name="gender" id="male" />
+                    <label for="male" class="btn male" id="btn-male" for="btn-check-outlined">
+                      <img src="assets/man 1.svg" /> </label><br />
+                    <input type="radio" value="female" name="gender" id="female" />
+                    <label for="female" class="btn female" id="btn-female" for="btn-check-outlined">
+                      <img src="assets/woman 1.svg" /> </label><br />
+
+                    <div class="invalid-feedback">נא לבחור ערך</div>
+                    <!-- <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+<label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>
+                                </div> -->
+                  </div>
+                </div>
+                <div class="col-md-9 mt-4">
+                  <input type="email" class="form-control" id="personal-email" placeholder="כתובת דואר אלקטרוני" />
+                  <div class="invalid-feedback">
+                    נא להזין כתובת דואר אלקטרוני
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 mt-4">
+                  <input type="text" class="form-control" id="city" placeholder="עיר מגורים" />
+                  <div class="invalid-feedback">נא להזין עיר מגורים</div>
+                </div>
+                <div class="col-md-4 mt-4">
+                  <input type="text" class="form-control" id="apt" placeholder="מספר בית" />
+                  <div class="invalid-feedback">נא להזין את מספר הבית</div>
+                </div>
+                <div class="col-md-4 mt-4">
+                  <input type="text" class="form-control" id="zip-code" placeholder="מיקוד" />
+                  <div class="invalid-feedback">נא להזין מיקוד</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 mt-4">
+                  <div class="form-secondary-header mt-2">
+                    כיצד יישלחו הדוחות?
+                  </div>
+                </div>
+                <div class="col-md-8 mt-4">
+                  <div class="d-flex flex-row">
+                    <div class="form-check me-3">
+                      <input class="form-check-input" type="radio" name="reports" id="reports-email" />
+                      <label class="form-check-label" for="reports-email">
+                        דואר אלקטרוני
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="reports" id="reports-post" checked />
+                      <label class="form-check-label" for="reports-post">
+                        דואר ישראל</label>
+                    </div>
+                  </div>
+                  <div class="invalid-feedback">נא לבחור תשובה</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 mt-4">
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                    <label class="form-check-label" for="exampleCheck1">
+                      ידוע לי ואני מסכים בזאת כי המידע אשר יימסר על ידי במסגרת
+                      תהליך הצטרפות זה, אף אם לא אשלים אותו במלואו, יישמר
+                      במאגרי המידע של קבוצת תמיר פישמן וישמש לצורך ניהול,
+                      תפעול ושיווק, ניהול קשרי לקוחות והפקת מידע סטטיסטי.
+                      הריני לאשר כי מסירת המידע, לרבות מידע שחלה עלי חובה
+                      למוסרו לחברה על פי הוראות הדין, נעשית מרצוני החופשי
+                      ובהסכמתי.
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="stage-5 visually-hidden">
+              <h1 class="form-main-header">רגולציה - שאלות</h1>
+              <div class="row">
+                <div class="col-12 mt-4 us-person-regulation" style="display: none;">
+                  <div class="mb-3">
+                    <img src="assets/exclamation 1.svg">
+                    <span class="warning">
+                    בהתאם להוראות הדין אנו נדרשים לבדוק עמך פרטים נוספים.
+                    <br>
+                     אנו ניצור עמך קשר.
+                    </span>
+                       <br>
+                       בנוסף מצ"ב פרטי תקשורת עמנו
+                    <br>
+                       טלפון:<span class="fnt-b"> 077-5191600</span>
+
+                    דואר אלקטרוני: <span class="fnt-b">Impact@impact-inv.co.il</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-5 mt-4">
+                  <label class="form-label">
+                    האם אתה תושב ואזרח מדינת ישראל?
+                  </label>
+                  <div class="citizen-container d-flex flex-row">
+                    <input type="radio" value="il-yes" name="il-citizen" id="il-yes" />
+                    <label for="il-yes" class="btn btn-yes-no me-3">
+                      כן </label><br />
+                    <input type="radio" value="il-no" name="il-citizen" id="il-no" />
+                    <label for="il-no" class="btn btn-yes-no"> לא </label><br />
+                    <div class="invalid-feedback">נא לבחור ערך</div>
+                  </div>
+                </div>
+                <div class="col-md-7 mt-4">
+                 
+                  <label class="form-label">
+                    אני U.S Person כלומר אני אזרח או תושב ארצות הברית
+                  </label>
+                  <div class="citizen-container d-flex flex-row">
+                    <input type="radio" value="us-yes" name="us-citizen" id="us-yes" />
+                    <label for="us-yes" class="btn btn-yes-no me-3">
+                      כן </label><br />
+                    <input type="radio" value="us-no" name="us-citizen" id="us-no" />
+                    <label for="us-no" class="btn btn-yes-no"> לא </label><br />
+                    <div class="invalid-feedback">נא לבחור ערך</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mt-4">
+                  <label for="employment-type" class="form-label">מהו עיסוקך?</label>
+                  <select id="employment-type" class="form-select">
+                    <option>עצמאי</option>
+                    <option>שכיר</option>
+                    <option>סטודנט\גמלאי</option>
+                    <option>אחר</option>
                   </select>
                   <div class="invalid-feedback">נא לבחור סכום להשקעה</div>
                 </div>
+              </div>
+              <div class="row">
+                <div class="col-12 mt-4">
+                  <div class="contact-us-regulation mb-3" style="display: none;">
+                    <img src="assets/exclamation 1.svg">
+                    <span class="warning">
+                    בהתאם להוראות הדין אנו נדרשים לבדוק עמך פרטים נוספים.
+                    <br>
+                     אנו ניצור עמך קשר.
+                    </span>
+                       <br>
+                       בנוסף מצ"ב פרטי תקשורת עמנו
+                    <br>
+                       טלפון:<span class="fnt-b"> 077-5191600</span>
 
-                <div class="col-md-9 mt-4">
-                  <div class="inner_stage-1-1-row input-wrapper">
-                    <div>
-                      סכום זה מהווה %
-                      <input
-                        type="number"
-                        name="stage1-2-percentage"
-                        min="0"
-                        max="100"
-                        class="form-control"
-                        aria-label="אחוז מסך הנזילים"
-                      />
-                      מסך הנכסים הנזילים שלי
-
-                      <div class="invalid-feedback">נא לבחור אחוז</div>
-                      <div class="inner_stage-1-2-tooltip mt-2">
-                        <div class="inner_stage-1-2-tooltip-icon">
-                          <img src="assets/information 1.svg" />
-                        </div>
-                        <div class="inner_stage-1-2-tooltip-box">
-                          למה הכוונה בנכסים נזילים? הנכסים הנזילים שלך כוללים
-                          מזומן, פיקדונות בבנקים, השקעות, ניירות ערך, נכסים
-                          פיננסיים וכדומה. הכוונה לנכסים שתוכל למשוך ולממש בזמן
-                          קצר יחסית ולכן הם אינם כוללים למשל נדל"ן שברשותך
-                          ופנסיה.
-                        </div>
-                      </div>
-                    </div>
+                    דואר אלקטרוני: <span class="fnt-b">Impact@impact-inv.co.il</span>
+                  </div>
+                  <label class="form-label"> סמן רק אם אתה אחד מהבאים </label>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input reg-check" id="ex1" />
+                    <label class="form-check-label" for="ex1">
+                      מחזיק היום או כיהנת בעבר בתפקיד ציבורי בכיר זר
+                    </label>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input reg-check" id="ex2" />
+                    <label class="form-check-label" for="ex2">
+                      קרוב משפחה של בעל תפקיד ציבורי בכיר זר
+                    </label>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input reg-check" id="ex3" />
+                    <label class="form-check-label" for="ex3">
+                      בעל שליטה בתאגיד בו קיים בעל שליטה נוסף שהינו בעל תפקיד
+                      ציבורי זר
+                    </label>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input reg-check" id="ex4" />
+                    <label class="form-check-label" for="ex4">
+                      מחזיק היום או כיהנת בעבר בתפקיד ציבורי בכיר בישראל
+                    </label>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input reg-check" id="ex5" />
+                    <label class="form-check-label" for="ex5">
+                      קרוב משפחה של בעל תפקיד ציבורי בכיר ישראלי
+                    </label>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input reg-check" id="ex6" />
+                    <label class="form-check-label" for="ex6">
+                      בעל שליטה בתאגיד בו קיים בעל שליטה נוסף שהינו בעל תפקיד
+                      ציבורי בכיר ישראלי
+                    </label>
                   </div>
                 </div>
               </div>
-              <div class="stage-2 visually-hidden">
-                <!-- Stage 1-1: Start -->
-                <h1 class="form-main-header">תכנון ההשקעה - פרטים נוספים</h1>
-                <div class="row g-3">
-                  <div class="col-md-6 mt-4">
-                    <label for="birthdate" class="form-label"
-                      >מה תאריך הלידה שלך?
-                      <span class="wizard-caption"> גיל פחות מ-18 </span>
-                    </label>
-                    <input
-                      type="date"
-                      id="birthdate"
-                      class="form-control"
-                      placeholder="תאריך לידה"
-                      aria-label="תאריך לידה"
-                      aria-describedby="basic-addon1"
-                    />
-                    <div class="invalid-feedback">נא להזין תאריך לידה</div>
-                  </div>
-                  <div class="col-md-6"></div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mt-4">
-                    <label for="private-money-percent" class="form-label">
-                      <a href="" class="me-1">
-                        <img src="assets/info 1.svg" />
-                      </a>
-                      ההשקעה שלי כאן מהווה
-                    </label>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        את רוב הוני הנזיל
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        כ- 50% מההון הנזיל שלי
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        כ- 25% מההון הנזיל שלי
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        פחות מ- 10% מההון הנזיל שלי
-                      </label>
-                    </div>
-                    <div class="invalid-feedback">נא לבחור תשובה</div>
-                  </div>
-                  <div class="col-md-6 mt-4">
-                    <label for="money-period" class="form-label">
-                      <a href="" class="me-1">
-                        <img src="assets/info 1.svg" />
-                      </a>
-                      לא אזדקק לכסף
-                    </label>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        בשנה הקרובה
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        בשלוש השנים הקרובות
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        לא בעתיד הנראה לעין
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        זה כנראה לפנסיה
-                      </label>
-                    </div>
-                    <div class="invalid-feedback">נא לבחור תשובה</div>
-                  </div>
-                </div>
+            </div>
+            <div class="stage-6 visually-hidden">
+              <h1 class="form-main-header">פרטים נוספים</h1>
+              <form class="row g-3">
                 <div class="row">
                   <div class="col-12 mt-4">
-                    <label for="money-period" class="form-label">
-                      <a href="" class="me-1">
-                        <img src="assets/info 1.svg" />
-                      </a>
-                      מה אעשה אם תיק ההשקעות שלי יאבד מערכו כ- 30% בחודש
-                    </label>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        בשנה הקרובה
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        בשלוש השנים הקרובות
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        לא בעתיד הנראה לעין
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        זה כנראה לפנסיה
-                      </label>
-                    </div>
-                    <div class="invalid-feedback">נא לבחור תשובה</div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12 mt-4">
-                    <label for="money-period" class="form-label">
-                      <a href="" class="me-1">
-                        <img src="assets/info 1.svg" />
-                      </a>
-                      אם ברשותי תיק השקעות של 100 אלפי ₪, המפולת בשווקים הביאה
-                      את התיק בתוך שבוע ל- 60 אלפי ₪ כיצד אגיב?
-                    </label>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        ארגיש כאב רב ואחשוש להשקעותי
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        ארגיש כאב ואשקול את צעדיי בשוק ההון
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        אשאר אדיש מכיוון שהשקעותיי הינן לטווח ארוך
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        מכה קלה בכנף ממשיכים קדימה בכל הכח
-                      </label>
-                    </div>
-                    <div class="invalid-feedback">נא לבחור תשובה</div>
-                  </div>
-                </div>
-              </div>
-              <div class="stage-3 visually-hidden">
-                <!-- Stage 1-1: Start -->
-                <h1 class="form-main-header">תוצאות</h1>
-                <div class="row g-3">
-                  <div class="col-md-6 mt-4">
-                    <div class="form-secondary-header">
-                      רמת סיכון נמוכה -תיק ללא מניות
-                    </div>
-                    <div class="mt-2">
-                      מדיניות זו מתאימה ללקוח שאינו אוהב סיכון המעוניין בהשקעה
-                      סולידית ובדרגת סיכון נמוכה מאד. מעדיף לקחת סיכונים נמוכים
-                      ככל האפשר ובכלל זה יכולת ספיגת הפסדים נמוכה בתיק ההשקעות,
-                      גם בטווח ההשקעה הקצר.
-                    </div>
-                  </div>
-                  <div class="col-md-6 mt-4">
-                    <img src="assets/low-risk.png" class="img-fluid" />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mt-4">
-                    <div class="form-secondary-header">
-                      תיק ברמת סיכון נמוכה- בינונית עם חשיפה של עד- 25% מניות
-                    </div>
-                    <div class="mt-2">
-                      ממדיניות זו מתאימה לקוח המעוניין בהשקעה שיש בה סיכון מסוים
-                      (עד כ- 25% חשיפה למניות). שואף להשיג תשואה עודפת על ההשקעה
-                      לאורך זמן. מוכן לספוג הפסדים בטווח הקצר על מנת לזכות
-                      בתשואה גבוהה בטווח הארוך. התיק יתאפיין בתנודתיות גבוהה
-                      בימים בהם השוק נע כלפי מעלה או כלפי מטה בתנודות חריגות.
-                      התשואה הצפויה של התיק ובהתאם, ההפסד הצפוי, יהיו בהתאם
-                      לתנודתיות השוק, וייתכן אף גבוה מכך.
-                    </div>
-                  </div>
-                  <div class="col-md-6 mt-4">
-                    <img src="assets/low-middle-risk.png" class="img-fluid" />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mt-4">
-                    <div class="form-secondary-header">
-                      תיק השקעות ברמת סיכון בינונית-גבוהה עם חשיפה של עד 50%
-                      למניות
-                    </div>
-                    <div class="mt-2">
-                      מדיניות השקעות זו מתאימה ללקוח המעוניין בהשקעה שיש בה
-                      סיכון גבוה ומעל הממוצע. שואף להשיג תשואה עודפת על ההשקעה
-                      לאורך זמן. מוכן לספוג הפסדים בטווח הקצר על מנת לזכות
-                      בתשואה גבוהה בטווח הארוך. התיק יתאפיין בתנודתיות גבוהה
-                      בימים בהם השוק נע כלפי מעלה או כלפי מטה בתנודות חריגות.
-                      התשואה הצפויה של התיק ובהתאם, ההפסד הצפוי, יהיו בהתאם
-                      לתנודתיות השוק, וייתכן אף גבוה מכך.
-                    </div>
-                  </div>
-                  <div class="col-md-6 mt-4">
-                    <img src="assets/middle-high-risk.png" class="img-fluid" />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mt-4">
-                    <div class="form-secondary-header">
-                      תיק השקעות ברמת סיכון גבוהה עם חשיפה מלאה למניות (עד 100%)
-                    </div>
-                    <div class="mt-2">
-                      מדיניות זו מתאימה ללקוח שאוהב סיכון וברמה גבוהה. שואף
-                      להשיג תשואה גבוהה על ההשקעה לאורך זמן. כלומר, מוכן לספוג
-                      הפסדים משמעותיים בטווח הקצר, אף במחיר הפסד משמעותי של הכסף
-                      שהשקיע בתיק ההשקעות (הקרן), על מנת לזכות בתשואה גבוהה מאוד
-                      בטווח הארוך. התיק יתאפיין בתנודתיות גבוהה מאוד בימים בהם
-                      השוק נע כלפי מעלה או כלפי מטה בתנודות בינוניות. התשואה
-                      הצפויה של התיק, ובהתאם, ההפסד הצפוי, יהיו בהתאם לתנודתיות
-                      השוק וככל הנראה אף למעלה מכך. הנכסים בהם התיק יושקע יהיו
-                      נזילים, אך ייתכנו מצבים בהם יהיו קשיים לממש את חלקם
-                      בנקודות זמן מסוימות.
-                    </div>
-                  </div>
-                  <div class="col-md-6 mt-4">
-                    <img src="assets/high.png" class="img-fluid" />
-                  </div>
-                </div>
-              </div>
-              <div class="stage-4 visually-hidden">
-                <h1 class="form-main-header">פרטים אישיים</h1>
-                <div class="row g-3">
-                  <div class="col-md-6 mt-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="firstName"
-                      placeholder="שם פרטי"
-                    />
-                    <div class="invalid-feedback">נא להזין את שמך הפרטי</div>
-                  </div>
-                  <div class="col-md-6 mt-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="firstName"
-                      placeholder="שם משפחה"
-                    />
-                    <div class="invalid-feedback">נא להזין את שם המשפחה</div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mt-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="firstName"
-                      placeholder="מספר תעודת זהות"
-                    />
-                    <div class="invalid-feedback">
-                      נא להזין את מספר תעודת הזהות
-                    </div>
-                  </div>
-                  <div class="col-md-6 mt-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="firstName"
-                      placeholder="טלפון"
-                    />
-                    <div class="invalid-feedback">נא להזין את מספר הטלפון</div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-3 mt-4">
-                    <div class="gender-container d-flex flex-row">
-                      <input
-                        type="radio"
-                        value="male"
-                        name="gender"
-                        id="male"
-                      />
-                      <label
-                        for="male"
-                        class="btn male"
-                        id="btn-male"
-                        for="btn-check-outlined"
-                      >
-                        <img src="assets/man 1.svg" /> </label
-                      ><br />
-                      <input
-                        type="radio"
-                        value="female"
-                        name="gender"
-                        id="female"
-                      />
-                      <label
-                        for="female"
-                        class="btn female"
-                        id="btn-female"
-                        for="btn-check-outlined"
-                      >
-                        <img src="assets/woman 1.svg" /> </label
-                      ><br />
-
-                      <div class="invalid-feedback">נא לבחור ערך</div>
-                      <!-- <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-<label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>
-                                </div> -->
-                    </div>
-                  </div>
-                  <div class="col-md-9 mt-4">
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="personal-email"
-                      placeholder="כתובת דואר אלקטרוני"
-                    />
-                    <div class="invalid-feedback">
-                      נא להזין כתובת דואר אלקטרוני
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4 mt-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="city"
-                      placeholder="עיר מגורים"
-                    />
-                    <div class="invalid-feedback">נא להזין עיר מגורים</div>
-                  </div>
-                  <div class="col-md-4 mt-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="apt"
-                      placeholder="מספר בית"
-                    />
-                    <div class="invalid-feedback">נא להזין את מספר הבית</div>
-                  </div>
-                  <div class="col-md-4 mt-4">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="zip-code"
-                      placeholder="מיקוד"
-                    />
-                    <div class="invalid-feedback">נא להזין מיקוד</div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4 mt-4">
-                    <div class="form-secondary-header mt-2">
-                      כיצד יישלחו הדוחות?
-                    </div>
-                  </div>
-                  <div class="col-md-8 mt-4">
-                    <div class="d-flex flex-row">
-                      <div class="form-check me-3">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="reports"
-                          id="reports-email"
-                        />
-                        <label class="form-check-label" for="reports-email">
-                          דואר אלקטרוני
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="reports"
-                          id="reports-post"
-                          checked
-                        />
-                        <label class="form-check-label" for="reports-post">
-                          דואר ישראל</label
-                        >
-                      </div>
-                    </div>
-                    <div class="invalid-feedback">נא לבחור תשובה</div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12 mt-4">
-                    <div class="mb-3 form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="exampleCheck1"
-                      />
-                      <label class="form-check-label" for="exampleCheck1">
-                        ידוע לי ואני מסכים בזאת כי המידע אשר יימסר על ידי במסגרת
-                        תהליך הצטרפות זה, אף אם לא אשלים אותו במלואו, יישמר
-                        במאגרי המידע של קבוצת תמיר פישמן וישמש לצורך ניהול,
-                        תפעול ושיווק, ניהול קשרי לקוחות והפקת מידע סטטיסטי.
-                        הריני לאשר כי מסירת המידע, לרבות מידע שחלה עלי חובה
-                        למוסרו לחברה על פי הוראות הדין, נעשית מרצוני החופשי
-                        ובהסכמתי.
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="stage-5 visually-hidden">
-                <h1 class="form-main-header">רגולציה - שאלות</h1>
-                <div class="row g-3">
-                  <div class="col-md-5 mt-4">
-                    <label class="form-label">
-                      האם אתה תושב ואזרח מדינת ישראל?
-                    </label>
-                    <div class="citizen-container d-flex flex-row">
-                      <input
-                        type="radio"
-                        value="il-yes"
-                        name="il-citizen"
-                        id="il-yes"
-                      />
-                      <label for="il-yes" class="btn btn-yes-no me-3">
-                        כן </label
-                      ><br />
-                      <input
-                        type="radio"
-                        value="il-no"
-                        name="il-citizen"
-                        id="il-no"
-                      />
-                      <label for="il-no" class="btn btn-yes-no"> לא </label
-                      ><br />
-                      <div class="invalid-feedback">נא לבחור ערך</div>
-                    </div>
-                  </div>
-                  <div class="col-md-7 mt-4">
-                    <label class="form-label">
-                      אני U.S Person כלומר אני אזרח או תושב ארצות הברית
-                    </label>
-                    <div class="citizen-container d-flex flex-row">
-                      <input
-                        type="radio"
-                        value="us-yes"
-                        name="us-citizen"
-                        id="us-yes"
-                      />
-                      <label for="us-yes" class="btn btn-yes-no me-3">
-                        כן </label
-                      ><br />
-                      <input
-                        type="radio"
-                        value="us-no"
-                        name="us-citizen"
-                        id="us-no"
-                      />
-                      <label for="us-no" class="btn btn-yes-no"> לא </label
-                      ><br />
-                      <div class="invalid-feedback">נא לבחור ערך</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6 mt-4">
-                    <label for="employment-type" class="form-label"
-                      >מהו עיסוקך?</label
-                    >
-                    <select id="employment-type" class="form-select">
-                      <option>עצמאי</option>
-                      <option>שכיר</option>
-                      <option>סטודנט\גמלאי</option>
-                      <option>אחר</option>
-                    </select>
-                    <div class="invalid-feedback">נא לבחור סכום להשקעה</div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12 mt-4">
-                    <label class="form-label"> סמן רק אם אתה אחד מהבאים </label>
-                    <div class="mb-3 form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="ex1"
-                      />
-                      <label class="form-check-label" for="ex1">
-                        מחזיק היום או כיהנת בעבר בתפקיד ציבורי בכיר זר
-                      </label>
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="ex2"
-                      />
-                      <label class="form-check-label" for="ex2">
-                        קרוב משפחה של בעל תפקיד ציבורי בכיר זר
-                      </label>
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="ex3"
-                      />
-                      <label class="form-check-label" for="ex3">
-                        בעל שליטה בתאגיד בו קיים בעל שליטה נוסף שהינו בעל תפקיד
-                        ציבורי זר
-                      </label>
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="ex4"
-                      />
-                      <label class="form-check-label" for="ex4">
-                        מחזיק היום או כיהנת בעבר בתפקיד ציבורי בכיר בישראל
-                      </label>
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="ex5"
-                      />
-                      <label class="form-check-label" for="ex5">
-                        קרוב משפחה של בעל תפקיד ציבורי בכיר ישראלי
-                      </label>
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="ex6"
-                      />
-                      <label class="form-check-label" for="ex6">
-                        בעל שליטה בתאגיד בו קיים בעל שליטה נוסף שהינו בעל תפקיד
-                        ציבורי בכיר ישראלי
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="stage-6 visually-hidden">
-                <h1 class="form-main-header">פרטים נוספים</h1>
-                <div class="row g-3">
-                  <div class="col-12 mt-4">
-                    <label for="money-origin" class="form-label"
-                      >מה מקור הכסף שיופקד בחשבון?</label
-                    >
+                    <label for="money-origin" class="form-label">מה מקור הכסף שיופקד בחשבון?</label>
                     <select id="money-origin" class="form-select">
                       <option>
                         כספים שהצטברו לאורך השנים בחשבון בנק שבבעלותי
@@ -863,9 +736,7 @@
                 </div>
                 <div class="row">
                   <div class="col-12 mt-4">
-                    <label for="bank" class="form-label"
-                      >באיזה בנק ינוהלו כספי ההשקעה שלך?</label
-                    >
+                    <label for="bank" class="form-label">באיזה בנק ינוהלו כספי ההשקעה שלך?</label>
                     <select id="bank" class="form-select">
                       <option>בנק לאומי</option>
                       <option>בנק הפועלים</option>
@@ -884,108 +755,63 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 mt-4">
-                    <label for="private-money-percent" class="form-label">
-                      <!-- <a href="" class="me-1">
+ <div class="col-md-6 mt-4">
+                      <label for="private-money-percent" class="form-label">
+                        <!-- <a href="" class="me-1">
                           <img src="assets/info 1.svg" />
                         </a> -->
-                      אם כן, איזה סכום צפוי להיות מופקד תחילה?
-                    </label>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        0-50,000
+                        אם כן, איזה סכום צפוי להיות מופקד תחילה?
                       </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        50,000-300,000
-                      </label>
-                    </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          0-50,000
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault2"
+                          checked
+                        />
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          50,000-300,000
+                        </label>
+                      </div>
                     <div class="col-md-6 mt-4">
                       <label for="private-money-percent" class="form-label">
                         <!-- <a href="" class="me-1">
                           <img src="assets/info 1.svg" />
                         </a> -->
                         האם יש צפי להפקדת כסף נוסף במהלך התקופה?
+
                       </label>
                     </div>
                     <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <input class="form-check-input" type="radio" name="expected-amount" value="2" id="expectedAmountOption2"
+                        checked />
+                      <label class="form-check-label" for="expectedAmountOption2">
+                        50,000-300,000
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="expected-amount" value="3" id="expectedAmountOption3" />
+                      <label class="form-check-label" for="expectedAmountOption3">
+                        300,000-600,000
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="expected-amount" value="4" id="expectedAmountOption4"
+                        checked />
+                      <label class="form-check-label" for="expectedAmountOption4">
                         600,000 ומעלה
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mt-4">
-                    <label for="private-money-percent" class="form-label">
-                      <a href="" class="me-1">
-                        <img src="assets/info 1.svg" />
-                      </a>
-                      האם יש צפי להפקדת כסף נוסף במהלך התקופה?
-                    </label>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        לא בשלב זה
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        כן, אך לא ידועה התדירות
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
-                      />
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        כן, מספר פעמים בשנה
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
-                      />
-                      <label class="form-check-label" for="flexRadioDefault2">
-                        כן, אחת לשנה או יותר
                       </label>
                     </div>
                   </div>
@@ -1006,44 +832,224 @@
                     <div class="col-md-12 mt-3">
                       <label for="id-file" class="form-label btn-file-upload">
                         <img src="assets/up-arrow (1) 1.svg" />
-                        טעינת ת.ז.</label
-                      >
-                      <input
-                        class="form-control file-btn"
-                        type="file"
-                        id="id-file"
-                      />
+                        טעינת ת.ז.</label>
+                      <input class="form-control file-btn" type="file" id="id-file" />
                     </div>
                     <div class="col-md-12 mt-3">
                       <label for="card-file" class="form-label btn-file-upload">
                         <img src="assets/id-card (1) 1.svg" />
-                        טעינת דרכון/ר.נהיגה/תעודת עולה</label
-                      >
-                      <input
-                        class="form-control file-btn"
-                        type="file"
-                        id="card-file"
-                      />
+                        טעינת דרכון/ר.נהיגה/תעודת עולה</label>
+                      <input class="form-control file-btn" type="file" id="card-file" />
                     </div>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
+            <div class="stage-7 visually-hidden">
+              <h1 class="form-main-header">פרטים נוספים</h1>
+              <form class="row g-3">
+                <div class="row">
+                  <div class="col-md-7 mt-4">
+                    <label class="form-label">
+                      האם יהיו לך שותפים בחשבון?
+                    </label>
+                    <div class="citizen-container d-flex flex-row">
+                      <input type="radio" value="partner-yes" name="partner" id="partner-yes" />
+                      <label for="partner-yes" class="btn btn-yes-no me-3">
+                        כן </label><br />
+                      <input type="radio" value="partner-no" name="partner" id="partner-no" />
+                      <label for="partner-no" class="btn btn-yes-no">
+                        לא </label><br />
+                      <div class="invalid-feedback">נא לבחור ערך</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" id="personal-details-partner">
+                  <div class="col-md-3 mt-4">
+                    <label for="partner-connection" class="form-label">
+                      <!-- <a href="" class="me-1">
+                            <img src="assets/info 1.svg" />
+                          </a> -->
+                      מה סוג הקשר?
+                    </label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        בן/בת זוג
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                        checked />
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        ילד/ה
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        הורה
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                        checked />
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        חבר/ה
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                        checked />
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        אחר
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-9 mt-4">
+                    <div class="row">
+                      <div class="col-md-6 mt-4">
+                        <input type="text" class="form-control" id="firstName-partner" placeholder="שם פרטי" />
+                        <div class="invalid-feedback">נא להזין את שמך הפרטי</div>
+                      </div>
+                      <div class="col-md-6 mt-4">
+                        <input type="text" class="form-control" id="lastName-partner" placeholder="שם משפחה" />
+                        <div class="invalid-feedback">נא להזין את שם המשפחה</div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mt-4">
+                        <input type="text" class="form-control" id="id-partner" placeholder="מספר תעודת זהות" />
+                        <div class="invalid-feedback">
+                          נא להזין את מספר תעודת הזהות
+                        </div>
+                      </div>
+                      <div class="col-md-6 mt-4">
+                        <input type="text" class="form-control" id="phone-partner" placeholder="טלפון" />
+                        <div class="invalid-feedback">נא להזין את מספר הטלפון</div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 mt-4">
+                        <div class="gender-container d-flex flex-row">
+                          <input type="radio" value="male" name="gender" id="male-partner" />
+                          <label for="male-partner" class="btn male" id="btn-male-partner" for="btn-check-outlined">
+                            <img src="assets/man 1.svg" /> </label><br />
+                          <input type="radio" value="female" name="gender" id="female-partner" />
+                          <label for="female-partner" class="btn female" id="btn-female-partner"
+                            for="btn-check-outlined">
+                            <img src="assets/woman 1.svg" /> </label><br />
+
+                          <div class="invalid-feedback">נא לבחור ערך</div>
+                          <!-- <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                            <label class="btn btn-outline-primary" for="btn-check-outlined">Single toggle</label><br>
+                                      </div> -->
+                        </div>
+                      </div>
+                      <div class="col-md-9 mt-4">
+                        <input type="email" class="form-control" id="personal-email-partner"
+                          placeholder="כתובת דואר אלקטרוני" />
+                        <div class="invalid-feedback">
+                          נא להזין כתובת דואר אלקטרוני
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4 mt-4">
+                        <input type="text" class="form-control" id="city-partner" placeholder="עיר מגורים" />
+                        <div class="invalid-feedback">נא להזין עיר מגורים</div>
+                      </div>
+                      <div class="col-md-4 mt-4">
+                        <input type="text" class="form-control" id="apt-partner" placeholder="מספר בית" />
+                        <div class="invalid-feedback">נא להזין את מספר הבית</div>
+                      </div>
+                      <div class="col-md-4 mt-4">
+                        <input type="text" class="form-control" id="zip-code-partner" placeholder="מיקוד" />
+                        <div class="invalid-feedback">נא להזין מיקוד</div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-12 mt-4">
+                    <div class="file-header">
+                      <div class="file-header-h1">
+                        טעינת קבצים לצורך אימות - אופציונאלי
+                      </div>
+                      <div class="wizard-caption">
+                        הקבצים צריכים להיות מאחד מהסוגים הבאים: jpg, pdf, png,
+                        jpeg. המשקל המקסימלי של כל קובץ להעלאה הוא 3MB
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mt-3">
+                    <label for="id-file-partner" class="form-label btn-file-upload">
+                      <img src="assets/up-arrow (1) 1.svg" />
+                      טעינת ת.ז.</label>
+                    <input class="form-control file-btn" type="file" id="id-file-partner" />
+                  </div>
+                  <div class="col-md-12 mt-3">
+                    <label for="card-file-partner" class="form-label btn-file-upload">
+                      <img src="assets/id-card (1) 1.svg" />
+                      טעינת דרכון/ר.נהיגה/תעודת עולה</label>
+                    <input class="form-control file-btn" type="file" id="card-file-partner" />
+                  </div>
+                </div>
+
+              </form>
+            </div>
+            <div class="stage-8 visually-hidden">
+              <h1 class="form-main-header">אישורים</h1>
+              <form class="row g-3">
+                <div class="row">
+                  <div class="col-md-5 mt-4">
+                    <label class="form-label mt-2">
+                      אישור הסכם ניהול התיקים
+                    </label>
+                  </div>
+                  <div class="col-md-7 mt-4">
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="manage-1" />
+                      <label class="form-check-label" for="manage-1">
+                        אני מאשר/ת את הסכם ניהול התיקים
+                      </label>
+                    </div>
+                  </div>
 
             <div class="btn-container mt-5 d-flex justify-content-between">
-              <button type="button" class="prev">
-                <img src="assets/backward.svg" />חזרה
-              </button>
-              <button type="button" class="next">
-                המשך<img src="assets/forward.svg" />
-              </button>
-              <button type="button" class="submit">
-                אישור<img width="20px" src="assets/approved-accept-icon.svg" />
-              </button>
+              <button type="button" class="prev"><img src="assets/backward.svg" />חזרה</button>
+              <button type="button" class="next">המשך<img src="assets/forward.svg" /></button>
+              <button type="button" class="submit">אישור<img width="20px" src="assets/approved-accept-icon.svg" /></button>
             </div>
+
           </form>
+
+          </div>
+           
+            
+            
+          </div>
+            </div>
+
         </div>
       </div>
+      <div class="btn-container mt-5 d-flex justify-content-between">
+        <button type="button" class="prev">
+          <img src="assets/backward.svg" />חזרה
+        </button>
+        <button type="button" class="next">
+          המשך<img src="assets/forward.svg" />
+        </button>
+        <button type="button" class="submit">
+          אישור<img width="20px" src="assets/approved-accept-icon.svg" />
+        </button>
+      </div>
     </div>
-  </body>
+    </form>
+  </div>
+  </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>
