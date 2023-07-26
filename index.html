@@ -18,7 +18,7 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emretulek/jbvalidator@1.0.9/dist/jbvalidator.min.js"></script>
-  <script src="script.js"></script>
+  
 </head>
 
 <body>
@@ -161,6 +161,7 @@
                     מסך הנכסים הנזילים שלי
 
                     <div class="invalid-feedback">נא לבחור אחוז</div>
+                    <div class="invalid-feedback invalid-percent">נא להזין אחוז בטווח 1 עד 100</div>
                     <div class="inner_stage-1-2-tooltip mt-2">
                       <div class="inner_stage-1-2-tooltip-icon">
                         <img src="assets/information 1.svg" />
@@ -592,6 +593,24 @@
             </div>
             <div class="stage-5 visually-hidden">
               <h1 class="form-main-header">רגולציה - שאלות</h1>
+              <div class="row">
+                <div class="col-12 mt-4 us-person-regulation" style="display: none;">
+                  <div class="mb-3">
+                    <img src="assets/exclamation 1.svg">
+                    <span class="warning">
+                    בהתאם להוראות הדין אנו נדרשים לבדוק עמך פרטים נוספים.
+                    <br>
+                     אנו ניצור עמך קשר.
+                    </span>
+                       <br>
+                       בנוסף מצ"ב פרטי תקשורת עמנו
+                    <br>
+                       טלפון:<span class="fnt-b"> 077-5191600</span>
+
+                    דואר אלקטרוני: <span class="fnt-b">Impact@impact-inv.co.il</span>
+                  </div>
+                </div>
+              </div>
               <div class="row g-3">
                 <div class="col-md-5 mt-4">
                   <label class="form-label">
@@ -607,6 +626,7 @@
                   </div>
                 </div>
                 <div class="col-md-7 mt-4">
+                 
                   <label class="form-label">
                     אני U.S Person כלומר אני אזרח או תושב ארצות הברית
                   </label>
@@ -634,40 +654,54 @@
               </div>
               <div class="row">
                 <div class="col-12 mt-4">
+                  <div class="contact-us-regulation mb-3" style="display: none;">
+                    <img src="assets/exclamation 1.svg">
+                    <span class="warning">
+                    בהתאם להוראות הדין אנו נדרשים לבדוק עמך פרטים נוספים.
+                    <br>
+                     אנו ניצור עמך קשר.
+                    </span>
+                       <br>
+                       בנוסף מצ"ב פרטי תקשורת עמנו
+                    <br>
+                       טלפון:<span class="fnt-b"> 077-5191600</span>
+
+                    דואר אלקטרוני: <span class="fnt-b">Impact@impact-inv.co.il</span>
+                  </div>
                   <label class="form-label"> סמן רק אם אתה אחד מהבאים </label>
                   <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="ex1" />
+                    <input type="checkbox" class="form-check-input reg-check" id="ex1" />
                     <label class="form-check-label" for="ex1">
                       מחזיק היום או כיהנת בעבר בתפקיד ציבורי בכיר זר
                     </label>
                   </div>
                   <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="ex2" />
+                    <input type="checkbox" class="form-check-input reg-check" id="ex2" />
                     <label class="form-check-label" for="ex2">
                       קרוב משפחה של בעל תפקיד ציבורי בכיר זר
                     </label>
                   </div>
                   <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="ex3" />
+                    <input type="checkbox" class="form-check-input reg-check" id="ex3" />
                     <label class="form-check-label" for="ex3">
                       בעל שליטה בתאגיד בו קיים בעל שליטה נוסף שהינו בעל תפקיד
                       ציבורי זר
                     </label>
                   </div>
                   <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="ex4" />
+                    <input type="checkbox" class="form-check-input reg-check" id="ex4" />
                     <label class="form-check-label" for="ex4">
                       מחזיק היום או כיהנת בעבר בתפקיד ציבורי בכיר בישראל
                     </label>
                   </div>
                   <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="ex5" />
+                    <input type="checkbox" class="form-check-input reg-check" id="ex5" />
                     <label class="form-check-label" for="ex5">
                       קרוב משפחה של בעל תפקיד ציבורי בכיר ישראלי
                     </label>
                   </div>
                   <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="ex6" />
+                    <input type="checkbox" class="form-check-input reg-check" id="ex6" />
                     <label class="form-check-label" for="ex6">
                       בעל שליטה בתאגיד בו קיים בעל שליטה נוסף שהינו בעל תפקיד
                       ציבורי בכיר ישראלי
@@ -1115,6 +1149,7 @@
   </div>
   </div>
   </div>
+  <script src="script.js"></script>
 </body>
 
 </html>

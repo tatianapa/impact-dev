@@ -192,14 +192,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 input[type="radio"] {
   color: var(--prime1);
 }
-.form-check-input[type="checkbox"] {
+.form-check-input[type="checkbox"]{
   border-radius: 0%;
 }
-.form-check-input:checked {
+.reg-check-input[type="checkbox"] {
+    border-radius: 0%;
+  }
+.form-check-input:checked{
   background-color: var(--prime1);
   border-color: var(--prime1);
 }
-
+.reg-check-input:checked{
+    background-color: var(--prime1);
+    border-color: var(--prime1);
+  }
 .form-label {
   color: var(--text);
   font-size: 1rem;
@@ -355,4 +361,8 @@ input.empty-input::before {
   font-family: "Rubik";
   font-size: 16px;
   direction: rtl;
+}
+.warning{
+    font-weight: bold;
+    color: #FF4B4B;
 }

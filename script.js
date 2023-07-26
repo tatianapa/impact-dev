@@ -122,5 +122,55 @@ $(document).ready(function () {
     for (const checkbox of checkboxes) {
       checkbox.addEventListener('change', showRegulationMessage);
     }
+
+    function showHiddenMessage() {
+      // Get the "us-yes" and "us-no" radio button elements
+      const usYesRadio = document.getElementById("us-yes");
+      const usNoRadio = document.getElementById("us-no");
+    
+      // Get the div element containing the hidden message
+      const hiddenMessageDiv = document.querySelector(".us-person-regulation");
+    
+      // Function to update the visibility of the hidden message div
+      function updateMessageVisibility() {
+        if (usYesRadio.checked) {
+
+          
+          hiddenMessageDiv.style.display = "block";
+          //DANIEL - if the flag below is set to TRUE (!!!!!), the form validation is finished, you can send the details
+          window.UsYesRegulation = true;
+        } else if (usNoRadio.checked) {
+          hiddenMessageDiv.style.display = "none";
+          window.UsYesRegulation = false;
+        }
+      }
+    
+      // Add event listeners to the radio buttons
+      usYesRadio.addEventListener("change", updateMessageVisibility);
+      usNoRadio.addEventListener("change", updateMessageVisibility);
+    
+      // Call the function initially to set the message visibility correctly
+      updateMessageVisibility();
+    }
+    
+    // Call the function to set up the event listener
+    showHiddenMessage();
+
+    //DANIEL - stage-1 percent validation
+    function validatePercentInput() {
+      const inputElement = document.querySelector('input[name="stage1-percentage"]');
+      const errorMessage = document.querySelector('.invalid-percent');
+  
+      const inputValue = parseInt(inputElement.value);
+  
+      if (isNaN(inputValue) || inputValue < 0 || inputValue > 100) {
+        errorMessage.style.display = 'block';
+      } else {
+        errorMessage.style.display = 'none';
+      }
+    }
+  
+    // Add event listener to the input element to trigger validation on input change
+    document.querySelector('input[name="stage1-percentage"]').addEventListener('input', validatePercentInput);
   });
 });
