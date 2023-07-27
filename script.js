@@ -1,14 +1,58 @@
+
 $(document).ready(function () {
-  function getDateDiff() {
-    const birthdate = new Date($("#birthdate").datepicker()).value;
-    const diffInMs = Date.now() - birthdate.getTime();
-    const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
-    if (diffInYears >= 18) {
-      console.log("The entered birthdate is more than 18 years ago.");
-    } else {
-      console.log("The entered birthdate is less than 18 years ago.");
+
+  /*  $("#impact-form").submit(function (e) {
+      e.preventDefault();
+      console.log("submit");
+      console.log($(this).serialize());
+      $.ajax({
+        type: "POST",
+        url: "https://api.apispreadsheets.com/data/16209/",
+        data: $(this).serialize(),
+        success: function () {
+          alert("Form Data Submitted :)");
+        },
+        error: function () {
+          alert("There was an error :(");
+        },
+      });
+    });
+    
+  */
+  let validator = $("#impact-form").jbvalidator({
+    errorMessage: true,
+    successClass: true,
+    language: "/lang.json",
+  });
+  let jsonContent = null;
+  fetch('./lang.json')
+    .then((response) => response.json())
+    .then((json) => jsonContent = json);
+
+  validator.validator.stageOne = function (el, event) {
+    if ($(el).is("[name=moneyAmount]") && $(el).val().length < 0) {
+      return "נא להזין סכום תקין";
     }
-  }
+    if ($(el).is("[name=stage1-percentage]") && ($(el).val() > 100 || $(el).val() < 1 || $(el).val().length == 0)) {
+      if ($(el).val().length == 0) {
+        return "נא לבחור אחוז";
+      } else {
+        return "נא להזין אחוז בטווח 1 עד 100";
+      }
+    }
+  };
+
+  validator.validator.forth = function (el, event) {
+    if ($(el).is("[name=firstName]") && $(el).val().length < 3) {
+      return "Your firstName is too short.";
+    }
+
+    if ($(el).is("[name=lastName]") && $(el).val().length < 3) {
+      return "Your lastName is too short.";
+    }
+  };
+
+
 
   curOpen = $(".me-2")[0];
   curStage = $("div[class^='stage-']")[0];
@@ -23,6 +67,9 @@ $(document).ready(function () {
   });
 
   $(".next").click(function () {
+    validator.checkAll();
+    validator.reload();
+  
     if (curOpen != null) {
       curOpen = $(curOpen).next();
       $(curOpen).click();
@@ -52,51 +99,6 @@ $(document).ready(function () {
   });
 
   $(function () {
-    let validator = $("#impact-form").jbvalidator({
-      errorMessage: true,
-      successClass: true,
-      language: "/lang.json",
-    });
-
-
-    validator.validator.stageOne = function (el, event) {
-      if ($(el).is("[name=moneyAmount]") && $(el).val().length < 0) {
-        return "נא להזין סכום תקין";
-      }
-      if ($(el).is("[name=stage1-percentage]") && ($(el).val() > 100 || $(el).val() < 1 || $(el).val().length == 0)) {
-        if ($(el).val().length == 0) {
-          return "נא לבחור אחוז";
-        } else {
-          return "נא להזין אחוז בטווח 1 עד 100";
-        }
-      }
-    };
-
-    validator.validator.forth = function (el, event) {
-      if ($(el).is("[name=firstName]") && $(el).val().length < 3) {
-        return "Your firstName is too short.";
-      }
-
-      if ($(el).is("[name=lastName]") && $(el).val().length < 3) {
-        return "Your lastName is too short.";
-      }
-    };
-
-    validator.checkAll();
-    validator.reload();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //DANIEL ----- my functions below
   //   function toggleSecondList() {

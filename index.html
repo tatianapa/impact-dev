@@ -26,6 +26,22 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emretulek/jbvalidator@1.0.9/dist/jbvalidator.min.js"></script>
     <script src="script.js"></script>
+
+    <script>
+      function SubForm() {
+        $.ajax({
+          url: "https://api.apispreadsheets.com/data/3U4mEOsmqtOvebUj/",
+          type: "post",
+          data: $("#impact-form").serializeArray(),
+          success: function () {
+            alert("Form Data Submitted :)");
+          },
+          error: function () {
+            alert("There was an error :(");
+          },
+        });
+      }
+    </script>
   </head>
 
   <body>
@@ -143,7 +159,13 @@
           </div>
         </div>
         <div class="col-md-7">
-          <form class="row g-3" id="impact-form" action="#" method="POST" novalidate>
+          <form
+            class="row g-3"
+            id="impact-form"
+            action="#"
+            method="POST"
+            novalidate
+          >
             <div class="form-content">
               <div class="stage-1">
                 <h1 class="form-main-header">תכנון ההשקעה - כמות הכסף</h1>
@@ -152,10 +174,15 @@
                     <label for="moneyAmount" class="form-label"
                       >כמה כסף תרצה / תרצי להשקיע?</label
                     >
-                    <select id="moneyAmount" name="moneyAmount" class="form-select" required>
-                      <option selected>50-100 אלף</option>
+
+                    <select
+                      id="money-amount"
+                      name="money-amount"
+                      class="form-select"
+                    >
+                      <option>50-100 אלף</option>
                       <option>100-250 אלף</option>
-                      <option selected>250-500 אלף</option>
+                      <option>250-500 אלף</option>
                       <option>500 ואילך</option>
                     </select>
                     <div class="invalid-feedback">נא לבחור סכום להשקעה</div>
@@ -206,6 +233,7 @@
                       type="date"
                       id="birthdate"
                       class="form-control"
+                      name="birthdate"
                       placeholder="תאריך לידה"
                       aria-label="תאריך לידה"
                       aria-describedby="basic-addon1"
@@ -218,7 +246,7 @@
                   <div class="col-md-6"></div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 mt-4">
+                  <fieldset class="col-md-6 mt-4">
                     <label for="private-money-percent" class="form-label">
                       <a href="" class="me-1 tooltip-impact">
                         <img src="assets/info 1.svg" />
@@ -256,7 +284,7 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
+                        name="private-money-percent"
                         id="flexRadioDefault1"
                       />
                       <label class="form-check-label" for="flexRadioDefault1">
@@ -267,9 +295,8 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
+                        name="private-money-percent"
                         id="flexRadioDefault2"
-                        checked
                       />
                       <label class="form-check-label" for="flexRadioDefault2">
                         כ- 50% מההון הנזיל שלי
@@ -279,10 +306,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
+                        name="private-money-percent"
+                        id="flexRadioDefault3"
                       />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault3">
                         כ- 25% מההון הנזיל שלי
                       </label>
                     </div>
@@ -290,17 +317,17 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
+                        name="private-money-percent"
+                        id="flexRadioDefault4"
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault4">
                         פחות מ- 10% מההון הנזיל שלי
                       </label>
                     </div>
                     <div class="invalid-feedback">נא לבחור תשובה</div>
-                  </div>
-                  <div class="col-md-6 mt-4">
+                  </fieldset>
+
+                  <fieldset class="col-md-6 mt-4">
                     <label for="money-period" class="form-label">
                       <a href="" class="me-1 tooltip-impact">
                         <img src="assets/info 1.svg" />
@@ -348,10 +375,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
+                        name="money-period"
+                        id="flexRadioDefault5"
                       />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault5">
                         בשנה הקרובה
                       </label>
                     </div>
@@ -359,11 +386,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
+                        name="money-period"
+                        id="flexRadioDefault6"
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault6">
                         בשלוש השנים הקרובות
                       </label>
                     </div>
@@ -371,10 +397,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
+                        name="money-period"
+                        id="flexRadioDefault7"
                       />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault7">
                         לא בעתיד הנראה לעין
                       </label>
                     </div>
@@ -382,20 +408,19 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
+                        name="money-period"
+                        id="flexRadioDefault8"
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault8">
                         זה כנראה לפנסיה
                       </label>
                     </div>
                     <div class="invalid-feedback">נא לבחור תשובה</div>
-                  </div>
+                  </fieldset>
                 </div>
                 <div class="row">
-                  <div class="col-12 mt-4">
-                    <label for="money-period" class="form-label">
+                  <fieldset class="col-12 mt-4">
+                    <label for="money-lost" class="form-label">
                       <a href="" class="me-1">
                         <img src="assets/info 1.svg" />
                       </a>
@@ -405,10 +430,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
+                        name="money-lost"
+                        id="flexRadioDefault9"
                       />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault9">
                         בשנה הקרובה
                       </label>
                     </div>
@@ -416,11 +441,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
+                        name="money-lost"
+                        id="flexRadioDefault10"
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault10">
                         בשלוש השנים הקרובות
                       </label>
                     </div>
@@ -428,10 +452,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
+                        name="money-lost"
+                        id="flexRadioDefault11"
                       />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault11">
                         לא בעתיד הנראה לעין
                       </label>
                     </div>
@@ -439,20 +463,19 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
+                        name="money-lost"
+                        id="flexRadioDefault12"
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault12">
                         זה כנראה לפנסיה
                       </label>
                     </div>
                     <div class="invalid-feedback">נא לבחור תשובה</div>
-                  </div>
+                  </fieldset>
                 </div>
                 <div class="row">
-                  <div class="col-12 mt-4">
-                    <label for="money-period" class="form-label">
+                  <fieldset class="col-12 mt-4">
+                    <label for="money-if" class="form-label">
                       <a href="" class="me-1">
                         <img src="assets/info 1.svg" />
                       </a>
@@ -463,10 +486,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
+                        name="money-if"
+                        id="flexRadioDefault13"
                       />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault13">
                         ארגיש כאב רב ואחשוש להשקעותי
                       </label>
                     </div>
@@ -474,11 +497,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
+                        name="money-if"
+                        id="flexRadioDefault14"
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault14">
                         ארגיש כאב ואשקול את צעדיי בשוק ההון
                       </label>
                     </div>
@@ -486,10 +508,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
+                        name="money-if"
+                        id="flexRadioDefault15"
                       />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault15">
                         אשאר אדיש מכיוון שהשקעותיי הינן לטווח ארוך
                       </label>
                     </div>
@@ -497,16 +519,15 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
+                        name="money-if"
+                        id="flexRadioDefault16"
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault16">
                         מכה קלה בכנף ממשיכים קדימה בכל הכח
                       </label>
                     </div>
                     <div class="invalid-feedback">נא לבחור תשובה</div>
-                  </div>
+                  </fieldset>
                 </div>
               </div>
               <div class="stage-3 visually-hidden">
@@ -598,7 +619,7 @@
                       class="form-control"
                       id="firstName"
                       name="firstName"
-                      data-v-min-length="2" 
+                      data-v-min-length="2"
                       data-v-max-length="22"
                       placeholder="שם פרטי"
                     />
@@ -610,7 +631,7 @@
                       class="form-control"
                       id="lastName"
                       name="lastName"
-                      data-v-min-length="2" 
+                      data-v-min-length="2"
                       data-v-max-length="22"
                       placeholder="שם משפחה"
                     />
@@ -622,7 +643,8 @@
                     <input
                       type="text"
                       class="form-control"
-                      id="firstName"
+                      id="tz"
+                      name="tz"
                       placeholder="מספר תעודת זהות"
                     />
                     <div class="invalid-feedback">
@@ -633,7 +655,8 @@
                     <input
                       type="text"
                       class="form-control"
-                      id="firstName"
+                      id="phone"
+                      name="phone"
                       placeholder="טלפון"
                     />
                     <div class="invalid-feedback">נא להזין את מספר הטלפון</div>
@@ -682,6 +705,7 @@
                       type="email"
                       class="form-control"
                       id="personal-email"
+                      name="personal-email"
                       placeholder="כתובת דואר אלקטרוני"
                     />
                     <div class="invalid-feedback">
@@ -695,6 +719,7 @@
                       type="text"
                       class="form-control"
                       id="city"
+                      name="city"
                       placeholder="עיר מגורים"
                     />
                     <div class="invalid-feedback">נא להזין עיר מגורים</div>
@@ -704,6 +729,7 @@
                       type="text"
                       class="form-control"
                       id="apt"
+                      name="apt"
                       placeholder="מספר בית"
                     />
                     <div class="invalid-feedback">נא להזין את מספר הבית</div>
@@ -713,6 +739,7 @@
                       type="text"
                       class="form-control"
                       id="zip-code"
+                      name="zip-code"
                       placeholder="מיקוד"
                     />
                     <div class="invalid-feedback">נא להזין מיקוד</div>
@@ -724,7 +751,7 @@
                       כיצד יישלחו הדוחות?
                     </div>
                   </div>
-                  <div class="col-md-8 mt-4">
+                  <fieldset class="col-md-8 mt-4">
                     <div class="d-flex flex-row">
                       <div class="form-check me-3">
                         <input
@@ -743,7 +770,6 @@
                           type="radio"
                           name="reports"
                           id="reports-post"
-                          checked
                         />
                         <label class="form-check-label" for="reports-post">
                           דואר ישראל</label
@@ -751,7 +777,7 @@
                       </div>
                     </div>
                     <div class="invalid-feedback">נא לבחור תשובה</div>
-                  </div>
+                  </fieldset>
                 </div>
                 <div class="row">
                   <div class="col-12 mt-4">
@@ -759,6 +785,7 @@
                       <input
                         type="checkbox"
                         class="form-check-input"
+                        name="terms"
                         id="exampleCheck1"
                       />
                       <label class="form-check-label" for="exampleCheck1">
@@ -799,7 +826,7 @@
                   </div>
                 </div>
                 <div class="row g-3">
-                  <div class="col-md-5 mt-4">
+                  <fieldset class="col-md-5 mt-4">
                     <label class="form-label">
                       האם אתה תושב ואזרח מדינת ישראל?
                     </label>
@@ -823,8 +850,8 @@
                       ><br />
                       <div class="invalid-feedback">נא לבחור ערך</div>
                     </div>
-                  </div>
-                  <div class="col-md-7 mt-4">
+                  </fieldset>
+                  <fieldset class="col-md-7 mt-4">
                     <label class="form-label">
                       אני U.S Person כלומר אני אזרח או תושב ארצות הברית
                     </label>
@@ -848,14 +875,18 @@
                       ><br />
                       <div class="invalid-feedback">נא לבחור ערך</div>
                     </div>
-                  </div>
+                  </fieldset>
                 </div>
                 <div class="row">
                   <div class="col-md-6 mt-4">
                     <label for="employment-type" class="form-label"
                       >מהו עיסוקך?</label
                     >
-                    <select id="employment-type" class="form-select">
+                    <select
+                      id="employment-type"
+                      name="employment-type"
+                      class="form-select"
+                    >
                       <option>עצמאי</option>
                       <option>שכיר</option>
                       <option>סטודנט\גמלאי</option>
@@ -888,6 +919,7 @@
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
+                        name="reg-check-1"
                         class="form-check-input reg-check"
                         id="ex1"
                       />
@@ -898,6 +930,7 @@
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
+                        name="reg-check-2"
                         class="form-check-input reg-check"
                         id="ex2"
                       />
@@ -908,6 +941,7 @@
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
+                        name="reg-check-3"
                         class="form-check-input reg-check"
                         id="ex3"
                       />
@@ -919,6 +953,7 @@
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
+                        name="reg-check-4"
                         class="form-check-input reg-check"
                         id="ex4"
                       />
@@ -929,6 +964,7 @@
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
+                        name="reg-check-5"
                         class="form-check-input reg-check"
                         id="ex5"
                       />
@@ -939,6 +975,7 @@
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
+                        name="reg-check-6"
                         class="form-check-input reg-check"
                         id="ex6"
                       />
@@ -957,7 +994,11 @@
                     <label for="money-origin" class="form-label"
                       >מה מקור הכסף שיופקד בחשבון?</label
                     >
-                    <select id="money-origin" class="form-select">
+                    <select
+                      id="money-origin"
+                      name="money-origin"
+                      class="form-select"
+                    >
                       <option>
                         כספים שהצטברו לאורך השנים בחשבון בנק שבבעלותי
                       </option>
@@ -979,7 +1020,7 @@
                     <label for="bank" class="form-label"
                       >באיזה בנק ינוהלו כספי ההשקעה שלך?</label
                     >
-                    <select id="bank" class="form-select">
+                    <select id="bank" name="bank" class="form-select">
                       <option>בנק לאומי</option>
                       <option>בנק הפועלים</option>
                       <option>בנק מזרחי טפחות</option>
@@ -1098,7 +1139,6 @@
                         name="expected-amount"
                         value="2"
                         id="expectedAmountOption2"
-                        checked
                       />
                       <label
                         class="form-check-label"
@@ -1129,7 +1169,6 @@
                         name="expected-amount"
                         value="4"
                         id="expectedAmountOption4"
-                        checked
                       />
                       <label
                         class="form-check-label"
@@ -1161,6 +1200,7 @@
                       <input
                         class="form-control file-btn"
                         type="file"
+                        name="id-file"
                         id="id-file"
                       />
                     </div>
@@ -1172,6 +1212,7 @@
                       <input
                         class="form-control file-btn"
                         type="file"
+                        name="card-file"
                         id="card-file"
                       />
                     </div>
@@ -1208,7 +1249,7 @@
                   </div>
                 </div>
                 <div class="row" id="personal-details-partner">
-                  <div class="col-md-3 mt-4">
+                  <fieldset class="col-md-3 mt-4">
                     <label for="partner-connection" class="form-label">
                       מה סוג הקשר?
                     </label>
@@ -1216,10 +1257,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
+                        name="relation-type"
+                        id="flexRadioDefault17"
                       />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault17">
                         בן/בת זוג
                       </label>
                     </div>
@@ -1227,11 +1268,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
+                        name="relation-type"
+                        id="flexRadioDefault18"
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault18">
                         ילד/ה
                       </label>
                     </div>
@@ -1239,10 +1279,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault1"
+                        name="relation-type"
+                        id="flexRadioDefault19"
                       />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault19">
                         הורה
                       </label>
                     </div>
@@ -1250,11 +1290,10 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
+                        name="relation-type"
+                        id="flexRadioDefault20"
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault20">
                         חבר/ה
                       </label>
                     </div>
@@ -1262,15 +1301,14 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="flexRadioDefault"
-                        id="flexRadioDefault2"
-                        checked
+                        name="relation-type"
+                        id="flexRadioDefault21"
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault21">
                         אחר
                       </label>
                     </div>
-                  </div>
+                  </fieldset>
                   <div class="col-md-9 mt-4">
                     <div class="row">
                       <div class="col-md-6 mt-4">
@@ -1278,6 +1316,7 @@
                           type="text"
                           class="form-control"
                           id="firstName-partner"
+                          name="firstName-partner"
                           placeholder="שם פרטי"
                         />
                         <div class="invalid-feedback">
@@ -1289,6 +1328,7 @@
                           type="text"
                           class="form-control"
                           id="lastName-partner"
+                          name="lastName-partner"
                           placeholder="שם משפחה"
                         />
                         <div class="invalid-feedback">
@@ -1302,6 +1342,7 @@
                           type="text"
                           class="form-control"
                           id="id-partner"
+                          name="id-partner"
                           placeholder="מספר תעודת זהות"
                         />
                         <div class="invalid-feedback">
@@ -1313,6 +1354,7 @@
                           type="text"
                           class="form-control"
                           id="phone-partner"
+                          name="phone-partner"
                           placeholder="טלפון"
                         />
                         <div class="invalid-feedback">
@@ -1326,7 +1368,7 @@
                           <input
                             type="radio"
                             value="male"
-                            name="gender"
+                            name="gender-partner"
                             id="male-partner"
                           />
                           <label
@@ -1340,7 +1382,7 @@
                           <input
                             type="radio"
                             value="female"
-                            name="gender"
+                            name="gender-partner"
                             id="female-partner"
                           />
                           <label
@@ -1363,6 +1405,7 @@
                           type="email"
                           class="form-control"
                           id="personal-email-partner"
+                          name="personal-email-partner"
                           placeholder="כתובת דואר אלקטרוני"
                         />
                         <div class="invalid-feedback">
@@ -1376,6 +1419,7 @@
                           type="text"
                           class="form-control"
                           id="city-partner"
+                          name="city-partner"
                           placeholder="עיר מגורים"
                         />
                         <div class="invalid-feedback">נא להזין עיר מגורים</div>
@@ -1385,6 +1429,7 @@
                           type="text"
                           class="form-control"
                           id="apt-partner"
+                          name="apt-partner"
                           placeholder="מספר בית"
                         />
                         <div class="invalid-feedback">
@@ -1396,6 +1441,7 @@
                           type="text"
                           class="form-control"
                           id="zip-code-partner"
+                          name="zip-code-partner"
                           placeholder="מיקוד"
                         />
                         <div class="invalid-feedback">נא להזין מיקוד</div>
@@ -1424,6 +1470,7 @@
                     <input
                       class="form-control file-btn"
                       type="file"
+                      name="id-file-partner"
                       id="id-file-partner"
                     />
                   </div>
@@ -1438,6 +1485,7 @@
                     <input
                       class="form-control file-btn"
                       type="file"
+                      name="card-file-partner"
                       id="card-file-partner"
                     />
                   </div>
@@ -1457,6 +1505,7 @@
                         type="checkbox"
                         class="form-check-input"
                         id="manage-1"
+                        name="manage-1"
                       />
                       <label class="form-check-label" for="manage-1">
                         אני מאשר/ת את הסכם ניהול התיקים
@@ -1475,9 +1524,10 @@
                       <input
                         type="checkbox"
                         class="form-check-input"
-                        id="manage-1"
+                        id="manage-2"
+                        name="manage-2"
                       />
-                      <label class="form-check-label" for="manage-1">
+                      <label class="form-check-label" for="manage-2">
                         אני מאשר/ת את נספח גילוי נאות
                       </label>
                     </div>
@@ -1494,9 +1544,10 @@
                       <input
                         type="checkbox"
                         class="form-check-input"
-                        id="manage-1"
+                        id="manage-3"
+                        name="manage-3"
                       />
-                      <label class="form-check-label" for="manage-1">
+                      <label class="form-check-label" for="manage-3">
                         אני פועל/ת בעבור עצמי בלבד. אישור על סעיף זה כמוהו
                         כחתימת מקור על הצהרת הנהנים המצורפת
                       </label>
@@ -1514,9 +1565,10 @@
                       <input
                         type="checkbox"
                         class="form-check-input"
-                        id="manage-1"
+                        id="manage-4"
+                        name="manage-4"
                       />
-                      <label class="form-check-label" for="manage-1">
+                      <label class="form-check-label" for="manage-4">
                         אני פועל/ת בעבור עצמי בלבד. אישור על סעיף זה כמוהו
                         כחתימת מקור על הצהרת הנהנים המצורפת
                       </label>
@@ -1534,9 +1586,10 @@
                       <input
                         type="checkbox"
                         class="form-check-input"
-                        id="manage-1"
+                        id="manage-5"
+                        name="manage-5"
                       />
-                      <label class="form-check-label" for="manage-1">
+                      <label class="form-check-label" for="manage-5">
                         אני מאשר/ת את נספח דמי ניהול
                       </label>
                     </div>
@@ -1553,9 +1606,10 @@
                       <input
                         type="checkbox"
                         class="form-check-input"
-                        id="manage-1"
+                        id="manage-6"
+                        name="manage-6"
                       />
-                      <label class="form-check-label" for="manage-1">
+                      <label class="form-check-label" for="manage-6">
                         אני מאשר/ת את נספח מדיניות ההשקעה
                       </label>
                     </div>
@@ -1572,9 +1626,10 @@
                       <input
                         type="checkbox"
                         class="form-check-input"
-                        id="manage-1"
+                        id="manage-7"
+                        name="manage-7"
                       />
-                      <label class="form-check-label" for="manage-1">
+                      <label class="form-check-label" for="manage-7">
                         אני מאשר/ת כי הפעילות המתוכננת בחשבון היא הפקדה ו/או
                         משיכת כספים לצורך השקעה בלבד
                       </label>
@@ -1590,8 +1645,8 @@
               <button type="button" class="next">
                 המשך<img src="assets/forward.svg" />
               </button>
-              <button type="button" class="submit">
-                אישור<img width="20px" src="assets/approved-accept-icon.svg" />
+              <button onclick="SubForm()" type="button" class="submit">
+                אישור <img width="20px" src="assets/approved-accept-icon.svg" />
               </button>
             </div>
           </form>
