@@ -23,12 +23,16 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emretulek/jbvalidator@1.0.9/dist/jbvalidator.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/localization/messages_he.js" type="text/javascript"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@emretulek/jbvalidator@1.0.9/dist/jbvalidator.min.js"></script> -->
     <script src="script.js"></script>
 
     <script>
-      function SubForm() {
+      function custom_sub_form() {
         $.ajax({
           url: "https://api.apispreadsheets.com/data/3U4mEOsmqtOvebUj/",
           type: "post",
@@ -179,6 +183,8 @@
                       id="money-amount"
                       name="money-amount"
                       class="form-select"
+                      aria-label="סכום להשקעה"
+                    
                     >
                       <option>50-100 אלף</option>
                       <option>100-250 אלף</option>
@@ -197,7 +203,7 @@
                           id="stage1-percentage"
                           class="form-control"
                           aria-label="אחוז מסך הנזילים"
-                          required
+
                         />
                         מסך הנכסים הנזילים שלי
 
@@ -233,11 +239,13 @@
                       type="date"
                       id="birthdate"
                       class="form-control"
+                      min="1900-01-01"
                       name="birthdate"
                       placeholder="תאריך לידה"
                       aria-label="תאריך לידה"
                       aria-describedby="basic-addon1"
-                    />
+                    
+                    required  />
                     <div class="invalid-feedback">נא להזין תאריך לידה</div>
                     <div class="invalid-feedback invalid-feedback-under18">
                       גיל פחות מ-18
@@ -1645,7 +1653,7 @@
               <button type="button" class="next">
                 המשך<img src="assets/forward.svg" />
               </button>
-              <button onclick="SubForm()" type="button" class="submit">
+              <button type="button" class="submit">
                 אישור <img width="20px" src="assets/approved-accept-icon.svg" />
               </button>
             </div>
