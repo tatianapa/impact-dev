@@ -1,55 +1,427 @@
 $(function () {
-  $("#impact-form").validate({
-    lang: "he",
+  $.validator.addMethod(
+    "minAge",
+    function (value, element, min) {
+      var today = new Date();
+      var birthDate = new Date(value);
+      var age = today.getFullYear() - birthDate.getFullYear();
 
+      if (age > min + 1) {
+        return true;
+      }
+
+      var m = today.getMonth() - birthDate.getMonth();
+
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      return age >= min;
+    },
+    "גיל פחות מ-18"
+  );
+
+  var validator = $("#impact-form").validate({
+    lang: "he",
+    // errorContainer: "#messageBox1, #messageBox2",
+    // errorLabelContainer: "#messageBox1 ul",
+    //wrapper: "ul",
+    errorElement: "div",
+    errorPlacement: function ( error, element ) {
+      error.addClass( "invalid-feedback" );
+      if ( element.prop("type") === "checkbox" ) {
+        error.insertAfter( element.parent( "label" ) );
+      }
+      else if ( element.prop("type") === "radio" ) {
+        error.insertAfter( element.parent().siblings('.form-check').last() );
+      } else {
+        error.insertAfter( element );
+      }
+    },
+    highlight: function ( element, errorClass, validClass ) {
+      $( element ).parents(".col-sm-5").addClass( "has-error" ).removeClass( "has-success" );
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $( element ).parents(".col-sm-5").addClass( "has-success" ).removeClass( "has-error" );
+    },
+    debug: true,
+    submitHandler: function () {
+      alert("Submitted!");
+    },
     rules: {
+//======================================================================================================
+      // stage: 1
+      // type: option
       "money-amount": {
         required: true,
         normalizer: function (value) {
           return $.trim(value);
         },
       },
-      'stage1-percentage': {
+      // type: number
+      "stage1-percentage": {
         required: true,
         minlength: 1,
+        maxlength: 3,
         minvalue: 1,
         maxvalue: 100,
         normalizer: function (value) {
           return $.trim(value);
         },
-        // 'birthdate': {
-        //   required: true,
-        //   normalizer: function (value) {
-        //     return $.trim(value);
-        //   },
-        // },
       },
+//======================================================================================================
+      // stage: 2
+      // type: date
+      "birthdate": {
+        required: true,
+        minAge: 18,
+        normalizer: function (value) {
+          return $.trim(value);
+        },
+      },
+      // type: radio
+      "private-money-percent": {
+        required: true
+      },
+      // type: radio
+      "money-period": {
+        required: true
+      },
+      // type: radio
+      "money-lost": {
+        required: true
+      },
+      // type: radio
+      "money-if":{
+        required: true
+      },
+//======================================================================================================
+      // stage: 3
+//======================================================================================================
+      // stage: 4
+      // type: text
+      "firstName": {
+        required: true
+      },
+      // type: text
+      "lastName": {
+        required: true
+      },
+      // type: text
+      "tz": {
+        required: true,
+        minlength: 7,
+        maxlength: 9
+      },
+      // type: text
+      "phone": {
+        required: true,
+        minlength: 9,
+        maxlength: 10,
+        normalizer: function (value) {
+          return $.trim(value);
+        },
+      },
+      // type: radio
+      "gender": {
+        required: true
+      },
+      // type: email
+      "personal-email": {
+        required: true,
+        email: true,
+        normalizer: function (value) {
+          return $.trim(value);
+        },
+      },
+      // type: text
+      "city": {
+        required: true
+      },
+      // type: text
+      "apt": {
+        required: true
+      },
+      // type: text
+      "zip-code": {
+        required: true,
+        minlength: 5,
+        maxlength: 5,
+        normalizer: function (value) {
+          return $.trim(value);
+        },
+
+      },
+      // type: radio
+      "reports": {
+        required: true
+      },
+      // type: checkbox
+      "terms": {
+        required: true
+      },
+//======================================================================================================
+      // stage: 5
+      // type: radio
+      "il-citizen": { 
+        required: true
+      },
+      // type: radio
+      "us-citizen": {
+        required: true
+      },
+      // type: option
+      "employment-type": {
+        required: true
+      },
+      // type: checkbox
+      "reg-check-1":{
+        required: true
+      },
+      // type: checkbox
+      "reg-check-2":{
+        required: true
+      },
+      // type: checkbox
+      "reg-check-3":{
+        required: true
+      },
+      // type: checkbox
+      "reg-check-4":{
+        required: true
+      },
+      // type: checkbox
+      "reg-check-5":{
+        required: true
+      },
+      // type: checkbox
+      "reg-check-6":{
+        required: true
+      },
+//======================================================================================================
+      // stage: 6
+      // type: option
+      "money-origin": {
+        required: true
+      },
+      // type: option
+      "bank": {
+        required: true
+      },
+      // type: radio
+      "additional-deposits" : {
+        required: true
+      },
+      // type: radio
+      "expected-amount": {
+        required: true
+      },
+      // type: file
+      "id-file": {
+        required: true
+      },
+      // type: file
+      "card-file": {
+        required: true
+      },
+//======================================================================================================
+      // stage: 7
+      // type: radio
+      "partner": {
+        required: true
+      },
+      // type: radio
+      "relation-type": {
+        required: true
+      },
+      // type: text
+      "firstName-partner": {
+        required: true
+      },
+      // type: text
+      "lastName-partner": {
+        required: true
+      },
+      // type: text
+      "id-partner": {
+        required: true,
+        minlength: 7,
+        maxlength: 9
+      },
+      // type: text
+      "phone-partner": {
+        required: true,
+        minlength: 9,
+        maxlength: 10,
+        normalizer: function (value) {
+          return $.trim(value);
+        },
+      },
+      // type: text
+      "gender-partner": {
+        required: true
+      },
+      // type: text
+      "personal-email-partner": {
+        required: true,
+        email: true,
+        normalizer: function (value) {
+          return $.trim(value);
+        },
+      },
+      // type: text
+      "city-partner": {
+        required: true
+      },
+      // type: text
+      "apt-partner": {
+        required: true
+      },
+      // type: text
+      "zip-code-partner": {
+        required: true,
+        minlength: 5,
+        maxlength: 5,
+        normalizer: function (value) {
+          return $.trim(value);
+        },
+      },
+      // type: file
+      "id-file-partner": {
+        required: true
+      },
+      // type: file
+      "card-file-partner": {
+        required: true
+      },
+      //checkbox
+      "manage-1": {
+        required: true
+      },
+      //checkbox
+      "manage-2": {
+        required: true
+      },
+      //checkbox
+      "manage-3": {
+        required: true
+      },
+      //checkbox
+      "manage-4": {
+        required: true
+      },
+      //checkbox
+      "manage-5": {
+        required: true
+      },
+      //checkbox
+      "manage-6": {
+        required: true
+      },
+      //checkbox
+      "manage-7": {
+        required: true
+      }
+//======================================================================================================
     },
     messages: {
       "money-amount": {
-        required: "נא לבחור סכום להשקעה"
-      },
-      'stage1-percentage': {
-        required: "Please enter a valid percentage",
-      },
-      'birthdate': {
-        required: "Please enter a valid date",
+        required: "נא לבחור סכום להשקעה",
       },
     },
-    errorContainer: "#messageBox1, #messageBox2",
-    errorLabelContainer: "#messageBox1 ul",
-    wrapper: "li", debug:true,
-    submitHandler: function() { alert("Submitted!") }
   });
 
-  curOpen = $(".me-2")[0];
+  curOpenWizard = $(".me-2")[0];
   curStage = $("div[class^='stage-']")[0];
-  selectedStage = "0";
-  console.log(curStage);
+  selectedStage = "1";
 
-  $(".prev").click(function () {});
+  // when pressed prev button go to previous stage
+  // run validation
+  $(".prev").click(function () { 
+    console.log("curStage", curStage);
+    console.log("curOpenWizard", curOpenWizard);
+    console.log("selectedStage", selectedStage);
+  });
 
-  $(".next").click(function () {});
+  // when pressed next button go to next stage
+  // run validation
+  $(".next").click(function () {
+    console.log("curStage", curStage);
+    console.log("curOpenWizard", curOpenWizard);
+    console.log("selectedStage", selectedStage);
+    switch (selectedStage) {
+      case "1":
+        validator.element('#money-amount');
+        validator.element('#stage1-percentage');
+        break;
+      case "2":
+        validator.element("#birthdate");
+        validator.element("input[name='private-money-percent']");
+        validator.element("input[name='money-period']");
+        validator.element("input[name='money-lost']");
+        validator.element("input[name='money-if']");
+        break;
+      case "3":
+        break;
+      case "4":
+        validator.element("input[name='firstName']");
+        validator.element("input[name='lastName']");
+        validator.element("input[name='tz']");
+        validator.element("input[name='phone']");
+        validator.element("input[name='gender']");
+        validator.element("input[name='personal-email']");
+        validator.element("input[name='city']");
+        validator.element("input[name='apt']");
+        validator.element("input[name='zip-code']");
+        validator.element("input[name='reports']");
+        validator.element("input[name='terms']");
+        break;
+      
+      case "5":
+        validator.element("input[name='il-citizen']");
+        validator.element("input[name='us-citizen']");
+        validator.element("#employment-type");
+        validator.element("input[name='reg-check-1']");
+        validator.element("input[name='reg-check-2']");
+        validator.element("input[name='reg-check-3']");
+        validator.element("input[name='reg-check-4']");
+        validator.element("input[name='reg-check-5']");
+        validator.element("input[name='reg-check-6']");
+        break;
+      case "6":
+        validator.element("#money-origin");
+        validator.element("#bank");
+        validator.element("input[name='additional-deposits']");
+        validator.element("input[name='expected-amount']");
+        validator.element("input[name='id-file']");
+        validator.element("input[name='card-file']");
+        break;
+      case "7":
+        validator.element("input[name='partner']");
+        validator.element("input[name='relation-type']");
+        validator.element("input[name='firstName-partner']");
+        validator.element("input[name='lastName-partner']");
+        validator.element("input[name='id-partner']");
+        validator.element("input[name='phone-partner']");
+        validator.element("input[name='gender-partner']");
+        validator.element("input[name='personal-email-partner']");
+        validator.element("input[name='city-partner']");
+        validator.element("input[name='apt-partner']");
+        validator.element("input[name='zip-code-partner']");
+        validator.element("input[name='id-file-partner']");
+        validator.element("input[name='card-file-partner']");
+        validator.element("input[name='manage-1']");
+        validator.element("input[name='manage-2']");
+        validator.element("input[name='manage-3']");
+        validator.element("input[name='manage-4']");
+        validator.element("input[name='manage-5']");
+        validator.element("input[name='manage-6']");
+        validator.element("input[name='manage-7']");
+        break;
+      default:
+        break;
+    }
+   });
 
   $(".submit").on("click", function ($event) {
     if (confirm("Click OK to continue?")) {
@@ -62,13 +434,13 @@ $(function () {
 
   $(".me-2").on("click", function () {
     if (!$(this).hasClass("active")) {
-      curOpen = null;
+      curOpenWizard = null;
       $(".me-2").removeClass("active");
       $(".me-2").addClass("inactive");
       $(this).addClass("active");
       $(this).removeClass("inactive");
       selectedStage = $(this).text();
-      curOpen = { ...$(this) };
+      curOpenWizard = { ...$(this) };
 
       if ($(".stage-" + selectedStage).hasClass("visually-hidden")) {
         $("div[class^='stage-']").addClass("visually-hidden");
@@ -83,6 +455,7 @@ $(function () {
       }
     }
   });
+
 
   $(function () {
     //DANIEL ----- my functions below
