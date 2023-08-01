@@ -20,7 +20,112 @@ $(function () {
     },
     "גיל פחות מ-18"
   );
+  function validateStage(stage){
+    $(".next").removeClass("visually-hidden");
+    $(".prev").removeClass("visually-hidden");
+    $(".submit").addClass("visually-hidden");
 
+    if (stage == 1) {
+      $(".prev").addClass("visually-hidden");
+    }
+    else{
+      $(".prev").removeClass("visually-hidden");
+    }
+
+    if (stage == 8) {
+      $(".next").addClass("visually-hidden");
+      $(".submit").removeClass("visually-hidden");
+    }
+    else{
+      $(".next").removeClass("visually-hidden");
+      $(".submit").addClass("visually-hidden");
+    }
+
+
+    switch (stage) {
+      case "1":
+        validator.element('#money-amount');
+        validator.element('#stage1-percentage');
+        break;
+      case "2":
+        validator.element("#birthdate");
+        validator.element("input[name='private-money-percent']");
+        validator.element("input[name='money-period']");
+        validator.element("input[name='money-lost']");
+        validator.element("input[name='money-if']");
+        break;
+      case "3":
+        break;
+      case "4":
+        validator.element("input[name='firstName']");
+        validator.element("input[name='lastName']");
+        validator.element("input[name='tz']");
+        validator.element("input[name='phone']");
+        validator.element("input[name='gender']");
+        validator.element("input[name='personal-email']");
+        validator.element("input[name='city']");
+        validator.element("input[name='apt']");
+        validator.element("input[name='zip-code']");
+        validator.element("input[name='reports']");
+        validator.element("input[name='terms']");
+        break;
+      
+      case "5":
+        validator.element("input[name='il-citizen']");
+        validator.element("input[name='us-citizen']");
+        validator.element("#employment-type");
+        validator.element("input[name='reg-check-1']");
+        validator.element("input[name='reg-check-2']");
+        validator.element("input[name='reg-check-3']");
+        validator.element("input[name='reg-check-4']");
+        validator.element("input[name='reg-check-5']");
+        validator.element("input[name='reg-check-6']");
+        break;
+
+      case "6":
+        validator.element("#money-origin");
+        validator.element("#bank");
+        validator.element("input[name='additional-deposits']");
+        validator.element("input[name='expected-amount']");
+        validator.element("input[name='id-file']");
+        validator.element("input[name='card-file']");
+        break;
+
+      case "7":
+        validator.element("input[name='partner']");
+        validator.element("input[name='relation-type']");
+        validator.element("input[name='firstName-partner']");
+        validator.element("input[name='lastName-partner']");
+        validator.element("input[name='id-partner']");
+        validator.element("input[name='phone-partner']");
+        validator.element("input[name='gender-partner']");
+        validator.element("input[name='personal-email-partner']");
+        validator.element("input[name='city-partner']");
+        validator.element("input[name='apt-partner']");
+        validator.element("input[name='zip-code-partner']");
+        validator.element("input[name='id-file-partner']");
+        validator.element("input[name='card-file-partner']");
+        break;
+
+      case "8":
+        validator.element("input[name='manage-1']");
+        validator.element("input[name='manage-2']");
+        validator.element("input[name='manage-3']");
+        validator.element("input[name='manage-4']");
+        validator.element("input[name='manage-5']");
+        validator.element("input[name='manage-6']");
+        validator.element("input[name='manage-7']");
+        break;
+
+      default:
+        break;
+    }
+
+    if(validator.numberOfInvalids() > 0){
+      return false;
+    }
+    return true;
+  }
   var validator = $("#impact-form").validate({
     lang: "he",
     // errorContainer: "#messageBox1, #messageBox2",
@@ -38,12 +143,15 @@ $(function () {
         error.insertAfter( element );
       }
     },
+
     highlight: function ( element, errorClass, validClass ) {
       $( element ).parents(".col-sm-5").addClass( "has-error" ).removeClass( "has-success" );
     },
+
     unhighlight: function (element, errorClass, validClass) {
       $( element ).parents(".col-sm-5").addClass( "has-success" ).removeClass( "has-error" );
     },
+
     debug: true,
     submitHandler: function () {
       alert("Submitted!");
@@ -61,13 +169,7 @@ $(function () {
       // type: number
       "stage1-percentage": {
         required: true,
-        minlength: 1,
-        maxlength: 3,
-        minvalue: 1,
-        maxvalue: 100,
-        normalizer: function (value) {
-          return $.trim(value);
-        },
+
       },
 //======================================================================================================
       // stage: 2
@@ -341,6 +443,29 @@ $(function () {
     console.log("curStage", curStage);
     console.log("curOpenWizard", curOpenWizard);
     console.log("selectedStage", selectedStage);
+
+    if(validateStage(selectedStage) == false) {
+      
+    }
+    else{
+      selectedStage = String(parseInt(selectedStage) - 1);
+          if (selectedStage == "0") {
+            selectedStage = "1";
+          }
+
+          if ($(".stage-" + selectedStage).hasClass("visually-hidden")) {
+            $("div[class^='stage-']").addClass("visually-hidden");
+            $(".stage-" + selectedStage).removeClass("visually-hidden");
+            curStage = { ...$(".stage-" + selectedStage) };
+          }
+          if ($(".wizard-title").hasClass("wizard-title-active")) {
+            $(".wizard-title").removeClass("wizard-title-active");
+            $(".wizard-title:nth-of-type(" + selectedStage + ")").addClass(
+              "wizard-title-active"
+            );
+          }
+        
+    }
   });
 
   // when pressed next button go to next stage
@@ -349,83 +474,43 @@ $(function () {
     console.log("curStage", curStage);
     console.log("curOpenWizard", curOpenWizard);
     console.log("selectedStage", selectedStage);
-    switch (selectedStage) {
-      case "1":
-        validator.element('#money-amount');
-        validator.element('#stage1-percentage');
-        break;
-      case "2":
-        validator.element("#birthdate");
-        validator.element("input[name='private-money-percent']");
-        validator.element("input[name='money-period']");
-        validator.element("input[name='money-lost']");
-        validator.element("input[name='money-if']");
-        break;
-      case "3":
-        break;
-      case "4":
-        validator.element("input[name='firstName']");
-        validator.element("input[name='lastName']");
-        validator.element("input[name='tz']");
-        validator.element("input[name='phone']");
-        validator.element("input[name='gender']");
-        validator.element("input[name='personal-email']");
-        validator.element("input[name='city']");
-        validator.element("input[name='apt']");
-        validator.element("input[name='zip-code']");
-        validator.element("input[name='reports']");
-        validator.element("input[name='terms']");
-        break;
+   
+
+    if(validateStage(selectedStage) == false) {
       
-      case "5":
-        validator.element("input[name='il-citizen']");
-        validator.element("input[name='us-citizen']");
-        validator.element("#employment-type");
-        validator.element("input[name='reg-check-1']");
-        validator.element("input[name='reg-check-2']");
-        validator.element("input[name='reg-check-3']");
-        validator.element("input[name='reg-check-4']");
-        validator.element("input[name='reg-check-5']");
-        validator.element("input[name='reg-check-6']");
-        break;
-      case "6":
-        validator.element("#money-origin");
-        validator.element("#bank");
-        validator.element("input[name='additional-deposits']");
-        validator.element("input[name='expected-amount']");
-        validator.element("input[name='id-file']");
-        validator.element("input[name='card-file']");
-        break;
-      case "7":
-        validator.element("input[name='partner']");
-        validator.element("input[name='relation-type']");
-        validator.element("input[name='firstName-partner']");
-        validator.element("input[name='lastName-partner']");
-        validator.element("input[name='id-partner']");
-        validator.element("input[name='phone-partner']");
-        validator.element("input[name='gender-partner']");
-        validator.element("input[name='personal-email-partner']");
-        validator.element("input[name='city-partner']");
-        validator.element("input[name='apt-partner']");
-        validator.element("input[name='zip-code-partner']");
-        validator.element("input[name='id-file-partner']");
-        validator.element("input[name='card-file-partner']");
-        validator.element("input[name='manage-1']");
-        validator.element("input[name='manage-2']");
-        validator.element("input[name='manage-3']");
-        validator.element("input[name='manage-4']");
-        validator.element("input[name='manage-5']");
-        validator.element("input[name='manage-6']");
-        validator.element("input[name='manage-7']");
-        break;
-      default:
-        break;
+    }
+    else{
+      $(".prev").removeClass("visually-hidden");
+      selectedStage = String(parseInt(selectedStage) + 1);
+      if (selectedStage == "9") {
+        selectedStage = "8";
+      }
+
+      if ($(".stage-" + selectedStage).hasClass("visually-hidden")) {
+        $("div[class^='stage-']").addClass("visually-hidden");
+        $(".stage-" + selectedStage).removeClass("visually-hidden");
+        curStage = { ...$(".stage-" + selectedStage) };
+      }
+
+      if ($(".wizard-title").hasClass("wizard-title-active")) {
+        $(".wizard-title").removeClass("wizard-title-active");
+        $(".wizard-title:nth-of-type(" + selectedStage + ")").addClass("wizard-title-active");
+      }
+    
+      if($(".wizard-btn .me-2").hasClass("active")) {
+        $(".wizard-btn .me-2").removeClass("active").addClass("inactive");
+
+        $(".wizard-btn .me-2:nth-of-type(" + selectedStage + ")").addClass("active").removeClass("inactive");
+        debugger;
+        curOpenWizard = { ...$(".wizard-btn .me-2:nth-of-type(" + selectedStage + ")") };
+      }
     }
    });
 
   $(".submit").on("click", function ($event) {
     if (confirm("Click OK to continue?")) {
       custom_sub_form();
+      validator.destroy();
     } else {
       $event.preventDefault();
       return false;
@@ -458,6 +543,7 @@ $(function () {
 
 
   $(function () {
+
     //DANIEL ----- my functions below
     //   function toggleSecondList() {
     //     const firstListOptions = document.querySelectorAll('input[name="additional-deposits"]');
