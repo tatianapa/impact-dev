@@ -33,7 +33,11 @@ a {
   color: var(--text);
   text-decoration: none;
 }
-
+.error {
+  color: red;
+  font-size: 16px;
+  font-weight: 300;
+}
 .container {
   max-width: 1400px;
 }
