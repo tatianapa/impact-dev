@@ -20,32 +20,11 @@ $(function () {
     },
     "גיל פחות מ-18"
   );
-  function validateStage(stage){
-    $(".next").removeClass("visually-hidden");
-    $(".prev").removeClass("visually-hidden");
-    $(".submit").addClass("visually-hidden");
-
-    if (stage == 1) {
-      $(".prev").addClass("visually-hidden");
-    }
-    else{
-      $(".prev").removeClass("visually-hidden");
-    }
-
-    if (stage == 8) {
-      $(".next").addClass("visually-hidden");
-      $(".submit").removeClass("visually-hidden");
-    }
-    else{
-      $(".next").removeClass("visually-hidden");
-      $(".submit").addClass("visually-hidden");
-    }
-
-
+  function validateStage(stage) {
     switch (stage) {
       case "1":
-        validator.element('#money-amount');
-        validator.element('#stage1-percentage');
+        validator.element("#money-amount");
+        validator.element("#stage1-percentage");
         break;
       case "2":
         validator.element("#birthdate");
@@ -69,7 +48,7 @@ $(function () {
         validator.element("input[name='reports']");
         validator.element("input[name='terms']");
         break;
-      
+
       case "5":
         validator.element("input[name='il-citizen']");
         validator.element("input[name='us-citizen']");
@@ -116,48 +95,97 @@ $(function () {
         validator.element("input[name='manage-6']");
         validator.element("input[name='manage-7']");
         break;
-
+      case "all":
+        validator.element("#money-amount");
+        validator.element("#stage1-percentage");
+        validator.element("#birthdate");
+        validator.element("input[name='private-money-percent']");
+        validator.element("input[name='money-period']");
+        validator.element("input[name='money-lost']");
+        validator.element("input[name='money-if']");
+        validator.element("input[name='firstName']");
+        validator.element("input[name='lastName']");
+        validator.element("input[name='tz']");
+        validator.element("input[name='phone']");
+        validator.element("input[name='gender']");
+        validator.element("input[name='personal-email']");
+        validator.element("input[name='city']");
+        validator.element("input[name='apt']");
+        validator.element("input[name='zip-code']");
+        validator.element("input[name='reports']");
+        validator.element("input[name='terms']");
+        validator.element("input[name='il-citizen']");
+        validator.element("input[name='us-citizen']");
+        validator.element("#employment-type");
+        validator.element("input[name='reg-check-1']");
+        validator.element("input[name='reg-check-2']");
+        validator.element("input[name='reg-check-3']");
+        validator.element("input[name='reg-check-4']");
+        validator.element("input[name='reg-check-5']");
+        validator.element("input[name='reg-check-6']");
+        validator.element("#money-origin");
+        validator.element("#bank");
+        validator.element("input[name='additional-deposits']");
+        validator.element("input[name='expected-amount']");
+        validator.element("input[name='id-file']");
+        validator.element("input[name='card-file']");
+        validator.element("input[name='partner']");
+        validator.element("input[name='relation-type']");
+        validator.element("input[name='firstName-partner']");
+        validator.element("input[name='lastName-partner']");
+        validator.element("input[name='id-partner']");
+        validator.element("input[name='phone-partner']");
+        validator.element("input[name='gender-partner']");
+        validator.element("input[name='personal-email-partner']");
+        validator.element("input[name='city-partner']");
+        validator.element("input[name='apt-partner']");
+        validator.element("input[name='zip-code-partner']");
+        validator.element("input[name='id-file-partner']");
+        validator.element("input[name='card-file-partner']");
+        validator.element("input[name='manage-1']");
+        validator.element("input[name='manage-2']");
+        validator.element("input[name='manage-3']");
+        validator.element("input[name='manage-4']");
+        validator.element("input[name='manage-5']");
+        validator.element("input[name='manage-6']");
+        validator.element("input[name='manage-7']");
+        break;
       default:
         break;
     }
 
-    if(validator.numberOfInvalids() > 0){
+    if (validator.numberOfInvalids() > 0) {
       return false;
     }
     return true;
   }
+
   var validator = $("#impact-form").validate({
     lang: "he",
-    // errorContainer: "#messageBox1, #messageBox2",
-    // errorLabelContainer: "#messageBox1 ul",
-    //wrapper: "ul",
+    focusInvalid: false,
+    invalidHandler: function (form, validator) {
+      if (!validator.numberOfInvalids()) return;
+
+      $("html, body").animate(
+        {
+          scrollTop: $(validator.errorList[0].element).offset().top,
+        },
+        2000
+      );
+    },
     errorElement: "div",
-    errorPlacement: function ( error, element ) {
-      error.addClass( "invalid-feedback" );
-      if ( element.prop("type") === "checkbox" ) {
-        error.insertAfter( element.parent( "label" ) );
-      }
-      else if ( element.prop("type") === "radio" ) {
-        error.insertAfter( element.parent().siblings('.form-check').last() );
+    errorPlacement: function (error, element) {
+      error.addClass("invalid-feedback");
+      if (element.prop("type") === "checkbox") {
+        error.insertAfter(element.parent("label"));
+      } else if (element.prop("type") === "radio") {
+        error.insertAfter(element.parent().siblings(".form-check").last());
       } else {
-        error.insertAfter( element );
+        error.insertAfter(element);
       }
-    },
-
-    highlight: function ( element, errorClass, validClass ) {
-      $( element ).parents(".col-sm-5").addClass( "has-error" ).removeClass( "has-success" );
-    },
-
-    unhighlight: function (element, errorClass, validClass) {
-      $( element ).parents(".col-sm-5").addClass( "has-success" ).removeClass( "has-error" );
-    },
-
-    debug: true,
-    submitHandler: function () {
-      alert("Submitted!");
     },
     rules: {
-//======================================================================================================
+      //======================================================================================================
       // stage: 1
       // type: option
       "money-amount": {
@@ -169,12 +197,11 @@ $(function () {
       // type: number
       "stage1-percentage": {
         required: true,
-
       },
-//======================================================================================================
+      //======================================================================================================
       // stage: 2
       // type: date
-      "birthdate": {
+      birthdate: {
         required: true,
         minAge: 18,
         normalizer: function (value) {
@@ -183,40 +210,40 @@ $(function () {
       },
       // type: radio
       "private-money-percent": {
-        required: true
+        required: true,
       },
       // type: radio
       "money-period": {
-        required: true
+        required: true,
       },
       // type: radio
       "money-lost": {
-        required: true
+        required: true,
       },
       // type: radio
-      "money-if":{
-        required: true
+      "money-if": {
+        required: true,
       },
-//======================================================================================================
+      //======================================================================================================
       // stage: 3
-//======================================================================================================
+      //======================================================================================================
       // stage: 4
       // type: text
-      "firstName": {
-        required: true
+      firstName: {
+        required: true,
       },
       // type: text
-      "lastName": {
-        required: true
+      lastName: {
+        required: true,
       },
       // type: text
-      "tz": {
+      tz: {
         required: true,
         minlength: 7,
-        maxlength: 9
+        maxlength: 9,
       },
       // type: text
-      "phone": {
+      phone: {
         required: true,
         minlength: 9,
         maxlength: 10,
@@ -225,8 +252,8 @@ $(function () {
         },
       },
       // type: radio
-      "gender": {
-        required: true
+      gender: {
+        required: true,
       },
       // type: email
       "personal-email": {
@@ -237,12 +264,12 @@ $(function () {
         },
       },
       // type: text
-      "city": {
-        required: true
+      city: {
+        required: true,
       },
       // type: text
-      "apt": {
-        required: true
+      apt: {
+        required: true,
       },
       // type: text
       "zip-code": {
@@ -252,107 +279,119 @@ $(function () {
         normalizer: function (value) {
           return $.trim(value);
         },
-
       },
       // type: radio
-      "reports": {
-        required: true
+      reports: {
+        required: true,
       },
       // type: checkbox
-      "terms": {
-        required: true
+      terms: {
+        required: true,
       },
-//======================================================================================================
+      //======================================================================================================
       // stage: 5
       // type: radio
-      "il-citizen": { 
-        required: true
+      "il-citizen": {
+        required: true,
       },
       // type: radio
       "us-citizen": {
-        required: true
+        required: true,
       },
       // type: option
       "employment-type": {
-        required: true
+        required: true,
       },
       // type: checkbox
-      "reg-check-1":{
-        required: true
+      "reg-check-1": {
+        required: true,
       },
       // type: checkbox
-      "reg-check-2":{
-        required: true
+      "reg-check-2": {
+        required: true,
       },
       // type: checkbox
-      "reg-check-3":{
-        required: true
+      "reg-check-3": {
+        required: true,
       },
       // type: checkbox
-      "reg-check-4":{
-        required: true
+      "reg-check-4": {
+        required: true,
       },
       // type: checkbox
-      "reg-check-5":{
-        required: true
+      "reg-check-5": {
+        required: true,
       },
       // type: checkbox
-      "reg-check-6":{
-        required: true
+      "reg-check-6": {
+        required: true,
       },
-//======================================================================================================
+      //======================================================================================================
       // stage: 6
       // type: option
       "money-origin": {
-        required: true
+        required: true,
       },
       // type: option
-      "bank": {
-        required: true
+      bank: {
+        required: true,
       },
       // type: radio
-      "additional-deposits" : {
-        required: true
+      "additional-deposits": {
+        required: true,
       },
       // type: radio
       "expected-amount": {
-        required: true
+        //'required: true' only if 'additional-deposits' is selected
+        required: function (element) {
+          return $('input[name="additional-deposits"]:checked').val() !== "1";
+        },
       },
       // type: file
       "id-file": {
-        required: true
+        required: true,
       },
       // type: file
       "card-file": {
-        required: true
+        required: true,
       },
-//======================================================================================================
+      //======================================================================================================
       // stage: 7
       // type: radio
-      "partner": {
-        required: true
+      partner: {
+        required: true,
       },
       // type: radio
       "relation-type": {
-        required: true
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
       },
       // type: text
       "firstName-partner": {
-        required: true
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
       },
       // type: text
       "lastName-partner": {
-        required: true
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
       },
       // type: text
       "id-partner": {
-        required: true,
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
         minlength: 7,
-        maxlength: 9
+        maxlength: 9,
       },
       // type: text
       "phone-partner": {
-        required: true,
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
         minlength: 9,
         maxlength: 10,
         normalizer: function (value) {
@@ -361,11 +400,15 @@ $(function () {
       },
       // type: text
       "gender-partner": {
-        required: true
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
       },
       // type: text
       "personal-email-partner": {
-        required: true,
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
         email: true,
         normalizer: function (value) {
           return $.trim(value);
@@ -373,15 +416,21 @@ $(function () {
       },
       // type: text
       "city-partner": {
-        required: true
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
       },
       // type: text
       "apt-partner": {
-        required: true
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
       },
       // type: text
       "zip-code-partner": {
-        required: true,
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
         minlength: 5,
         maxlength: 5,
         normalizer: function (value) {
@@ -390,41 +439,45 @@ $(function () {
       },
       // type: file
       "id-file-partner": {
-        required: true
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
       },
       // type: file
       "card-file-partner": {
-        required: true
+        required: function (element) {
+          return $('input[name="partner"]:checked').val() === "partner-yes";
+        },
       },
       //checkbox
       "manage-1": {
-        required: true
+        required: true,
       },
       //checkbox
       "manage-2": {
-        required: true
+        required: true,
       },
       //checkbox
       "manage-3": {
-        required: true
+        required: true,
       },
       //checkbox
       "manage-4": {
-        required: true
+        required: true,
       },
       //checkbox
       "manage-5": {
-        required: true
+        required: true,
       },
       //checkbox
       "manage-6": {
-        required: true
+        required: true,
       },
       //checkbox
       "manage-7": {
-        required: true
-      }
-//======================================================================================================
+        required: true,
+      },
+      //======================================================================================================
     },
     messages: {
       "money-amount": {
@@ -437,113 +490,206 @@ $(function () {
   curStage = $("div[class^='stage-']")[0];
   selectedStage = "1";
 
-  // when pressed prev button go to previous stage
-  // run validation
-  $(".prev").click(function () { 
+  $(".prev").on("click", function ($event) {
     console.log("curStage", curStage);
     console.log("curOpenWizard", curOpenWizard);
     console.log("selectedStage", selectedStage);
+    let selectedStageInt = parseInt(selectedStage, 10);
+    selectedStageInt -= 1;
+    selectedStageInt = selectedStageInt < 1 ? 1 : selectedStageInt;
 
-    if(validateStage(selectedStage) == false) {
-      
-    }
-    else{
-      selectedStage = String(parseInt(selectedStage) - 1);
-          if (selectedStage == "0") {
-            selectedStage = "1";
-          }
+    if (
+      validateStage(selectedStage) === true &&
+      runPreChecks(selectedStageInt)
+    ) {
+      // update selected stage
+      selectedStage = String(selectedStageInt);
 
-          if ($(".stage-" + selectedStage).hasClass("visually-hidden")) {
-            $("div[class^='stage-']").addClass("visually-hidden");
-            $(".stage-" + selectedStage).removeClass("visually-hidden");
-            curStage = { ...$(".stage-" + selectedStage) };
-          }
-          if ($(".wizard-title").hasClass("wizard-title-active")) {
-            $(".wizard-title").removeClass("wizard-title-active");
-            $(".wizard-title:nth-of-type(" + selectedStage + ")").addClass(
-              "wizard-title-active"
-            );
-          }
-        
+      // hide all stages
+      const stages = document.querySelectorAll("div[class^='stage-']");
+      stages.forEach((stage) => stage.classList.add("visually-hidden"));
+
+      // show current stage
+      const currentStage = document.querySelector(".stage-" + selectedStage);
+      currentStage.classList.remove("visually-hidden");
+
+      // update current stage
+      curStage = { ...currentStage };
+
+      // make all wizard titles inactive
+      const wizardTitles = document.querySelectorAll("div.wizard-title");
+      wizardTitles.forEach((title) =>
+        title.classList.remove("wizard-title-active")
+      );
+
+      // make current wizard title active
+      const currentWizardTitle = wizardTitles[selectedStageInt - 1];
+      currentWizardTitle.classList.add("wizard-title-active");
+
+      // make all wizard buttons inactive
+      const wizardButtons = document.querySelectorAll(".wizard-btn");
+      wizardButtons.forEach((button) => {
+        button.classList.remove("active");
+        button.classList.add("inactive");
+      });
+
+      // make current wizard button active
+      const currentWizardButton = wizardButtons[selectedStageInt - 1];
+      currentWizardButton.classList.add("active");
+      currentWizardButton.classList.remove("inactive");
+
+      // update current wizard button
+      curOpenWizard = { ...currentWizardButton };
+
+      // hide prev button if on first stage
+      if (selectedStage === "1") {
+        const prevButton = document.querySelector(".prev");
+        prevButton.classList.add("visually-hidden");
+      }
     }
   });
 
-  // when pressed next button go to next stage
-  // run validation
-  $(".next").click(function () {
+  $(".next").on("click", function ($event) {
     console.log("curStage", curStage);
     console.log("curOpenWizard", curOpenWizard);
     console.log("selectedStage", selectedStage);
-   
+    let selectedStageInt = parseInt(selectedStage, 10);
+    selectedStageInt += 1;
+    selectedStageInt = selectedStageInt > 8 ? 8 : selectedStageInt;
 
-    if(validateStage(selectedStage) == false) {
-      
+    if (
+      validateStage(selectedStage) === true &&
+      runPreChecks(selectedStageInt)
+    ) {
+      // show prev button
+      const prevButton = document.querySelector(".prev");
+      prevButton.classList.remove("visually-hidden");
+
+      // update selected stage
+
+      selectedStage = String(selectedStageInt);
+
+      // hide all stages
+      const stages = document.querySelectorAll("div[class^='stage-']");
+      stages.forEach((stage) => stage.classList.add("visually-hidden"));
+
+      // show current stage
+      const currentStage = document.querySelector(".stage-" + selectedStage);
+      currentStage.classList.remove("visually-hidden");
+
+      // update current stage
+      curStage = { ...currentStage };
+
+      // make all wizard titles inactive
+      const wizardTitles = document.querySelectorAll("div.wizard-title");
+      wizardTitles.forEach((title) =>
+        title.classList.remove("wizard-title-active")
+      );
+
+      // make current wizard title active
+      const currentWizardTitle = wizardTitles[selectedStageInt - 1];
+      currentWizardTitle.classList.add("wizard-title-active");
+
+      // make all wizard buttons inactive
+      const wizardButtons = document.querySelectorAll(".wizard-btn");
+      wizardButtons.forEach((button) => {
+        button.classList.remove("active");
+        button.classList.add("inactive");
+      });
+
+      // make current wizard button active
+      const currentWizardButton = wizardButtons[selectedStageInt - 1];
+      currentWizardButton.classList.add("active");
+      currentWizardButton.classList.remove("inactive");
+
+      // update current wizard button
+      curOpenWizard = { ...currentWizardButton };
     }
-    else{
-      $(".prev").removeClass("visually-hidden");
-      selectedStage = String(parseInt(selectedStage) + 1);
-      if (selectedStage == "9") {
-        selectedStage = "8";
-      }
-
-      if ($(".stage-" + selectedStage).hasClass("visually-hidden")) {
-        $("div[class^='stage-']").addClass("visually-hidden");
-        $(".stage-" + selectedStage).removeClass("visually-hidden");
-        curStage = { ...$(".stage-" + selectedStage) };
-      }
-
-      if ($(".wizard-title").hasClass("wizard-title-active")) {
-        $(".wizard-title").removeClass("wizard-title-active");
-        $(".wizard-title:nth-of-type(" + selectedStage + ")").addClass("wizard-title-active");
-      }
-    
-      if($(".wizard-btn .me-2").hasClass("active")) {
-        $(".wizard-btn .me-2").removeClass("active").addClass("inactive");
-
-        $(".wizard-btn .me-2:nth-of-type(" + selectedStage + ")").addClass("active").removeClass("inactive");
-        debugger;
-        curOpenWizard = { ...$(".wizard-btn .me-2:nth-of-type(" + selectedStage + ")") };
-      }
-    }
-   });
+  });
 
   $(".submit").on("click", function ($event) {
-    if (confirm("Click OK to continue?")) {
-      custom_sub_form();
-      validator.destroy();
+    if (validateStage("all") === true) {
+      if (confirm("Click OK to continue?")) {
+        custom_sub_form();
+        validator.destroy();
+      } else {
+        $event.preventDefault();
+        return false;
+      }
+    }
+  });
+
+  $(".me-2").on("click", function ($event) {
+    console.log("curStage", curStage);
+    console.log("curOpenWizard", curOpenWizard);
+    console.log("selectedStage", selectedStage);
+    let selectedStageInt = parseInt($(this).text(), 10);
+    if (
+      validateStage(selectedStage) === true &&
+      runPreChecks(selectedStageInt)
+    ) {
+      // update selected stage
+
+      selectedStage = String(selectedStageInt);
+
+      // hide all stages
+      const stages = document.querySelectorAll("div[class^='stage-']");
+      stages.forEach((stage) => stage.classList.add("visually-hidden"));
+
+      // show current stage
+      const currentStage = document.querySelector(".stage-" + selectedStageInt);
+      currentStage.classList.remove("visually-hidden");
+
+      // update current stage
+      curStage = { ...currentStage };
+
+      // make all wizard titles inactive
+      const wizardTitles = document.querySelectorAll("div.wizard-title");
+      wizardTitles.forEach((title) =>
+        title.classList.remove("wizard-title-active")
+      );
+
+      // make current wizard title active
+      const currentWizardTitle = wizardTitles[selectedStageInt - 1];
+      currentWizardTitle.classList.add("wizard-title-active");
+
+      // make all wizard buttons inactive
+      const wizardButtons = document.querySelectorAll(".wizard-btn");
+      wizardButtons.forEach((button) => {
+        button.classList.remove("active");
+        button.classList.add("inactive");
+      });
+
+      // make current wizard button active
+      const currentWizardButton = wizardButtons[selectedStageInt - 1];
+      currentWizardButton.classList.add("active");
+      currentWizardButton.classList.remove("inactive");
+
+      // update current wizard button
+      curOpenWizard = { ...currentWizardButton };
+    }
+  });
+
+  $('input[name="partner"]').on("change", function () {
+    if ($(this).val() === "partner-yes") {
+      $("#personal-details-partner").removeClass("visually-hidden");
     } else {
-      $event.preventDefault();
-      return false;
+      $("#personal-details-partner").addClass("visually-hidden");
     }
   });
 
-  $(".me-2").on("click", function () {
-    if (!$(this).hasClass("active")) {
-      curOpenWizard = null;
-      $(".me-2").removeClass("active");
-      $(".me-2").addClass("inactive");
-      $(this).addClass("active");
-      $(this).removeClass("inactive");
-      selectedStage = $(this).text();
-      curOpenWizard = { ...$(this) };
-
-      if ($(".stage-" + selectedStage).hasClass("visually-hidden")) {
-        $("div[class^='stage-']").addClass("visually-hidden");
-        $(".stage-" + selectedStage).removeClass("visually-hidden");
-        curStage = { ...$(".stage-" + selectedStage) };
-      }
-      if ($(".wizard-title").hasClass("wizard-title-active")) {
-        $(".wizard-title").removeClass("wizard-title-active");
-        $(".wizard-title:nth-of-type(" + selectedStage + ")").addClass(
-          "wizard-title-active"
-        );
-      }
+  // when the user clicks on radiobuttons in "additional-deposits" class, show/hide the second list
+  $("input[name='additional-deposits']").on("change", function () {
+    if ($(this).val() === "1") {
+      $("#expected-amount-container").addClass("visually-hidden");
+      $("input[name='expected-amount']").prop("checked", false);
+    } else {
+      $("#expected-amount-container").removeClass("visually-hidden");
+      $("input[name='expected-amount']").prop("checked", false);
     }
   });
-
 
   $(function () {
-
     //DANIEL ----- my functions below
     //   function toggleSecondList() {
     //     const firstListOptions = document.querySelectorAll('input[name="additional-deposits"]');
@@ -649,3 +795,72 @@ $(function () {
     //   birthdateInput.addEventListener("change", checkAge);
   });
 });
+
+function runPreChecks(stage) {
+  debugger;
+  $(".next").removeClass("visually-hidden");
+  $(".prev").removeClass("visually-hidden");
+  $(".submit").addClass("visually-hidden");
+
+  let sum = 0;
+
+  if (stage == 1) {
+    $(".prev").addClass("visually-hidden");
+  } else {
+    $(".prev").removeClass("visually-hidden");
+  }
+
+  if (stage == 2) {
+    const selectedPrivateMoneyPercentRadioButton = $(
+      'input[name="private-money-percent"]:checked'
+    );
+    const selectedMoneyPeriodRadioButton = $(
+      'input[name="money-period"]:checked'
+    );
+    const selectedMoneyLostRadioButton = $('input[name="money-lost"]:checked');
+    const selectedMoneyIfRadioButton = $('input[name="money-if"]:checked');
+
+    const privateMoneyPercentDataValue =
+      selectedPrivateMoneyPercentRadioButton.data("value");
+    const moneyPeriodDataValue = selectedMoneyPeriodRadioButton.data("value");
+    const moneyLostDataValue = selectedMoneyLostRadioButton.data("value");
+    const moneyIfDataValue = selectedMoneyIfRadioButton.data("value");
+
+    sum =
+      privateMoneyPercentDataValue +
+      moneyPeriodDataValue +
+      moneyLostDataValue +
+      moneyIfDataValue;
+
+    checkSumFor3Stage(sum);
+  }
+  if (stage === 3) {
+    checkSumFor3Stage(sum);
+  }
+
+  if (stage === 6) {
+    if ($('input[name="additional-deposits"]:checked').data("value") > 1) {
+    }
+  }
+  if (stage === 8) {
+    $(".next").addClass("visually-hidden");
+    $(".submit").removeClass("visually-hidden");
+  } else {
+    $(".next").removeClass("visually-hidden");
+    $(".submit").addClass("visually-hidden");
+  }
+  return true;
+}
+
+function checkSumFor3Stage(sum) {
+  $(".stage-3").children("div").addClass("visually-hidden");
+  if (sum <= 5) {
+    $("div.result-disp-1").removeClass("visually-hidden");
+  } else if (sum >= 6 && sum <= 15) {
+    $("div.result-disp-2").removeClass("visually-hidden");
+  } else if (sum >= 16 && sum <= 25) {
+    $("div.result-disp-3").removeClass("visually-hidden");
+  } else if (sum >= 26 && sum <= 40) {
+    $("div.result-disp-4").removeClass("visually-hidden");
+  }
+}
