@@ -20,6 +20,20 @@ $(function () {
     },
     "גיל פחות מ-18"
   );
+  // $.validator.addMethod(
+  //   "percentageInterval",
+  //   function (value, element, min) {
+  //     var max = 100;
+  //     var min = 0;
+
+  //     if (value > max || value < min) {
+  //       return false;
+  //     }
+
+  //     return true;
+  //   },
+  //   "נא להזין אחוז בטווח בין 0 ל100"
+  // );
   function validateStage(stage) {
     switch (stage) {
       case "1":
@@ -197,6 +211,10 @@ $(function () {
       // type: number
       "stage1-percentage": {
         required: true,
+        // percentageInterval: 0,
+        // normalizer: function (value) {
+        //   return $.trim(value);
+        // },
       },
       //======================================================================================================
       // stage: 2
@@ -670,6 +688,15 @@ $(function () {
     }
   });
 
+  $('input[name="us-citizen"]').on("change", function () {
+    if ($(this).val() === "us-yes") {
+      $(".us-person-regulation").css("display", "block");
+    } else {
+      $(".us-person-regulation").css("display", "none");
+    }
+
+  });
+
   $('input[name="partner"]').on("change", function () {
     if ($(this).val() === "partner-yes") {
       $("#personal-details-partner").removeClass("visually-hidden");
@@ -688,6 +715,17 @@ $(function () {
       $("input[name='expected-amount']").prop("checked", false);
     }
   });
+  $('.reg-check').on('change', function() {
+    // Check if at least one checkbox is checked
+    if($('.reg-check:checked').length > 0) {
+        // Show the error message
+        $('.contact-us-regulation').show();
+    } else {
+        // Hide the error message
+        $('.contact-us-regulation').hide();
+    }
+});
+
 
   $(function () {
     //DANIEL ----- my functions below
@@ -810,7 +848,11 @@ function runPreChecks(stage) {
     $(".prev").removeClass("visually-hidden");
   }
 
-  if (stage == 2) {
+  // if (stage == 2) {
+    
+  //   checkSumFor3Stage(sum);
+  // }
+  if (stage === 3) {
     const selectedPrivateMoneyPercentRadioButton = $(
       'input[name="private-money-percent"]:checked'
     );
@@ -832,9 +874,6 @@ function runPreChecks(stage) {
       moneyLostDataValue +
       moneyIfDataValue;
 
-    checkSumFor3Stage(sum);
-  }
-  if (stage === 3) {
     checkSumFor3Stage(sum);
   }
 
