@@ -20,20 +20,7 @@ $(function () {
     },
     "גיל פחות מ-18"
   );
-  // $.validator.addMethod(
-  //   "percentageInterval",
-  //   function (value, element, min) {
-  //     var max = 100;
-  //     var min = 0;
 
-  //     if (value > max || value < min) {
-  //       return false;
-  //     }
-
-  //     return true;
-  //   },
-  //   "נא להזין אחוז בטווח בין 0 ל100"
-  // );
   function validateStage(stage) {
     switch (stage) {
       case "1":
@@ -191,7 +178,7 @@ $(function () {
     errorPlacement: function (error, element) {
       error.addClass("invalid-feedback");
       if (element.prop("type") === "checkbox") {
-        error.insertAfter(element.parent("label"));
+        error.insertAfter(element.parent(".form-check"));
       } else if (element.prop("type") === "radio") {
         error.insertAfter(element.parent().siblings(".form-check").last());
       } else {
@@ -322,27 +309,27 @@ $(function () {
       },
       // type: checkbox
       "reg-check-1": {
-        required: true,
+        required: false
       },
       // type: checkbox
       "reg-check-2": {
-        required: true,
+        required: false
       },
       // type: checkbox
       "reg-check-3": {
-        required: true,
+        required: false
       },
       // type: checkbox
       "reg-check-4": {
-        required: true,
+        required: false
       },
       // type: checkbox
       "reg-check-5": {
-        required: true,
+        required: false
       },
       // type: checkbox
       "reg-check-6": {
-        required: true,
+        required: false
       },
       //======================================================================================================
       // stage: 6
@@ -694,7 +681,6 @@ $(function () {
     } else {
       $(".us-person-regulation").css("display", "none");
     }
-
   });
 
   $('input[name="partner"]').on("change", function () {
@@ -715,17 +701,23 @@ $(function () {
       $("input[name='expected-amount']").prop("checked", false);
     }
   });
-  $('.reg-check').on('change', function() {
-    // Check if at least one checkbox is checked
-    if($('.reg-check:checked').length > 0) {
-        // Show the error message
-        $('.contact-us-regulation').show();
-    } else {
-        // Hide the error message
-        $('.contact-us-regulation').hide();
-    }
-});
 
+  $(".reg-check").on("change", function () {
+    // Check if at least one checkbox is checked
+    if ($(".reg-check:checked").length > 0) {
+      // Show the error message
+      $(".contact-us-regulation").show();
+        disableSubmit();
+        disableNext();
+        disablePrev();
+    } else {
+      // Hide the error message
+      $(".contact-us-regulation").hide();
+      enableSubmit();
+      enableNext();
+      enablePrev();
+    }
+  });
 
   $(function () {
     //DANIEL ----- my functions below
@@ -834,8 +826,44 @@ $(function () {
   });
 });
 
+// this function disables the submit button
+function disableSubmit() {
+  $(':input[type="submit"]').prop('disabled', true);
+   $('input[type="text"]').keyup(function() {
+      if($(this).val() != '') {
+         $(':input[type="submit"]').prop('disabled', false);
+      }
+   });
+}
+
+// this function enables the submit button
+function enableSubmit() {
+  $(':input[type="submit"]').prop('disabled', false);
+}
+
+// this function disables the next button
+function disableNext() {
+  $(':input[type="button"]').prop('disabled', true);
+}
+
+// this function enables the next button
+function enableNext() {
+  $(':input[type="button"]').prop('disabled', false);
+}
+
+// this function disables the prev button
+function disablePrev() {
+  $(':input[type="button"]').prop('disabled', true);
+}
+
+// this function enables the prev button
+function enablePrev() {
+  $(':input[type="button"]').prop('disabled', false);
+}
+
+
+
 function runPreChecks(stage) {
-  debugger;
   $(".next").removeClass("visually-hidden");
   $(".prev").removeClass("visually-hidden");
   $(".submit").addClass("visually-hidden");
@@ -849,7 +877,7 @@ function runPreChecks(stage) {
   }
 
   // if (stage == 2) {
-    
+
   //   checkSumFor3Stage(sum);
   // }
   if (stage === 3) {
@@ -875,6 +903,10 @@ function runPreChecks(stage) {
       moneyIfDataValue;
 
     checkSumFor3Stage(sum);
+  }
+  if (stage === 5) {
+    if ($(".reg-check:checked").length > 0) {
+    }
   }
 
   if (stage === 6) {
