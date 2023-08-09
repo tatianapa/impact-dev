@@ -34,13 +34,14 @@
     <script>
       function custom_sub_form() {
         $.ajax({
-          url: "https://api.apispreadsheets.com/data/3U4mEOsmqtOvebUj/",
+          url: "http://157.230.112.140/api/post_form",
           type: "post",
           data: $("#impact-form").serializeArray(),
           success: function () {
             alert("Form Data Submitted :)");
           },
-          error: function () {
+          error: function (e) {
+            console.log(e);
             alert("There was an error :(");
           },
         });
