@@ -30,22 +30,6 @@
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/@emretulek/jbvalidator@1.0.9/dist/jbvalidator.min.js"></script> -->
     <script src="script.js"></script>
-
-    <script>
-      function custom_sub_form() {
-        $.ajax({
-          url: "https://api.apispreadsheets.com/data/3U4mEOsmqtOvebUj/",
-          type: "post",
-          data: $("#impact-form").serializeArray(),
-          success: function () {
-            alert("Form Data Submitted :)");
-          },
-          error: function () {
-            alert("There was an error :(");
-          },
-        });
-      }
-    </script>
   </head>
 
   <body>
