@@ -325,27 +325,27 @@ $(function () {
       },
       // type: checkbox
       "reg-check-1": {
-        required: false
+        required: false,
       },
       // type: checkbox
       "reg-check-2": {
-        required: false
+        required: false,
       },
       // type: checkbox
       "reg-check-3": {
-        required: false
+        required: false,
       },
       // type: checkbox
       "reg-check-4": {
-        required: false
+        required: false,
       },
       // type: checkbox
       "reg-check-5": {
-        required: false
+        required: false,
       },
       // type: checkbox
       "reg-check-6": {
-        required: false
+        required: false,
       },
       //======================================================================================================
       // stage: 6
@@ -723,12 +723,68 @@ $(function () {
     if ($(".reg-check:checked").length > 0) {
       // Show the error message
       $(".contact-us-regulation").show();
-        disableSubmit();
-        disableNext();
-        disablePrev();
+      redefineNextAsSubmit();
     } else {
       // Hide the error message
       $(".contact-us-regulation").hide();
+      $(".next").unbind();
+      $(".next").on("click", function ($event) {
+        console.log("curStage", curStage);
+        console.log("curOpenWizard", curOpenWizard);
+        console.log("selectedStage", selectedStage);
+        let selectedStageInt = parseInt(selectedStage, 10);
+        selectedStageInt += 1;
+        selectedStageInt = selectedStageInt > 8 ? 8 : selectedStageInt;
+    
+        if (
+          validateStage(selectedStage) === true &&
+          runPreChecks(selectedStageInt)
+        ) {
+          // show prev button
+          const prevButton = document.querySelector(".prev");
+          prevButton.classList.remove("visually-hidden");
+    
+          // update selected stage
+    
+          selectedStage = String(selectedStageInt);
+    
+          // hide all stages
+          const stages = document.querySelectorAll("div[class^='stage-']");
+          stages.forEach((stage) => stage.classList.add("visually-hidden"));
+    
+          // show current stage
+          const currentStage = document.querySelector(".stage-" + selectedStage);
+          currentStage.classList.remove("visually-hidden");
+    
+          // update current stage
+          curStage = { ...currentStage };
+    
+          // make all wizard titles inactive
+          const wizardTitles = document.querySelectorAll("div.wizard-title");
+          wizardTitles.forEach((title) =>
+            title.classList.remove("wizard-title-active")
+          );
+    
+          // make current wizard title active
+          const currentWizardTitle = wizardTitles[selectedStageInt - 1];
+          currentWizardTitle.classList.add("wizard-title-active");
+    
+          // make all wizard buttons inactive
+          const wizardButtons = document.querySelectorAll(".wizard-btn");
+          wizardButtons.forEach((button) => {
+            button.classList.remove("active");
+            button.classList.add("inactive");
+          });
+    
+          // make current wizard button active
+          const currentWizardButton = wizardButtons[selectedStageInt - 1];
+          currentWizardButton.classList.add("active");
+          currentWizardButton.classList.remove("inactive");
+    
+          // update current wizard button
+          curOpenWizard = { ...currentWizardButton };
+        }
+      });
       enableSubmit();
       enableNext();
       enablePrev();
@@ -844,40 +900,51 @@ $(function () {
 
 // this function disables the submit button
 function disableSubmit() {
-  $(':input[type="submit"]').prop('disabled', true);
-   $('input[type="text"]').keyup(function() {
-      if($(this).val() != '') {
-         $(':input[type="submit"]').prop('disabled', false);
-      }
-   });
+  $(':input[type="submit"]').prop("disabled", true);
+  $('input[type="text"]').keyup(function () {
+    if ($(this).val() != "") {
+      $(':input[type="submit"]').prop("disabled", false);
+    }
+  });
 }
 
 // this function enables the submit button
 function enableSubmit() {
-  $(':input[type="submit"]').prop('disabled', false);
+  $(':input[type="submit"]').prop("disabled", false);
 }
 
 // this function disables the next button
 function disableNext() {
-  $(':input[type="button"]').prop('disabled', true);
+  $(':input[type="button"]').prop("disabled", true);
 }
 
 // this function enables the next button
 function enableNext() {
-  $(':input[type="button"]').prop('disabled', false);
+  $(':input[type="button"]').prop("disabled", false);
 }
 
 // this function disables the prev button
 function disablePrev() {
-  $(':input[type="button"]').prop('disabled', true);
+  $(':input[type="button"]').prop("disabled", true);
 }
 
 // this function enables the prev button
 function enablePrev() {
-  $(':input[type="button"]').prop('disabled', false);
+  $(':input[type="button"]').prop("disabled", false);
 }
 
+function redefineNextAsSubmit() {
+  $(".next").unbind().on("click", function ($event) {
+        custom_sub_form();
+  });
+}
 
+function redefineNextAsNext() {
+// unbind the click event and bind it again
+  $(".next").unbind().on("click", function ($event) { // todo: fix
+
+  });
+}
 
 function runPreChecks(stage) {
   $(".next").removeClass("visually-hidden");
@@ -950,4 +1017,18 @@ function checkSumFor3Stage(sum) {
   } else if (sum >= 26 && sum <= 40) {
     $("div.result-disp-4").removeClass("visually-hidden");
   }
+}
+
+function custom_sub_form() {
+  $.ajax({
+    url: "https://api.apispreadsheets.com/data/3U4mEOsmqtOvebUj/",
+    type: "post",
+    data: $("#impact-form").serializeArray(),
+    success: function () {
+      alert("Form Data Submitted :)");
+    },
+    error: function () {
+      alert("There was an error :(");
+    },
+  });
 }
