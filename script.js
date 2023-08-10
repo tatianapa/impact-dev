@@ -20,6 +20,22 @@ $(function () {
     },
     "גיל פחות מ-18"
   );
+  $.validator.addMethod(
+    "isValidID",
+    function IDValidator(id)
+{
+    if (id.length !== 9 || isNaN(id)) {  // Make sure ID is formatted properly
+        return false;
+    }
+    let sum = 0, incNum;
+    for (let i = 0; i < id.length; i++) {
+        incNum = Number(id[i]) * ((i % 2) + 1);  // Multiply number by 1 or 2
+        sum += (incNum > 9) ? incNum - 9 : incNum;  // Sum the digits up and add to total
+    }
+    return (sum % 10 === 0);
+},
+    "מספר תעודת זהות אינו תקין"
+  );
 
   function validateStage(stage) {
     switch (stage) {
@@ -280,7 +296,7 @@ $(function () {
       "zip-code": {
         required: true,
         minlength: 5,
-        maxlength: 5,
+        maxlength: 7,
         normalizer: function (value) {
           return $.trim(value);
         },
