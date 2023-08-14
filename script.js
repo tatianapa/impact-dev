@@ -236,6 +236,9 @@ $(function () {
       // type: radio
       "money-period": {
         required: true,
+        normalizer: function (value) {
+          return $.trim(value);
+        },
       },
       // type: radio
       "money-lost": {
@@ -1021,7 +1024,7 @@ function custom_sub_form() {
     crossDomain: true,
     dataType: 'json',
 
-    success: function () {
+    success: function (data) {
       custom_sub_form_second_request(data);
     },
     error: function () {
