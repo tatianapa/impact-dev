@@ -370,7 +370,7 @@ $(function () {
       },
       // type: file
       "id-file": {
-        required: true,
+        required: true
       },
       // type: file
       "card-file": {
@@ -906,6 +906,18 @@ function disableSubmit() {
       $(':input[type="submit"]').prop("disabled", false);
     }
   });
+}
+function showIdName(){
+  $("#id-file").on('input', function() {
+    var fileName = $(this).val().split('\\').pop(); // Extract the file name from the full path
+    $("#selectedFileName").text(fileName); // Display the file name in the span
+});
+}
+function showCardName(){
+  $("#card-file").on('change', function() {
+    var fileName = $(this).val().split('\\').pop(); // Extract the file name from the full path
+    $("#selectedCardName").text(fileName); // Display the file name in the span
+});
 }
 
 // this function enables the submit button
