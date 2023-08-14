@@ -712,7 +712,7 @@ $(function () {
 
   // when the user clicks on radiobuttons in "additional-deposits" class, show/hide the second list
   $("input[name='additional-deposits']").on("change", function () {
-    if ($(this).val() === "1") {
+    if ($(this).val() === "לא בשלב זה") {
       $("#expected-amount-container").addClass("visually-hidden");
       $("input[name='expected-amount']").prop("checked", false);
     } else {
