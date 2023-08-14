@@ -236,6 +236,9 @@ $(function () {
       // type: radio
       "money-period": {
         required: true,
+        normalizer: function (value) {
+          return $.trim(value);
+        },
       },
       // type: radio
       "money-lost": {
@@ -951,12 +954,6 @@ function redefineNextAsSubmit() {
   });
 }
 
-function redefineNextAsNext() {
-// unbind the click event and bind it again
-  $(".next").unbind().on("click", function ($event) { // todo: fix
-
-  });
-}
 
 function runPreChecks(stage) {
   $(".next").removeClass("visually-hidden");
@@ -1033,14 +1030,35 @@ function checkSumFor3Stage(sum) {
 
 function custom_sub_form() {
   $.ajax({
-    url: "https://api.apispreadsheets.com/data/3U4mEOsmqtOvebUj/",
-    type: "post",
-    data: $("#impact-form").serializeArray(),
-    success: function () {
-      alert("Form Data Submitted :)");
+    url: "http://157.230.112.140/api/post_form/",
+    type: "POST",
+    data: JSON.stringify($("#impact-form").serializeArray()),
+    crossDomain: true,
+    dataType: 'json',
+
+    success: function (data) {
+      custom_sub_form_second_request(data);
     },
     error: function () {
       alert("There was an error :(");
     },
   });
 }
+
+  function custom_sub_form_second_request(data) {
+    $.ajax({
+      url: "http://157.230.112.140/api/post_form/",
+      type: "POST",
+      data: JSON.stringify(data),
+      crossDomain: true,
+      dataType: 'json',
+  
+      success: function () {
+        alert("Form Data Submitted :)");
+      },
+      error: function () {
+        alert("There was an error :(");
+      },
+    });
+  }
+
