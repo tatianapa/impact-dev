@@ -178,24 +178,29 @@
                   </div>
                   </div>
                   <div class="row">
-                  <div class="col-md-6 mt-4">
+                  <div class="col-md-4 mt-4">
                     <div class="inner_stage-1-1-row input-wrapper">
-                      <div>
-                        סכום זה מהווה %
-                        <input
-                          type="number"
-                          name="stage1-percentage"
-                          id="stage1-percentage"
-                          class="form-control"
-                          min="0"
-                          max="100"
-                          aria-label="אחוז מסך הנזילים"/>
-                        מסך הנכסים הנזילים שלי
+                        <label for="moneyAmount" class="form-label">
+                          סכום זה מהווה % מסך הנכסים הנזילים שלי
+                         </label>
+                     
+                    <select
+                      id="stage1-percentage"
+                      name="stage1-percentage"
+                      class="form-select"
+                      aria-label="אחוז מסך הנזילים"
+                    
+                    >
+                    <option>0-25%</option>
+                    <option>25-50%</option>
+                    <option>50-75%</option>
+                    <option>75-100%</option>
+                    </select>
                         <!-- <div class="invalid-feedback">נא לבחור אחוז</div>
                         <div class="invalid-feedback invalid-percent">
                           נא להזין אחוז בטווח 1 עד 100
                         </div> -->
-                        <div class="inner_stage-1-2-tooltip mt-2">
+                        <div class="inner_stage-1-2-tooltip mt-3">
                           <div class="inner_stage-1-2-tooltip-icon">
                             <img src="assets/information 1.svg" />
                           </div>
@@ -208,7 +213,7 @@
                           </div>
                         </div>
                 
-                      </div>
+
                     </div>
                   </div>
                 </div>

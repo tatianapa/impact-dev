@@ -391,12 +391,21 @@ input.empty-input::before {
     border-radius: 50%;
     
   }
-  .wizard-title-container.d-flex.flex-column, .line{
+ .wizard-title{
+  display: none !important;
+  }
+  .wizard-title.wizard-title-active{
+    display: none !important;
+    }
+    .wizard-caption{
+      display: none !important;
+    }
+  .line{
     display: none !important;
   }
-  .wizard-title.wizard-title-active, .wizard-title{
+  /* .wizard-title.wizard-title-active, .wizard-title{
     font-size: 16px;
-  }
+  } */
   .wizard-list{
     display: flex;
     flex-direction: row;
@@ -430,5 +439,8 @@ background-color: white;
 }
 .tooltiptext{
   width: 70vw !important;
+}
+.form-main-header{
+  font-size: 1.5rem;
 }
 }
