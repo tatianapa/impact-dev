@@ -425,4 +425,10 @@ background-color: white;
     font-weight: 700;
     line-height: normal;
 }
+.mt-4 {
+  margin-top: 1rem !important;
+}
+.tooltiptext{
+  width: 70vw !important;
+}
 }
