@@ -33,12 +33,12 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-12 sticky-top">
           <div class="form-tabs">
-            <ul>
-              <li class="past d-flex flex-row align-items-center">
+            <ul class="wizard-list">
+              <li class="past d-flex flex-row">
                 <div class="wizard-digit">
                   <button class="wizard-btn me-2 active">1</button>
                 </div>
@@ -146,7 +146,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-7 col-sm-12">
           <form
             class="row g-3"
             id="impact-form"
@@ -158,7 +158,7 @@
               <div class="stage-1">
                 <h1 class="form-main-header">תכנון ההשקעה - כמות הכסף</h1>
                 <div class="row">
-                  <div class="col-md-6 mt-4 g-3">
+                  <div class="col-md-4 mt-4 g-3">
                     <label for="moneyAmount" class="form-label"
                       >כמה כסף תרצה / תרצי להשקיע?</label
                     >
@@ -176,24 +176,31 @@
                     </select>
                     <div class="invalid-feedback">נא לבחור סכום להשקעה</div>
                   </div>
-                  <div class="col-md-9 mt-4">
+                  </div>
+                  <div class="row">
+                  <div class="col-md-4 mt-4">
                     <div class="inner_stage-1-1-row input-wrapper">
-                      <div>
-                        סכום זה מהווה %
-                        <input
-                          type="number"
-                          name="stage1-percentage"
-                          id="stage1-percentage"
-                          class="form-control"
-                          min="0"
-                          max="100"
-                          aria-label="אחוז מסך הנזילים"/>
-                        מסך הנכסים הנזילים שלי
+                        <label for="moneyAmount" class="form-label">
+                          סכום זה מהווה % מסך הנכסים הנזילים שלי
+                         </label>
+                     
+                    <select
+                      id="stage1-percentage"
+                      name="stage1-percentage"
+                      class="form-select"
+                      aria-label="אחוז מסך הנזילים"
+                    
+                    >
+                    <option>0-25%</option>
+                    <option>25-50%</option>
+                    <option>50-75%</option>
+                    <option>75-100%</option>
+                    </select>
                         <!-- <div class="invalid-feedback">נא לבחור אחוז</div>
                         <div class="invalid-feedback invalid-percent">
                           נא להזין אחוז בטווח 1 עד 100
                         </div> -->
-                        <div class="inner_stage-1-2-tooltip mt-2">
+                        <div class="inner_stage-1-2-tooltip mt-3">
                           <div class="inner_stage-1-2-tooltip-icon">
                             <img src="assets/information 1.svg" />
                           </div>
@@ -205,7 +212,8 @@
                             שברשותך ופנסיה.
                           </div>
                         </div>
-                      </div>
+                
+
                     </div>
                   </div>
                 </div>
@@ -213,7 +221,7 @@
               <div class="stage-2 visually-hidden">
                 <h1 class="form-main-header">תכנון ההשקעה - פרטים נוספים</h1>
                 <div class="row g-3">
-                  <div class="col-md-6 mt-4">
+                  <div class="col-md-4 mt-4">
                     <label for="birthdate" class="form-label"
                       >מה תאריך הלידה שלך?
                     </label>
@@ -236,9 +244,9 @@
                   <div class="col-md-6"></div>
                 </div>
                 <div class="row">
-                  <fieldset class="col-md-6 mt-4">
+                  <fieldset class="col-md-4 mt-4">
                     <label for="private-money-percent" class="form-label">
-                      <a href="" class="me-1 tooltip-impact">
+                      <a  class="me-1 tooltip-impact">
                         <img src="assets/info 1.svg" />
                         <span class="tooltiptext">
                           <div class="row">
@@ -247,16 +255,16 @@
                                 למה הכוונה בנכסים נזילים?</span
                               >
                             </div>
-                            <div class="col-12">
+                            <div class="col-sm-12">
                               הנכסים הנזילים שלך כוללים מזומן, פיקדונות בבנקים,
                               השקעות, ניירות ערך, נכסים פיננסיים וכדומה. הכוונה
                               לנכסים שתוכל למשוך ולממש בזמן קצר יחסית ולכן הם
                               אינם כוללים למשל נדל"ן שברשותך ופנסיה.
                             </div>
-                            <div class="col-12">
+                            <div class="col-sm-12">
                               <span class="fnt-b"> למה אנחנו שואלים?</span>
                             </div>
-                            <div class="col-12">
+                            <div class="col-sm-12">
                               חשוב שתשמור לך נכסים נזילים להתנהלות השוטפת למקרה
                               שהדברים ישתבשו... ככל שהחלק שאתה משקיע מתוך כל
                               הנכסים הנזילים שלך גבוה יותר כך רמת הסיכון שתוכל
@@ -325,9 +333,9 @@
                     <div class="invalid-feedback">נא לבחור תשובה</div>
                   </fieldset>
 
-                  <fieldset class="col-md-6 mt-4">
+                  <fieldset class="col-md-4 mt-4">
                     <label for="money-period" class="form-label">
-                      <a href="" class="me-1 tooltip-impact">
+                      <a class="me-1 tooltip-impact">
                         <img src="assets/info 1.svg" />
                         <span class="tooltiptext">
                           <div class="row">
@@ -425,7 +433,7 @@
                   </fieldset>
                 </div>
                 <div class="row">
-                  <fieldset class="col-12 mt-4">
+                  <fieldset class="col-md-7 mt-4">
                     <label for="money-lost" class="form-label">
                       <a href="" class="me-1">
                         <img src="assets/info 1.svg" />
@@ -488,7 +496,7 @@
                   </fieldset>
                 </div>
                 <div class="row">
-                  <fieldset class="col-12 mt-4">
+                  <fieldset class="col-md-7 mt-4">
                     <label for="money-if" class="form-label">
                       <a href="" class="me-1">
                         <img src="assets/info 1.svg" />
@@ -634,8 +642,8 @@
               </div>
               <div class="stage-4 visually-hidden">
                 <h1 class="form-main-header">פרטים אישיים</h1>
-                <div class="row g-3">
-                  <div class="col-md-6 mt-4">
+                <div class="row">
+                  <div class="col-md-4 mt-4">
                     <input
                       type="text"
                       class="form-control"
@@ -647,7 +655,7 @@
                     />
                     <div class="invalid-feedback">נא להזין את שמך הפרטי</div>
                   </div>
-                  <div class="col-md-6 mt-4">
+                  <div class="col-md-4 mt-4">
                     <input
                       type="text"
                       class="form-control"
@@ -661,7 +669,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 mt-4">
+                  <div class="col-md-4 mt-4">
                     <input
                       type="text"
                       class="form-control"
@@ -673,7 +681,7 @@
                       נא להזין את מספר תעודת הזהות
                     </div>
                   </div>
-                  <div class="col-md-6 mt-4">
+                  <div class="col-md-4 mt-4">
                     <input
                       type="text"
                       class="form-control"
@@ -722,7 +730,7 @@
                                 </div> -->
                     </div>
                   </div>
-                  <div class="col-md-9 mt-4">
+                  <div class="col-md-5 mt-4">
                     <input
                       type="email"
                       class="form-control"
@@ -736,7 +744,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-4 mt-4">
+                  <div class="col-md-3 mt-4">
                     <input
                       type="text"
                       class="form-control"
@@ -746,7 +754,7 @@
                     />
                     <div class="invalid-feedback">נא להזין עיר מגורים</div>
                   </div>
-                  <div class="col-md-4 mt-4">
+                  <div class="col-md-2 mt-4">
                     <input
                       type="text"
                       class="form-control"
@@ -756,7 +764,7 @@
                     />
                     <div class="invalid-feedback">נא להזין את מספר הבית</div>
                   </div>
-                  <div class="col-md-4 mt-4">
+                  <div class="col-md-3 mt-4">
                     <input
                       type="text"
                       class="form-control"
@@ -804,7 +812,7 @@
                   </fieldset>
                 </div>
                 <div class="row">
-                  <div class="col-12 mt-4">
+                  <div class="col-md-8 mt-4">
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
@@ -849,7 +857,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row g-3">
+                <div class="row">
                   <fieldset class="col-md-5 mt-4">
                     <label class="form-label">
                       האם אתה תושב ואזרח מדינת ישראל?
@@ -1020,7 +1028,7 @@
               <div class="stage-6 visually-hidden">
                 <h1 class="form-main-header">פרטים נוספים</h1>
                 <div class="row">
-                  <div class="col-12 mt-4">
+                  <div class="col-md-6 mt-4">
                     <label for="money-origin" class="form-label"
                       >מה מקור הכסף שיופקד בחשבון?</label
                     >
@@ -1046,7 +1054,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-12 mt-4">
+                  <div class="col-md-6 mt-4">
                     <label for="bank" class="form-label"
                       >באיזה בנק ינוהלו כספי ההשקעה שלך?</label
                     >
@@ -1232,6 +1240,7 @@
                         name="id-file"
                         id="id-file"
                       />
+                      <span id="selectedFileName"></span>
                     </div>
                     <div class="col-md-12 mt-3">
                       <label for="card-file" class="form-label btn-file-upload">
@@ -1244,6 +1253,7 @@
                         name="card-file"
                         id="card-file"
                       />
+                      <span id="selectedCardName"></span>
                     </div>
                   </div>
                 </div>
@@ -1345,7 +1355,7 @@
                   </fieldset>
                   <div class="col-md-9 mt-4">
                     <div class="row">
-                      <div class="col-md-6 mt-4">
+                      <div class="col-md-4 mt-4">
                         <input
                           type="text"
                           class="form-control"
@@ -1357,7 +1367,7 @@
                           נא להזין את שמך הפרטי
                         </div>
                       </div>
-                      <div class="col-md-6 mt-4">
+                      <div class="col-md-4 mt-4">
                         <input
                           type="text"
                           class="form-control"
@@ -1371,7 +1381,7 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-6 mt-4">
+                      <div class="col-md-4 mt-4">
                         <input
                           type="text"
                           class="form-control"
@@ -1383,7 +1393,7 @@
                           נא להזין את מספר תעודת הזהות
                         </div>
                       </div>
-                      <div class="col-md-6 mt-4">
+                      <div class="col-md-4 mt-4">
                         <input
                           type="text"
                           class="form-control"
@@ -1671,18 +1681,19 @@
                   </div>
                 </div>
               </div>
+              <div class="btn-container mt-5 d-flex justify-content-between">
+                <button type="button" class="prev visually-hidden">
+                  <img src="assets/backward.svg" />חזרה
+                </button>
+                <button type="button" class="next">
+                  המשך<img src="assets/forward.svg" />
+                </button>
+                <button type="button" class="submit visually-hidden">
+                  אישור <img width="20px" src="assets/approved-accept-icon.svg" />
+                </button>
+              </div>
             </div>
-            <div class="btn-container mt-5 d-flex justify-content-between">
-              <button type="button" class="prev visually-hidden">
-                <img src="assets/backward.svg" />חזרה
-              </button>
-              <button type="button" class="next">
-                המשך<img src="assets/forward.svg" />
-              </button>
-              <button type="button" class="submit visually-hidden">
-                אישור <img width="20px" src="assets/approved-accept-icon.svg" />
-              </button>
-            </div>
+           
           </form>
         </div>
       </div>

@@ -22,18 +22,19 @@ $(function () {
   );
   $.validator.addMethod(
     "isValidID",
-    function IDValidator(id)
-{
-    if (id.length !== 9 || isNaN(id)) {  // Make sure ID is formatted properly
+    function IDValidator(id) {
+      if (id.length !== 9 || isNaN(id)) {
+        // Make sure ID is formatted properly
         return false;
-    }
-    let sum = 0, incNum;
-    for (let i = 0; i < id.length; i++) {
-        incNum = Number(id[i]) * ((i % 2) + 1);  // Multiply number by 1 or 2
-        sum += (incNum > 9) ? incNum - 9 : incNum;  // Sum the digits up and add to total
-    }
-    return (sum % 10 === 0);
-},
+      }
+      let sum = 0,
+        incNum;
+      for (let i = 0; i < id.length; i++) {
+        incNum = Number(id[i]) * ((i % 2) + 1); // Multiply number by 1 or 2
+        sum += incNum > 9 ? incNum - 9 : incNum; // Sum the digits up and add to total
+      }
+      return sum % 10 === 0;
+    },
     "מספר תעודת זהות אינו תקין"
   );
 
@@ -712,13 +713,25 @@ $(function () {
 
   // when the user clicks on radiobuttons in "additional-deposits" class, show/hide the second list
   $("input[name='additional-deposits']").on("change", function () {
-    if ($(this).val() === "1") {
+    if ($(this).val() === "לא בשלב זה") {
       $("#expected-amount-container").addClass("visually-hidden");
       $("input[name='expected-amount']").prop("checked", false);
     } else {
       $("#expected-amount-container").removeClass("visually-hidden");
       $("input[name='expected-amount']").prop("checked", false);
     }
+  });
+
+  $("#id-file").on("change", function () {
+    debugger;
+    var fileName = $(this).val().split("\\").pop(); // Extract the file name from the full path
+    $("#selectedFileName").text(fileName); // Display the file name in the span
+  });
+
+  $("#card-file").on("change", function () {
+    debugger;
+    var fileName = $(this).val().split("\\").pop(); // Extract the file name from the full path
+    $("#selectedCardName").text(fileName); // Display the file name in the span
   });
 
   $(".reg-check").on("change", function () {
@@ -738,7 +751,7 @@ $(function () {
         let selectedStageInt = parseInt(selectedStage, 10);
         selectedStageInt += 1;
         selectedStageInt = selectedStageInt > 8 ? 8 : selectedStageInt;
-    
+
         if (
           validateStage(selectedStage) === true &&
           runPreChecks(selectedStageInt)
@@ -746,44 +759,46 @@ $(function () {
           // show prev button
           const prevButton = document.querySelector(".prev");
           prevButton.classList.remove("visually-hidden");
-    
+
           // update selected stage
-    
+
           selectedStage = String(selectedStageInt);
-    
+
           // hide all stages
           const stages = document.querySelectorAll("div[class^='stage-']");
           stages.forEach((stage) => stage.classList.add("visually-hidden"));
-    
+
           // show current stage
-          const currentStage = document.querySelector(".stage-" + selectedStage);
+          const currentStage = document.querySelector(
+            ".stage-" + selectedStage
+          );
           currentStage.classList.remove("visually-hidden");
-    
+
           // update current stage
           curStage = { ...currentStage };
-    
+
           // make all wizard titles inactive
           const wizardTitles = document.querySelectorAll("div.wizard-title");
           wizardTitles.forEach((title) =>
             title.classList.remove("wizard-title-active")
           );
-    
+
           // make current wizard title active
           const currentWizardTitle = wizardTitles[selectedStageInt - 1];
           currentWizardTitle.classList.add("wizard-title-active");
-    
+
           // make all wizard buttons inactive
           const wizardButtons = document.querySelectorAll(".wizard-btn");
           wizardButtons.forEach((button) => {
             button.classList.remove("active");
             button.classList.add("inactive");
           });
-    
+
           // make current wizard button active
           const currentWizardButton = wizardButtons[selectedStageInt - 1];
           currentWizardButton.classList.add("active");
           currentWizardButton.classList.remove("inactive");
-    
+
           // update current wizard button
           curOpenWizard = { ...currentWizardButton };
         }
@@ -910,6 +925,11 @@ function disableSubmit() {
     }
   });
 }
+//HERE
+function showIdName() {}
+function showCardName() {
+
+}
 
 // this function enables the submit button
 function enableSubmit() {
@@ -937,11 +957,12 @@ function enablePrev() {
 }
 
 function redefineNextAsSubmit() {
-  $(".next").unbind().on("click", function ($event) {
-        custom_sub_form();
-  });
+  $(".next")
+    .unbind()
+    .on("click", function ($event) {
+      custom_sub_form();
+    });
 }
-
 
 function runPreChecks(stage) {
   $(".next").removeClass("visually-hidden");
@@ -1022,7 +1043,7 @@ function custom_sub_form() {
     type: "POST",
     data: JSON.stringify($("#impact-form").serializeArray()),
     crossDomain: true,
-    dataType: 'json',
+    dataType: "json",
 
     success: function (data) {
       custom_sub_form_second_request(data);
@@ -1033,20 +1054,19 @@ function custom_sub_form() {
   });
 }
 
-  function custom_sub_form_second_request(data) {
-    $.ajax({
-      url: "http://157.230.112.140/api/post_form/",
-      type: "POST",
-      data: JSON.stringify(data),
-      crossDomain: true,
-      dataType: 'json',
-  
-      success: function () {
-        alert("Form Data Submitted :)");
-      },
-      error: function () {
-        alert("There was an error :(");
-      },
-    });
-  }
+function custom_sub_form_second_request(data) {
+  $.ajax({
+    url: "http://157.230.112.140/api/post_form/",
+    type: "POST",
+    data: JSON.stringify(data),
+    crossDomain: true,
+    dataType: "json",
 
+    success: function () {
+      alert("Form Data Submitted :)");
+    },
+    error: function () {
+      alert("There was an error :(");
+    },
+  });
+}
