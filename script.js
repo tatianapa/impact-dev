@@ -39,6 +39,7 @@ $(function () {
   );
 
   function validateStage(stage) {
+    validator.resetForm();
     switch (stage) {
       case "1":
         validator.element("#money-amount");
@@ -524,7 +525,7 @@ $(function () {
     selectedStageInt = selectedStageInt < 1 ? 1 : selectedStageInt;
 
     if (
-      validateStage(selectedStage) === true &&
+      //validateStage(selectedStage) === true &&
       runPreChecks(selectedStageInt)
     ) {
       // update selected stage
