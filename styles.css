@@ -417,6 +417,10 @@ input.empty-input::before {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 0px !important;
+    margin-right: 0px !important;
+    padding-right: 0px !important;
+    padding-inline-start: 0px !important;
+    padding-top: 0.5rem;
   }
   .form-tabs{
     padding: 3rem 0.5rem 2rem 0.5rem;
@@ -446,11 +450,31 @@ background-color: white;
 .tooltiptext{
   width: 70vw !important;
 }
-.form-main-header{
-  font-size: 1.5rem;
-}
-.form-content {
-  padding: 3rem 1.5rem !important;
-}
 
+.form-content {
+  padding: 2rem 1.5rem !important;
+}
+.form-main-header{
+  font-size: 1.3rem;
+  position: fixed;
+  font-weight: 600;
+  color: var(--prime2);
+  top: 0px;
+  z-index: 1020;
+  margin-top: 1.2rem;
+}
+.btn-container {
+  padding: 2rem 0rem !important;
+}
+.prev, .next, .submit {
+  display: flex;
+  padding: 0.5rem 1.2rem;
+  width: 8rem;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
 }
