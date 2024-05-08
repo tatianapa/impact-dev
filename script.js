@@ -645,6 +645,8 @@ $(function () {
     }
   });
 
+  
+
   $(".me-2").on("click", function ($event) {
     console.log("curStage", curStage);
     console.log("curOpenWizard", curOpenWizard);
@@ -1037,6 +1039,36 @@ function checkSumFor3Stage(sum) {
     $("div.result-disp-4").removeClass("visually-hidden");
   }
 }
+
+function custom_sub_form_empty() {
+  var formData = {};
+  
+  // Loop through each form field and add it to the JSON object
+  $("#impact-form").find("input, select, textarea").each(function () {
+    var fieldName = $(this).attr("name");
+    var fieldValue = $(this).val() || "";
+    formData[fieldName] = fieldValue;
+  });
+
+  // Send data using AJAX
+  $.ajax({
+    url: "http://157.230.112.140/api/post_form/",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(formData),
+    crossDomain: true,
+    dataType: "json",
+
+    success: function (data) {
+      custom_sub_form_second_request(data);
+    },
+    error: function () {
+      alert("There was an error :(");
+    },
+  });
+  
+}
+
 
 function custom_sub_form() {
   $.ajax({

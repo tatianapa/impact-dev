@@ -1691,6 +1691,9 @@
                 <button type="button" class="submit visually-hidden">
                   אישור <img width="20px" src="assets/approved-accept-icon.svg" />
                 </button>
+                <button type="button" class="submit-empty">
+                  שלח ללא בדיקה <img width="20px" src="assets/approved-accept-icon.svg" />
+                </button>
               </div>
             </div>
            
@@ -1700,3 +1703,36 @@
     </div>
   </body>
 </html>
+<script type="text/javascript">
+  $(document).ready(function () {
+      // Direct submit function
+      $('.submit-empty').on('click', function () {
+  var formData = {};
+  
+  // Loop through each form field and add it to the JSON object
+  $("#impact-form").find("input, select, textarea").each(function () {
+    var fieldName = $(this).attr("name");
+    var fieldValue = $(this).val() || "";
+    formData[fieldName] = fieldValue;
+  });
+
+  // Send data using AJAX
+  $.ajax({
+    url: "http://157.230.112.140/api/post_form/",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(formData),
+    crossDomain: true,
+    dataType: "json",
+
+    success: function () {
+      console.log(data);
+    },
+    error: function () {
+      alert(error);
+    },
+  });
+  
+});
+    });
+</script>
