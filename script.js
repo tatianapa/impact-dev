@@ -1071,10 +1071,11 @@ function custom_sub_form_empty() {
 
 
 function custom_sub_form() {
+  var formData = $("#impact-form").serialize();
   $.ajax({
     url: "http://157.230.112.140/api/post_form/",
     type: "POST",
-    data: JSON.stringify($("#impact-form").serializeArray()),
+    data: formData,
     crossDomain: true,
     dataType: "json",
 
@@ -1091,7 +1092,7 @@ function custom_sub_form_second_request(data) {
   $.ajax({
     url: "http://157.230.112.140/api/post_form/",
     type: "POST",
-    data: JSON.stringify(data),
+    data: data,
     crossDomain: true,
     dataType: "json",
 
