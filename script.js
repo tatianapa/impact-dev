@@ -729,12 +729,27 @@ $(function () {
     debugger;
     var fileName = $(this).val().split("\\").pop(); // Extract the file name from the full path
     $("#selectedFileName").text(fileName); // Display the file name in the span
-  });
+    const file = this.files[0];
+    if(file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        base64IDFile = e.target.result; // This is your Base64 string for the ID file
+      };
+      reader.readAsDataURL(file);
+  }});
 
   $("#card-file").on("change", function () {
     debugger;
     var fileName = $(this).val().split("\\").pop(); // Extract the file name from the full path
     $("#selectedCardName").text(fileName); // Display the file name in the span
+    const file = this.files[0];
+    if(file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        base64CardFile = e.target.result; // This is your Base64 string for the Card file
+      };
+      reader.readAsDataURL(file);
+    }
   });
 
   $(".reg-check").on("change", function () {
@@ -1071,11 +1086,24 @@ function custom_sub_form_empty() {
 
 
 function custom_sub_form() {
-  var formData = $("#impact-form").serialize();
+  var formData = new FormData();
+
+  // Append text fields
+  $("#impact-form")
+      .serializeArray()
+      .forEach(function(field) {
+        formData.append(field.name, field.value);
+      });
+
+  // Append base64 string
+  formData.append("file1Base64", this.base64IDFile);
+  formData.append("file2Base64", this.base64CardFile);
   $.ajax({
     url: "http://157.230.112.140/api/post_form/",
     type: "POST",
     data: formData,
+    processData: false,    // <-- Critical: don't let jQuery serialize the form
+    contentType: false,    // <-- Critical: let the browser set the content type
     crossDomain: true,
     dataType: "json",
 
