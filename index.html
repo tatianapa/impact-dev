@@ -1554,6 +1554,9 @@
                       <label class="form-check-label" for="manage-1">
                         אני מאשר/ת את הסכם ניהול התיקים
                       </label>
+                      <div class="pt-3" style="text-decoration: underline">
+                        <a href="home/agreement?id=1/">לחץ לפתיחת מסמך בחלון חדש</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1574,6 +1577,9 @@
                       <label class="form-check-label" for="manage-2">
                         אני מאשר/ת את נספח גילוי נאות
                       </label>
+                      <div class="pt-3" style="text-decoration: underline">
+                        <a href="home/agreement?id=2/">לחץ לפתיחת מסמך בחלון חדש</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1595,6 +1601,9 @@
                         אני פועל/ת בעבור עצמי בלבד. אישור על סעיף זה כמוהו
                         כחתימת מקור על הצהרת הנהנים המצורפת
                       </label>
+                      <div class="pt-3" style="text-decoration: underline">
+                        <a href="home/agreement?id=3/">לחץ לפתיחת מסמך בחלון חדש</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1616,6 +1625,9 @@
                         אני פועל/ת בעבור עצמי בלבד. אישור על סעיף זה כמוהו
                         כחתימת מקור על הצהרת הנהנים המצורפת
                       </label>
+                      <div class="pt-3" style="text-decoration: underline">
+                        <a href="home/agreement?id=4/">לחץ לפתיחת מסמך בחלון חדש</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1636,6 +1648,9 @@
                       <label class="form-check-label" for="manage-5">
                         אני מאשר/ת את נספח דמי ניהול
                       </label>
+                      <div class="pt-3" style="text-decoration: underline">
+                        <a href="home/agreement?id=5/">לחץ לפתיחת מסמך בחלון חדש</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1656,6 +1671,9 @@
                       <label class="form-check-label" for="manage-6">
                         אני מאשר/ת את נספח מדיניות ההשקעה
                       </label>
+                      <div class="pt-3" style="text-decoration: underline">
+                      <a href="home/agreement?id=6/">לחץ לפתיחת מסמך בחלון חדש</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1677,6 +1695,9 @@
                         אני מאשר/ת כי הפעילות המתוכננת בחשבון היא הפקדה ו/או
                         משיכת כספים לצורך השקעה בלבד
                       </label>
+                      <div class="pt-3" style="text-decoration: underline">
+                        <a href="home/agreement?id=7/">לחץ לפתיחת מסמך בחלון חדש</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1718,7 +1739,7 @@
 
   // Send data using AJAX
   $.ajax({
-    url: "http://157.230.112.140/api/post_form/",
+    url: "/api/post_form/",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify(formData),

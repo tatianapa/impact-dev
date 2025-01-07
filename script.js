@@ -1055,80 +1055,61 @@ function checkSumFor3Stage(sum) {
   }
 }
 
-function custom_sub_form_empty() {
-  var formData = {};
-  
-  // Loop through each form field and add it to the JSON object
-  $("#impact-form").find("input, select, textarea").each(function () {
-    var fieldName = $(this).attr("name");
-    var fieldValue = $(this).val() || "";
-    formData[fieldName] = fieldValue;
-  });
+let base64IDFile = "";
+let base64CardFile = "";
 
-  // Send data using AJAX
-  $.ajax({
-    url: "http://157.230.112.140/api/post_form/",
-    type: "POST",
-    contentType: "application/json",
-    data: JSON.stringify(formData),
-    crossDomain: true,
-    dataType: "json",
+// Convert #id-file to Base64
+$("#id-file").on("change", function () {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      base64IDFile = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+});
 
-    success: function (data) {
-      custom_sub_form_second_request(data);
-    },
-    error: function () {
-      alert("There was an error :(");
-    },
-  });
-  
-}
-
-
+// Convert #card-file to Base64
+$("#card-file").on("change", function () {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      base64CardFile = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+});
 function custom_sub_form() {
   var formData = new FormData();
 
-  // Append text fields
   $("#impact-form")
       .serializeArray()
-      .forEach(function(field) {
+      .forEach(function (field) {
         formData.append(field.name, field.value);
       });
 
-  // Append base64 string
-  formData.append("file1Base64", this.base64IDFile);
-  formData.append("file2Base64", this.base64CardFile);
+  formData.append("idFileBase64", base64IDFile);
+  formData.append("cardFileBase64", base64CardFile);
+
   $.ajax({
-    url: "http://157.230.112.140/api/post_form/",
+    url: "/api/post_form/",
     type: "POST",
     data: formData,
-    processData: false,    // <-- Critical: don't let jQuery serialize the form
-    contentType: false,    // <-- Critical: let the browser set the content type
     crossDomain: true,
     dataType: "json",
+    processData: false,
+    contentType: false,
 
     success: function (data) {
-      custom_sub_form_second_request(data);
+      alert("Submitted everything in ONE request!");
+      // custom_sub_form_second_request(data); // if needed
     },
     error: function () {
       alert("There was an error :(");
     },
   });
-}
 
-function custom_sub_form_second_request(data) {
-  $.ajax({
-    url: "http://157.230.112.140/api/post_form/",
-    type: "POST",
-    data: data,
-    crossDomain: true,
-    dataType: "json",
 
-    success: function () {
-      alert("Form Data Submitted :)");
-    },
-    error: function () {
-      alert("There was an error :(");
-    },
-  });
 }
