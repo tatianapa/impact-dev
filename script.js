@@ -1064,7 +1064,7 @@ $("#id-file").on("change", function () {
   if (file) {
     const reader = new FileReader();
     reader.onload = function (e) {
-      base64IDFile = e.target.result;
+      base64IDFile = e.target.result.split(',')[1]; // Extract only Base64 part
     };
     reader.readAsDataURL(file);
   }
@@ -1076,40 +1076,44 @@ $("#card-file").on("change", function () {
   if (file) {
     const reader = new FileReader();
     reader.onload = function (e) {
-      base64CardFile = e.target.result;
+      base64CardFile = e.target.result.split(',')[1]; // Extract only Base64 part
     };
     reader.readAsDataURL(file);
   }
 });
+
+// Submit Form using FormData
 function custom_sub_form() {
   var formData = new FormData();
 
+  // Append form fields
   $("#impact-form")
       .serializeArray()
       .forEach(function (field) {
         formData.append(field.name, field.value);
       });
 
+  // Append Base64 files to FormData
   formData.append("idFileBase64", base64IDFile);
   formData.append("cardFileBase64", base64CardFile);
 
+  // Send FormData via AJAX
   $.ajax({
     url: "/api/post_form/",
     type: "POST",
     data: formData,
     crossDomain: true,
     dataType: "json",
-    processData: false,
-    contentType: false,
+    processData: false,  // ✅ Prevents jQuery from processing FormData
+    contentType: false,  // ✅ Ensures proper multipart form submission
 
     success: function (data) {
-      alert("Submitted everything in ONE request!");
-      // custom_sub_form_second_request(data); // if needed
+      alert("Submitted everything successfully!");
     },
     error: function () {
       alert("There was an error :(");
     },
   });
-
-
 }
+
+
