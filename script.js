@@ -1055,65 +1055,93 @@ function checkSumFor3Stage(sum) {
   }
 }
 
+
+// Convert #id-file to Base64
 let base64IDFile = "";
 let base64CardFile = "";
 
-// Convert #id-file to Base64
+// המרת #id-file ל-Base64
 $("#id-file").on("change", function () {
   const file = this.files[0];
   if (file) {
     const reader = new FileReader();
     reader.onload = function (e) {
-      base64IDFile = e.target.result.split(',')[1]; // Extract only Base64 part
+      base64IDFile = e.target.result.split(',')[1]; // שמור רק את החלק של ה-Base64
+      console.log("ID File Base64:", base64IDFile);
+      $("#selectedFileName").text(file.name); // הצגת שם הקובץ
     };
     reader.readAsDataURL(file);
+  } else {
+    base64IDFile = "";
+    $("#selectedFileName").text("");
   }
 });
 
-// Convert #card-file to Base64
+// המרת #card-file ל-Base64
 $("#card-file").on("change", function () {
   const file = this.files[0];
   if (file) {
     const reader = new FileReader();
     reader.onload = function (e) {
-      base64CardFile = e.target.result.split(',')[1]; // Extract only Base64 part
+      base64CardFile = e.target.result.split(',')[1]; // שמור רק את החלק של ה-Base64
+      console.log("Card File Base64:", base64CardFile);
+      $("#selectedCardName").text(file.name); // הצגת שם הקובץ
     };
     reader.readAsDataURL(file);
+  } else {
+    base64CardFile = "";
+    $("#selectedCardName").text("");
   }
 });
 
 // Submit Form using FormData
+// Submit Form using FormData
 function custom_sub_form() {
-  var formData = new FormData();
+  // בדוק אם הקבצים הומרו ל-Base64
+  if (!base64IDFile || !base64CardFile) {
+    alert("Please upload the required files before submitting!");
+    return;
+  }
 
-  // Append form fields
+  const formData = new FormData();
+
+  // הוסף את השדות מהטופס
   $("#impact-form")
       .serializeArray()
       .forEach(function (field) {
+        if (field.name === "idFileOriginal" || field.name === "cardFileOriginal") {
+          return;
+        }
         formData.append(field.name, field.value);
       });
 
-  // Append Base64 files to FormData
+  // הוסף את הקבצים ב-Base64 ל-FormData
   formData.append("idFileBase64", base64IDFile);
   formData.append("cardFileBase64", base64CardFile);
 
-  // Send FormData via AJAX
+  // בדוק את הנתונים לפני שליחה
+  for (let pair of formData.entries()) {
+    console.log(pair[0] + ': ' + pair[1]);
+  }
+  
   $.ajax({
     url: "/api/post_form/",
     type: "POST",
     data: formData,
     crossDomain: true,
     dataType: "json",
-    processData: false,  // ✅ Prevents jQuery from processing FormData
-    contentType: false,  // ✅ Ensures proper multipart form submission
+    processData: false, // מניעת עיבוד נתונים
+    contentType: false, // שימוש במולטיפארט
 
     success: function (data) {
-      alert("Submitted everything successfully!");
+      alert("Submitted successfully!");
     },
     error: function () {
       alert("There was an error :(");
     },
   });
 }
+
+
 
 
