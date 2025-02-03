@@ -1,3 +1,5 @@
+window.base64IDFile = "";
+window.base64CardFile = "";
 $(function () {
   $.validator.addMethod(
     "minAge",
@@ -36,6 +38,25 @@ $(function () {
       return sum % 10 === 0;
     },
     "מספר תעודת זהות אינו תקין"
+  );
+  $.validator.addMethod(
+      "fileUploaded",
+      function (value, element) {
+        console.log("Validating field:", element.name);
+        console.log('in file validator');
+        if (element.name === "id-file") {
+          console.log('id-file validation');
+          console.log(window.base64IDFile);
+          return !!window.base64IDFile; // true only if non-empty
+        }
+        if (element.name === "card-file") {
+          console.log('card-file validation');
+          console.log(window.base64CardFile);
+          return !!window.base64CardFile;
+        }
+        return true;
+      },
+      "Please upload a valid file."
   );
 
   function validateStage(stage) {
@@ -174,6 +195,7 @@ $(function () {
     }
 
     if (validator.numberOfInvalids() > 0) {
+      console.log(`Validation failed for stage ${stage}. Invalid fields:`, validator.errorList);
       return false;
     }
     return true;
@@ -368,18 +390,17 @@ $(function () {
       },
       // type: radio
       "expected-amount": {
-        //'required: true' only if 'additional-deposits' is selected
         required: function (element) {
-          return $('input[name="additional-deposits"]:checked').val() !== "1";
+          return $('input[name="additional-deposits"]:checked').val() !== "לא בשלב זה";
         },
       },
-      // type: file
       "id-file": {
         required: true,
+        fileUploaded: true
       },
-      // type: file
       "card-file": {
         required: true,
+        fileUploaded: true
       },
       //======================================================================================================
       // stage: 7
@@ -525,7 +546,7 @@ $(function () {
     selectedStageInt = selectedStageInt < 1 ? 1 : selectedStageInt;
 
     if (
-      //validateStage(selectedStage) === true &&
+     
       runPreChecks(selectedStageInt)
     ) {
       // update selected stage
@@ -582,11 +603,18 @@ $(function () {
     let selectedStageInt = parseInt(selectedStage, 10);
     selectedStageInt += 1;
     selectedStageInt = selectedStageInt > 8 ? 8 : selectedStageInt;
-
+    if (selectedStage === "6") {
+      if (!window.base64IDFile || !window.base64CardFile) {
+        alert("Please wait until the file processing is complete.");
+        return false;
+      }
+    }
+    console.log(selectedStage);
     if (
       validateStage(selectedStage) === true &&
       runPreChecks(selectedStageInt)
     ) {
+      console.log('validated ' + selectedStage);
       // show prev button
       const prevButton = document.querySelector(".prev");
       prevButton.classList.remove("visually-hidden");
@@ -630,6 +658,9 @@ $(function () {
 
       // update current wizard button
       curOpenWizard = { ...currentWizardButton };
+    }
+    else{
+      console.log('Validation failed on stage ' + selectedStage);
     }
   });
 
@@ -726,31 +757,43 @@ $(function () {
   });
 
   $("#id-file").on("change", function () {
-    debugger;
-    var fileName = $(this).val().split("\\").pop(); // Extract the file name from the full path
-    $("#selectedFileName").text(fileName); // Display the file name in the span
     const file = this.files[0];
-    if(file) {
+    if (file) {
       const reader = new FileReader();
-      reader.onload = function(e) {
-        base64IDFile = e.target.result; // This is your Base64 string for the ID file
+      reader.onload = function (e) {
+        window.base64IDFile = e.target.result.split(',')[1]; // Update the global variable
+        console.log("ID File Base64:", window.base64IDFile);
+        $("#selectedFileName").text(file.name);
+        // Trigger revalidation for this field once file is loaded
+        validator.element("#id-file");
       };
       reader.readAsDataURL(file);
-  }});
-
-  $("#card-file").on("change", function () {
-    debugger;
-    var fileName = $(this).val().split("\\").pop(); // Extract the file name from the full path
-    $("#selectedCardName").text(fileName); // Display the file name in the span
-    const file = this.files[0];
-    if(file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        base64CardFile = e.target.result; // This is your Base64 string for the Card file
-      };
-      reader.readAsDataURL(file);
+    } else {
+      window.base64IDFile = "";
+      $("#selectedFileName").text("");
+      validator.element("#id-file"); // Trigger revalidation even if file is removed
     }
   });
+
+  $("#card-file").on("change", function () {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        window.base64CardFile = e.target.result.split(',')[1];
+        console.log("Card File Base64:", window.base64CardFile);
+        $("#selectedCardName").text(file.name);
+        // Trigger revalidation for this field after conversion
+        validator.element("#card-file");
+      };
+      reader.readAsDataURL(file);
+    } else {
+      window.base64CardFile = "";
+      $("#selectedCardName").text("");
+      validator.element("#card-file"); // Trigger revalidation even if file is removed
+    }
+  });
+
 
   $(".reg-check").on("change", function () {
     // Check if at least one checkbox is checked
@@ -983,6 +1026,8 @@ function redefineNextAsSubmit() {
 }
 
 function runPreChecks(stage) {
+  console.log(`Running pre-checks for stage: ${stage}`);
+  console.log('prechecks ' + stage);
   $(".next").removeClass("visually-hidden");
   $(".prev").removeClass("visually-hidden");
   $(".submit").addClass("visually-hidden");
@@ -1024,13 +1069,11 @@ function runPreChecks(stage) {
     checkSumFor3Stage(sum);
   }
   if (stage === 5) {
-    if ($(".reg-check:checked").length > 0) {
-    }
+    
   }
 
   if (stage === 6) {
-    if ($('input[name="additional-deposits"]:checked').data("value") > 1) {
-    }
+    
   }
   if (stage === 8) {
     $(".next").addClass("visually-hidden");
@@ -1056,43 +1099,6 @@ function checkSumFor3Stage(sum) {
 }
 
 
-// Convert #id-file to Base64
-let base64IDFile = "";
-let base64CardFile = "";
-
-// המרת #id-file ל-Base64
-$("#id-file").on("change", function () {
-  const file = this.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      base64IDFile = e.target.result.split(',')[1]; // שמור רק את החלק של ה-Base64
-      console.log("ID File Base64:", base64IDFile);
-      $("#selectedFileName").text(file.name); // הצגת שם הקובץ
-    };
-    reader.readAsDataURL(file);
-  } else {
-    base64IDFile = "";
-    $("#selectedFileName").text("");
-  }
-});
-
-// המרת #card-file ל-Base64
-$("#card-file").on("change", function () {
-  const file = this.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      base64CardFile = e.target.result.split(',')[1]; // שמור רק את החלק של ה-Base64
-      console.log("Card File Base64:", base64CardFile);
-      $("#selectedCardName").text(file.name); // הצגת שם הקובץ
-    };
-    reader.readAsDataURL(file);
-  } else {
-    base64CardFile = "";
-    $("#selectedCardName").text("");
-  }
-});
 
 // Submit Form using FormData
 // Submit Form using FormData
@@ -1105,34 +1111,36 @@ function custom_sub_form() {
 
   const formData = new FormData();
 
-  // הוסף את השדות מהטופס
+// Append fields from the form.
   $("#impact-form")
       .serializeArray()
-      .forEach(function (field) {
+      .forEach(function(field) {
         if (field.name === "idFileOriginal" || field.name === "cardFileOriginal") {
           return;
         }
         formData.append(field.name, field.value);
       });
 
-  // הוסף את הקבצים ב-Base64 ל-FormData
+// Append your Base64 file data.
   formData.append("idFileBase64", base64IDFile);
   formData.append("cardFileBase64", base64CardFile);
 
-  // בדוק את הנתונים לפני שליחה
-  for (let pair of formData.entries()) {
-    console.log(pair[0] + ': ' + pair[1]);
-  }
-  
-  $.ajax({
-    url: "/api/post_form/",
-    type: "POST",
-    data: formData,
-    crossDomain: true,
-    dataType: "json",
-    processData: false, // מניעת עיבוד נתונים
-    contentType: false, // שימוש במולטיפארט
+// Convert FormData to a plain object.
+  let payload = {};
+  formData.forEach(function(value, key) {
+    payload[key] = value;
+  });
 
+// Debug: Log the payload.
+  console.log(JSON.stringify(payload, null, 2));
+
+  $.ajax({
+    url: "https://impact.daloresoft.com/api",
+    type: "POST",
+    data: JSON.stringify(payload), // Convert the payload object to JSON
+    crossDomain: true,
+    dataType: "json",              // Expect JSON response from the server
+    contentType: "application/json", // Set the Content-Type header to JSON
     success: function (data) {
       alert("Submitted successfully!");
     },
